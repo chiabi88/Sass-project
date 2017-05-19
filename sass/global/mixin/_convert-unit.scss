@@ -1,0 +1,47 @@
+// * --------------------------------
+// * 단위 관련 믹스인 : px-to-em, px-to-rem
+// * --------------------------------
+
+// px값을 받아 em으로 산출하는 믹스인
+@mixin px-to-em($property, $values, $base-font-size: $root-font-size) {
+  $em-values: ();
+
+  // values가 list인지 확인
+  @if type-of($values) != 'list' {
+    $values: join((), $values);
+  }
+  
+  // $values 리스트를 반복함
+  @each $value in $values {
+    $em-values: join($em-values, em($value, $base-font-size));
+  }
+
+  // IE 8 : rem not support
+  #{$property}: $em-values; 
+}
+
+$rem-support: true !default;
+
+// px값을 받아 rem으로 산출하는 믹스인
+  $px-values: ();
+  $rem-values: ();
+
+  // values가 list인지 확인
+  @if type-of($values) != 'list' {
+    $values: join((), $values);
+  }
+
+  // $values 리스트를 반복함
+  @each $value in $values {
+    $px-values: join($px-values, parseInt($value) * 1px);
+    $rem-values: join($rem-values, rem($value));
+  }
+
+  // IE 8 : rem not support
+  @if $rem-support == false {
+    #{$property}: $px-values;
+    #{$property}: $rem-values;
+  } @else {
+    #{$property}: $rem-values;
+  }
+}

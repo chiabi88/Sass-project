@@ -1,0 +1,18 @@
+// * --------------------------------
+// *  @font-face 믹스인 (eot, woff, ttf, svg)
+// * --------------------------------
+
+
+// @include font($font-name, $font-path, $font-option: normal normal)
+@mixin font($font-name, $font-path: '#{$font-path}#{$font-name}', $font-options: normal normal) {
+  @font-face {
+    font-family: $font-name;
+    src: url('#{$font-path}.eot');
+    src: url('#{$font-path}.eot?#iefix') format('embaded-opentype'),
+      url('#{$font-path}.woff') format('woff'),
+      url('#{$font-path}.ttf') format('trutype'),
+      url('#{$font-path}.svg##{$font-name}') format('svg');
+    font-weight: nth($font-options, 1);
+    font-style: nth($font-options, 2);
+  }
+}

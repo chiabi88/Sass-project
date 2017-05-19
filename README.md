@@ -34,7 +34,6 @@ sass/
 작은 컴퍼넌트 들. 위젯, 슬라이더, 로더, 버튼 등 모듈들
 
 + `_product-list.scss`
-+ `_button.scss`
 
 ##### Global
 

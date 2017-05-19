@@ -1,0 +1,14 @@
+// * --------------------------------
+// * 단위 관련 함수 : 단위제거, em, rem
+// * --------------------------------
+
+// px값을 받아 em으로 산출하는 함수
+@function em($px, $base: 16) {
+  @return parseInt($px) / $base * 1em;
+}
+
+$root-font-size: 16px !default;
+// px값을 받아 rem으로 산출하는 함수
+@function rem($px) {
+  @return parseInt($px) / parseInt($root-font-size) * 1rem;
+}

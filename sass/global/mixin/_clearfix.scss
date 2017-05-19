@@ -1,0 +1,12 @@
+// * --------------------------------
+// * clearfix 믹스인
+// * --------------------------------
+
+// @include clearfix
+@mixin clearfix {
+  &:after {
+    clear: both;
+    display: block;
+    content: '';
+  }
+}
