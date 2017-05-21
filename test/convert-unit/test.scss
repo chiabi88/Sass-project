@@ -1,0 +1,39 @@
+@charset 'utf-8';
+
+@import '../../sass/style.scss';
+
+$root-font-size: 12px; // :root
+$rem-support: false; // IE8 
+
+:root {
+  font-size: $root-font-size;
+}
+h1, p {
+  line-height: 1.5;
+}
+
+.px-section {
+  h1 {
+  	font-size: 20px;
+  }
+  p {
+  	font-size: 14px;
+  }
+}
+
+.em-section {
+  h1 {
+  	@include px-to-em(font-size, 20px);
+  }
+  p {
+  	@include px-to-em(font-size, 14px);
+  }
+}
+.rem-section {
+  h1 {
+    @include px-to-rem(font-size, 20px);
+  }
+  p {
+    @include px-to-rem(font-size, 14px);
+  }
+}
