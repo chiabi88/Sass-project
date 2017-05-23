@@ -1,2 +1,25 @@
+// Font
+$font-path: '../font/';
 
-$root-font-size: 16px;
+$root-font-size: 16px !default;
+
+$base-font-family-kr: 'Noto Sans KR', sans-serif;
+$base-font-family-en: 'Oswald', sans-serif;
+
+// color
+$base-color-point: rgb(26, 86, 152);
+$base-color-border: rgb(238, 238, 238);
+$base-color-font: rgb(51, 51, 51);
+
+// components : product-list
+$product-list-effect: true;
+$product-list-effect-name: 'zoom-in';  // zoom-in, blur 
+$product-list-tag-size: 45px;
+$product-list-tag-position-direction: 'vertical'; // vertical, horizontal
+$product-list-tag-position-offset: (
+  top: 15px,
+  right: 15px
+);
+$product-list-tag-margin: 10px;
+$product-list-border: 1px solid $base-color-border;
+$product-list-info-side: 1em;

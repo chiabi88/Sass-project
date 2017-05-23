@@ -1,0 +1,13 @@
+// * --------------------------------
+// * hover, active, focus 스니펫 믹스인
+// * --------------------------------
+
+// @include hover { @content }
+
+@mixin hover {
+  &:hover,
+  &:active,
+  &:focus {
+    @content;
+  }
+}

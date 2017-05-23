@@ -1,0 +1,9 @@
+// * --------------------------------
+// * size 믹스인
+// * --------------------------------
+
+// @include size($width, $height)
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}

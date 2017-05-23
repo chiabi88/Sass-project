@@ -2,8 +2,15 @@
 
 @import '../../sass/style.scss';
 
+/**
+ * test.scss
+ * --------------------------------
+ */
+
 $root-font-size: 12px; // :root
 $rem-support: false; // IE8 
+
+@include font('NanumBarunGothic');
 
 :root {
   font-size: $root-font-size;
