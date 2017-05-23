@@ -470,6 +470,18 @@ a:hover, a:active, a:focus {
   color: inherit;
 }
 
+.product-contents {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.product-contents__wrap {
+  max-width: 1200px;
+  padding: 30px 20px 60px;
+  margin: 0 auto;
+  border-box: box-sizing;
+  background: white;
+}
+
 .product-list {
   margin-bottom: 1.66%;
 }
