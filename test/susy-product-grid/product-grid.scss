@@ -1,0 +1,195 @@
+@import '../../sass/test';
+
+/**
+ * Susy를 이용한 그리드 시스템 테스트
+ * --------------------------------
+ */
+
+// susy Setting
+$susy: (
+	columns: 12,
+	gutters: 1/4,
+  gutter-position: before,
+	last-flow: from
+);
+
+// break-point
+$bp-w: 1260px;
+$bp-s: 768px;
+
+$bp-only-w: screen $bp-w;
+$bp-only-m: screen $bp-s ((parseInt($bp-w) - 1) * 1px);
+$bp-only-s: screen max-width ((parseInt($bp-s) - 1) * 1px);
+
+.product-grid {
+  @include breakpoint($bp-only-w) {
+    @include container($bp-w)
+  };
+  @include breakpoint($bp-only-m) {
+    @include container(auto)
+  };
+  @include breakpoint($bp-only-s) {
+    @include container(auto)
+  };
+}
+
+.product-grid__item {
+  @include breakpoint($bp-only-w) {
+    @include span(3);
+    &:nth-child(4n + 1) {
+      @include span(3 first);
+      clear: left;
+    }
+  };
+  @include breakpoint($bp-only-m) {
+    @include span(4);
+    &:nth-child(3n + 1) {
+      @include span(4 first);
+      clear: left;
+    }
+  };
+  @include breakpoint($bp-only-s) {
+    @include span(6);
+    &:nth-child(2n + 1) {
+      @include span(6 first);
+      clear: left;
+    }
+  };
+}
+
+.product-grid__thumbnails {
+  & > img {
+    width: 100%;
+  }
+}
+
+/**
+ * 제품 리스트 스타일
+ * --------------------------------
+ */
+
+
+@if $product-list-effect == true {
+  .product-grid__item {
+    .product-grid__thumbnails > img {
+      transition: all 0.3s;
+    }
+    @include hover {
+      .product-grid__thumbnails > img {
+        @if $product-list-effect-name == 'zoom-in'{
+          transform: scale(1.1);
+        } @else if $product-list-effect-name == 'blur' {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+.product-grid__thumbnails {
+  position: relative;
+  overflow: hidden;
+  & > img {
+    width: 100%;
+  }
+}
+
+.product-grid__tag {
+  position: absolute;
+  @each $pos, $offset in $product-list-tag-position-offset {
+    #{$pos}: $offset;
+  }
+  @if $product-list-tag-position-direction == 'vertical' {
+    width: $product-list-tag-size;
+    img {
+      width: 100%;
+      & + img {
+        margin-top: $product-list-tag-margin;
+      }
+    }
+    
+  } @else if $product-list-tag-position-direction == 'horizontal' {
+    height: $product-list-tag-size;
+    img {
+      float: left;
+      height: 100%;
+      & + img {
+        margin-left: $product-list-tag-margin;
+      }
+    }
+  }
+}
+
+.product-grid__info {
+  padding: rem(24px) $product-list-info-side 0;
+}
+.product-grid__type {
+  font-family: $base-font-family-en;
+  font-size: rem(12px);
+  color: $base-color-point;
+}
+.product-grid__name {
+  margin-top: 0.3em;
+  font-size: rem(18px);
+  line-height: 1.5;
+  font-weight: 700;
+  color: $base-color-point;
+ }
+.product-grid__serial {
+  margin-top: 0.4em;
+  font-size: 1rem;
+  font-family: $base-font-family-en;
+}
+.product-grid__txt {
+  margin-top: 1em;
+  padding: 1em 0;
+  font-size: 1rem;
+  line-height: 1.5em;
+  color: rgb(102,102,102);
+  border-top: $product-list-border;
+}
+.product-grid__price {
+  padding: 1em 0;
+  line-height: 1.8em;
+  border-top: $product-list-border;
+}
+.product-grid__normal-price {
+  font-size: 0.875rem;
+  color: rgb(153,153,153);
+}
+.product-grid__sale-price {
+  font-size: 1.125em;
+  font-weight: 700;
+}
+.product-grid__coupon-price {
+  font-size: 1.125em;
+  font-weight: 700;
+  color: $base-color-point;
+}
+
+.product-grid__color-chip {
+  margin: 0 $product-list-info-side;
+  padding: 1.25em 0;
+  border-top: $product-list-border;
+  @include clearfix;
+  & > a {
+    float: left;
+    @include size(24px);
+    box-sizing: border-box;
+    & + a {
+      margin-left: 5px;
+    }
+    & > img {
+      vertical-align: top;
+      width: 100%;  
+    }
+    &:hover,
+    &:focus {
+      border: 3px solid $base-color-point;
+    }
+  }
+}
+
+.product-grid__color-chip--curr {
+  border: 3px solid $base-color-point;
+}
