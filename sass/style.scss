@@ -1,4 +1,11 @@
 @charset 'utf-8';
+
+// * --------------------------------
+// * vendor
+@import 'vendor/breakpoint';
+@import 'vendor/web-fonts';
+@import 'vendor/susy';
+
 // * --------------------------------
 // * global
 @import 'global/variables';
@@ -13,12 +20,7 @@
 @import 'global/mixin/hover';
 @import 'global/mixin/size';
 @import 'global/mixin/position';
-
-// * --------------------------------
-// * vendor
-@import 'vendor/breakpoint';
-@import 'vendor/web-fonts';
-@import 'vendor/susy';
+@import 'global/mixin/thumbnail-grid-list';
 
 // * --------------------------------
 // * base

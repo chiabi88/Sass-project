@@ -1,0 +1,10 @@
+@import '../../sass/test';
+
+/**
+ * thumbnail-grid-list 믹스인 테스트
+ * --------------------------------
+ */
+
+.thumbnail-4-list {
+	@include thumbnail-grid-list( 1200px, 12, 3, 0.25, 30px);
+}

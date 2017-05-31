@@ -1,0 +1,32 @@
+// * --------------------------------
+// * 썸네일 리스트 생성 믹스인
+// * --------------------------------
+// * container, span, gutters, 오버효과, 타이틀/텍스트 사용 ( 이외의 것은 커스텀 영역으로 )
+// * --------------------------------
+
+@mixin thumbnail-grid-list(
+	$thumb-grid-container, 
+	$thumb-grid-columns, 
+	$thumb-grid-span,
+	$thumb-grid-gutters, 
+	$thumb-grid-bottom-gutters, 
+	$thumb-grid-output: float 
+){
+	@include layout($thumb-grid-container $thumb-grid-columns $thumb-grid-gutters before fluid $thumb-grid-output);
+
+	@include container();
+
+  & > li {
+    @include span($thumb-grid-span);
+    margin-bottom: $thumb-grid-bottom-gutters;
+
+    &.first {
+    	clear: both;
+    	@include span($thumb-grid-span first);
+    }
+
+    & img {
+    	width: 100%;
+    }
+  }
+}
