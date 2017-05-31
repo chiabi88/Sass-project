@@ -1,0 +1,25 @@
+// * --------------------------------
+// * 썸네일 hover effect
+// * --------------------------------
+
+// @include thumbnail-effect($thumbnail-effect-target: null, $thumbnail-effect-name: zoom-in)
+@mixin thumbnail-effect(
+	$thumbnail-effect-target: null,
+	$thumbnail-effect-name: zoom-in
+){
+	@if type-of($thumbnail-effect-target) != 'string' {
+    @warn '이펙트 대상은($thumbnail-effect-target) 필수 입력입니다'
+  }
+	.#{$thumbnail-effect-target} > img {
+		transition: all 0.3s;
+	}
+	@include hover {
+		.#{$thumbnail-effect-target} > img {
+			@if $thumbnail-effect-name == 'zoom-in'{
+        transform: scale(1.1);
+      } @else if $thumbnail-effect-name == 'blur' {
+      	 opacity: 0.8;
+      }
+		}
+	}
+}

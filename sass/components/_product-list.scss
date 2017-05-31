@@ -27,20 +27,10 @@
 
 @if $product-list-effect == true {
   .product-list__item {
-    .product-list__thumbnails > img {
-      transition: all 0.3s;
-    }
-    @include hover {
-      .product-list__thumbnails > img {
-        @if $product-list-effect-name == 'zoom-in'{
-          transform: scale(1.1);
-        } @else if $product-list-effect-name == 'blur' {
-          opacity: 0.8;
-        }
-      }
-    }
+    @include thumbnail-effect('product-list__thumbnails', $product-list-effect-name);
   }
 }
+
 
 // product-list.scss
 

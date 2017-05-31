@@ -1,32 +1,41 @@
 // * --------------------------------
 // * 썸네일 리스트 생성 믹스인
 // * --------------------------------
-// * container, span, gutters, 오버효과, 타이틀/텍스트 사용 ( 이외의 것은 커스텀 영역으로 )
+// * dependency: susy
+// * container, span, gutters, 오버효과, (이외의 것은 커스텀 영역으로 )
 // * --------------------------------
 
 @mixin thumbnail-grid-list(
-	$thumb-grid-container, 
-	$thumb-grid-columns, 
-	$thumb-grid-span,
-	$thumb-grid-gutters, 
-	$thumb-grid-bottom-gutters, 
-	$thumb-grid-output: float 
+  $thumb-grid-container: auto, 
+  $thumb-grid-columns: 12, 
+  $thumb-grid-span: 4,
+  $thumb-grid-gutters: 0.25, 
+  $thumb-grid-bottom-gutters: 0, 
+  $thumb-grid-output: float,
+  $thumb-grid-effect: true,
+  $thumb-grid-target: null,
+  $thumb-grid-effect-name: 'zoom-in'
 ){
-	@include layout($thumb-grid-container $thumb-grid-columns $thumb-grid-gutters before fluid $thumb-grid-output);
 
-	@include container();
+  @include layout($thumb-grid-container $thumb-grid-columns $thumb-grid-gutters before fluid $thumb-grid-output);
+  @include container();
 
   & > li {
     @include span($thumb-grid-span);
     margin-bottom: $thumb-grid-bottom-gutters;
 
+    // effect 쓸경우
+    @if $thumb-grid-effect == true {
+      @include thumbnail-effect($thumb-grid-target, $thumb-grid-effect-name);   
+    }
+
     &.first {
-    	clear: both;
-    	@include span($thumb-grid-span first);
+        clear: both;
+        @include span($thumb-grid-span first);
     }
 
     & img {
-    	width: 100%;
+        width: 100%;
     }
   }
 }
