@@ -5,6 +5,7 @@ $root-font-size: 16px !default;
 /// @param {Number (with unit)} $px - px단위 값
 /// @param {Number (with unit)} $base: $root-font-size - 기준이 되는 부모 요소의 폰트 사이즈
 /// @retun {Number (with unit)} - rem으로 변경된 값
+/// @group unit
 @function em($px, $base: $root-font-size) {
   @return parseInt($px) / parseInt($base) * 1em;
 }
@@ -12,6 +13,7 @@ $root-font-size: 16px !default;
 /// px단위 값을 받아 rem으로 산출하는 함수
 /// @param {Number (with unit)} $px - px단위 값
 /// @retun {Number (unitless)} - em으로 변경된 값
+/// @group unit
 @function rem($px) {
   @return parseInt($px) / parseInt($root-font-size) * 1rem;
 }

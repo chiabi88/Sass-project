@@ -1,17 +1,70 @@
-// * --------------------------------
-// * 썸네일 리스트 생성 믹스인
-// * --------------------------------
-// * dependency: susy
-// * container, span, gutters, 오버효과, (이외의 것은 커스텀 영역으로 )
-// * --------------------------------
-
+/// 썸네일 리스트 스니펫 믹스인
+/// susy에 의존함
+/// @param {auto | Number (with unit)} $thumb-grid-container - susy layout container 값, default : auto, 
+/// @param {Number (unitless)} $thumb-grid-columns - susy layout columns 값, default : 12, 
+/// @param {Number (unitless)} $thumb-grid-span - 리스트 아이템 susy span 값, default : 4,
+/// @param {Number (unitless)} $thumb-grid-gutters - susy layout gutter 값, default : 0.25, 
+/// @param {Number (with unit)} $thumb-grid-bottom-gutters - 리스트 아이템 margin-bottom 값, default : 0, 
+/// @param {String} $thumb-grid-output - susy layout output 값, default : float,
+/// @param {String} $thumb-grid-effect-target - 썸네일 오버 이펙트 필요할 경우 대상이 되는 img의 부모요소 선택자, default : null,
+/// @param {String} $thumb-grid-effect-name - 썸네일 오버 이펙트 이름 ['zoom-in' | 'blur']default : 'zoom-in'
+/// @group thumbnail
+/// @example scss - scss
+///   .thumbnail-4-list {
+///   	// 속기형
+///   	// @include thumbnail-grid-list( 1200px, 12, 3, 0.25, 30px, float, true, 'thumbnail-4-list__photo', 'blur');
+///   	@include thumbnail-grid-list(
+///   	  $thumb-grid-container: 1200px, 
+///   	  $thumb-grid-columns: 12, 
+///   	  $thumb-grid-span: 3,
+///   	  $thumb-grid-gutters: 0.25, 
+///   	  $thumb-grid-bottom-gutters: 30px, 
+///   	  $thumb-grid-output: float,
+///   	  $thumb-grid-effect-target: 'thumbnail-4-list__photo',
+///   	  $thumb-grid-effect-name: 'blur'
+///   	);
+///   }
+/// @example css - css output
+///   .thumbnail-4-list {
+///     max-width: 1200px;
+///     margin-left: auto;
+///     margin-right: auto;
+///   }
+///   .thumbnail-4-list:after {
+///     content: " ";
+///     display: block;
+///     clear: both;
+///   }
+///   .thumbnail-4-list > li {
+///     width: 23.72881%;
+///     float: left;
+///     margin-left: 1.69492%;
+///     margin-bottom: 30px;
+///   }
+///   .thumbnail-4-list > li .thumbnail-4-list__photo > img {
+///     transition: all 0.3s;
+///   }
+///   .thumbnail-4-list > li:hover .thumbnail-4-list__photo > img, 
+///   .thumbnail-4-list > li:active .thumbnail-4-list__photo > img, 
+///   .thumbnail-4-list > li:focus .thumbnail-4-list__photo > img {
+///     opacity: 0.8;
+///   }
+///   .thumbnail-4-list > li.first {
+///     clear: both;
+///     width: 23.72881%;
+///     float: left;
+///     margin-left: 0;
+///   }
+///   .thumbnail-4-list > li img {
+///     width: 100%;
+///   }
 @mixin thumbnail-grid-list(
   $thumb-grid-container: auto, 
   $thumb-grid-columns: 12, 
   $thumb-grid-span: 4,
   $thumb-grid-gutters: 0.25, 
   $thumb-grid-bottom-gutters: 0, 
-  $thumb-grid-output: float,
+  $thumb-grid-output: 'float',
   $thumb-grid-effect-target: null,
   $thumb-grid-effect-name: 'zoom-in'
 ){

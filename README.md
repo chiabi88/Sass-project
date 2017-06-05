@@ -76,8 +76,11 @@ function, mixin, 변수, 플레이스홀더 등, 컴파일 시 CSS로 산출되�
     "start": "parallelshell \"npm run watch\" \"npm run server\""
   }
 ```
-[슬쩍 떠보는 npm 과 package.json](https://elegantcoder.com/beginning-npm-package/)
-[why npm scripts](https://css-tricks.com/why-npm-scripts/)
+
+##### REFERENCE
+
++ [슬쩍 떠보는 npm 과 package.json](https://elegantcoder.com/beginning-npm-package/)
++ [why npm scripts](https://css-tricks.com/why-npm-scripts/)
 
 ***
 [codepen](https://codepen.io/chiabi88/project/editor/Xmbykw/)

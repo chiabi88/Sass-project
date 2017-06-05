@@ -1,9 +1,16 @@
-// * --------------------------------
-// * hover, active, focus 스니펫 믹스인
-// * --------------------------------
-
-// @include hover { @content }
-
+/// hover, active, focus 공통 스타일 추가할 때 쓰는 스니펫 믹스인
+/// @example scss - scss
+///   .effect {
+///     @include hover {
+///       opacity: 0.8;
+///     }
+///   }
+/// @example css - css output
+///   .effect:hover, 
+///   .effect:active, 
+///   .effect:focus {
+///     opacity: 0.8;
+///   }
 @mixin hover {
   &:hover,
   &:active,
@@ -11,3 +18,5 @@
     @content;
   }
 }
+
+

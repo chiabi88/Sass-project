@@ -504,11 +504,11 @@ a:hover, a:active, a:focus {
   margin-left: 0;
 }
 
-.product-list__item .product-list__thumbnails > img {
+.product-list__item product-list__thumbnails > img {
   transition: all 0.3s;
 }
 
-.product-list__item:hover .product-list__thumbnails > img, .product-list__item:active .product-list__thumbnails > img, .product-list__item:focus .product-list__thumbnails > img {
+.product-list__item:hover product-list__thumbnails > img, .product-list__item:active product-list__thumbnails > img, .product-list__item:focus product-list__thumbnails > img {
   transform: scale(1.1);
 }
 

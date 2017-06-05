@@ -1,8 +1,18 @@
-// * --------------------------------
-// * 단위 관련 믹스인 : px-to-em, px-to-rem
-// * --------------------------------
-
-// px값을 받아 em으로 산출하는 믹스인
+/// 지정된 프로퍼티 px단위의 값을 em으로 산출하는 믹스인
+/// @param {String} $property - padding, margin, font-size 등 프로퍼티
+/// @param {List} $values - px단위의 숫자 또는 그 리스트
+/// @param {Number (with unit)} $base-font-size: $root-font-size - 기준이 되는 부모 요소의 폰트 사이즈
+/// @group unit
+/// @example scss - scss
+///   .px-to-em {
+///     @include px-to-em('padding',10px 20px 40px 20px, 12px);
+///     @include px-to-em('font-size',18px, 12px);
+///   }
+/// @example css - css output
+///   .px-to-em {
+///     padding: 0.83333em 1.66667em 3.33333em 1.66667em;
+///     font-size: 1.5em;
+///   }
 @mixin px-to-em($property, $values, $base-font-size: $root-font-size) {
   $em-values: ();
 
@@ -16,13 +26,36 @@
     $em-values: join($em-values, em($value, $base-font-size));
   }
 
-  // IE 8 : rem not support
   #{$property}: $em-values; 
 }
-
 $rem-support: true !default;
+
+/// 지정된 프로퍼티 px단위의 값을 em으로 산출하는 믹스인
+/// @param {String} $property - padding, margin, font-size 등 프로퍼티
+/// @param {List} $values - px단위의 숫자 또는 그 리스트
+/// @group unit
+/// @example scss - scss
+///   .px-to-rem {
+///     @include px-to-rem('padding',10px 20px 40px 20px);
+///     @include px-to-rem('font-size',18px);
+///   }
+///   $rem-support: false;
+///   .px-to-rem-no-support {
+///     @include px-to-rem('padding',10px 20px 40px 20px);
+///     @include px-to-rem('font-size',18px);
+///   }
+/// @example css - css output
+///   .px-to-rem {
+///     padding: 0.625rem 1.25rem 2.5rem 1.25rem;
+///     font-size: 1.125rem;
+///   }
+///   .px-to-rem-no-support {
+///     padding: 10px 20px 40px 20px;
+///     padding: 0.625rem 1.25rem 2.5rem 1.25rem;
+///     font-size: 18px;
+///     font-size: 1.125rem;
+///   }
 @mixin px-to-rem($property, $values) {
-// px값을 받아 rem으로 산출하는 믹스인
   $px-values: ();
   $rem-values: ();
 

@@ -1,8 +1,22 @@
-// * --------------------------------
-// * size 믹스인
-// * --------------------------------
-
-// @include size($width, $height)
+/// 사각형을 만드는 사이즈 믹스인
+/// @param {Number (with unit)} $width - 상자 너비, 이 값만 있으면 정사각형
+/// @param {Number (with unit)} $height - 상자 높이, 직사각형을 만들경우 입력
+/// @example scss - scss
+///   .square {
+///     @include size(100px);
+///   }
+///   .rect {
+///     @include size(100px, 200px);
+///   }
+/// @example css - css output
+///   .square {
+///     width: 100px;
+///     height: 100px;
+///   }
+///   .rect {
+///     width: 100px;
+///     height: 200px;
+///   }
 @mixin size($width, $height: $width) {
   width: $width;
   height: $height;
