@@ -1,7 +1,11 @@
-// Font
+/// 폰트 경로 : default - '../font/'
+/// @type {String}
 $font-path: '../font/';
 
-$root-font-size: 16px !default;
+/// 루트 폰트 사이즈 : default - 16px
+/// @type {Number (with unit)}
+$root-font-size: 16px;
+$rem-support: true;
 
 $base-font-family-kr: 'Noto Sans KR', sans-serif;
 $base-font-family-en: 'Oswald', sans-serif;

@@ -1,5 +1,7 @@
-// parseInt($n)
-// 단위를 제거하고 정수를 구하는 함수
+/// 단위를 제거하고 정수를 구하는 함수
+/// @param {Number (with unit)} $n - 단위를 포함한 숫자
+/// @retun {Number (unitless)} - 단위가 제거된 정수
+/// @group helper
 @function parseInt($n) {
   @return $n / ($n * 0 + 1);
 }

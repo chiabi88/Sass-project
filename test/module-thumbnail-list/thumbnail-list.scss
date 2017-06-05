@@ -10,7 +10,6 @@
 	// 속기형
 	// @include thumbnail-grid-list( 1200px, 12, 3, 0.25, 30px, float, true, 'thumbnail-4-list__photo', 'blur');
 
-	// 
 	@include thumbnail-grid-list(
 	  $thumb-grid-container: 1200px, 
 	  $thumb-grid-columns: 12, 
@@ -18,25 +17,24 @@
 	  $thumb-grid-gutters: 0.25, 
 	  $thumb-grid-bottom-gutters: 30px, 
 	  $thumb-grid-output: float,
-	  $thumb-grid-effect: true,
-	  $thumb-grid-target: 'thumbnail-4-list__photo',
+	  $thumb-grid-effect-target: 'thumbnail-4-list__photo',
 	  $thumb-grid-effect-name: 'blur'
 	);
 }
 .thumbnail-4-list__txt-box {
 	.title {
 		margin-top: 10px;
-    font-size: rem(16px);
-    line-height: rem(24px);
+    	font-size: rem(16px);
+    	line-height: rem(24px);
 	}
 	.txt {
 		margin-top: 5px;	
-    font-size: rem(12px);
-    line-height: rem(24px);
-    color: rgb(153, 153, 153);
+    	font-size: rem(12px);
+    	line-height: rem(24px);
+    	color: rgb(153, 153, 153);
 	}
 }
 
 .insta-list {
-	@include thumbnail-grid-list( 1200px, 10, 2, 0, 0, float, false);
+	@include thumbnail-grid-list( 1200px, 10, 2, 0, 0, float);
 }

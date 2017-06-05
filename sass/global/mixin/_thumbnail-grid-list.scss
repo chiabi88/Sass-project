@@ -12,8 +12,7 @@
   $thumb-grid-gutters: 0.25, 
   $thumb-grid-bottom-gutters: 0, 
   $thumb-grid-output: float,
-  $thumb-grid-effect: true,
-  $thumb-grid-target: null,
+  $thumb-grid-effect-target: null,
   $thumb-grid-effect-name: 'zoom-in'
 ){
 
@@ -25,8 +24,8 @@
     margin-bottom: $thumb-grid-bottom-gutters;
 
     // effect 쓸경우
-    @if $thumb-grid-effect == true {
-      @include thumbnail-effect($thumb-grid-target, $thumb-grid-effect-name);   
+    @if type-of($thumb-grid-effect-target) == string {
+      @include thumbnail-effect($thumb-grid-effect-target, $thumb-grid-effect-name);
     }
 
     &.first {
