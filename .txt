@@ -1,0 +1,292 @@
+commit 7df902532eacd61c9bfefe2dabc61c4fbc3dbb3c
+tree 8a49dc810b7ed79b4af1ae90e0628b52fb83ccaa
+parent 40808cd76307c65d8f2fa7e47abcfbd45eb34e30
+author chiabi <chiabi88@gmail.com> 1496245094 +0900
+committer chiabi <chiabi88@gmail.com> 1496245094 +0900
+
+    이펙트 믹스인 추가, 썸네일 리스트 테스트 수정
+
+diff --git a/sass/_test.scss b/sass/_test.scss
+index 7af2532..de4fd55 100644
+--- a/sass/_test.scss
++++ b/sass/_test.scss
+@@ -19,6 +19,7 @@
+ @import 'global/mixin/hover';
+ @import 'global/mixin/size';
+ @import 'global/mixin/position';
++@import 'global/mixin/thumbnail-hover-effect';
+ @import 'global/mixin/thumbnail-grid-list';
+ 
+ // * --------------------------------
+diff --git a/sass/components/_product-list.scss b/sass/components/_product-list.scss
+index a2e4f55..7ce6656 100644
+--- a/sass/components/_product-list.scss
++++ b/sass/components/_product-list.scss
+@@ -27,21 +27,11 @@
+ 
+ @if $product-list-effect == true {
+   .product-list__item {
+-    .product-list__thumbnails > img {
+-      transition: all 0.3s;
+-    }
+-    @include hover {
+-      .product-list__thumbnails > img {
+-        @if $product-list-effect-name == 'zoom-in'{
+-          transform: scale(1.1);
+-        } @else if $product-list-effect-name == 'blur' {
+-          opacity: 0.8;
+-        }
+-      }
+-    }
++    @include thumbnail-effect('product-list__thumbnails', $product-list-effect-name);
+   }
+ }
+ 
++
+ // product-list.scss
+ 
+ .product-list__thumbnails {
+diff --git a/sass/global/mixin/_thumbnail-grid-list.scss b/sass/global/mixin/_thumbnail-grid-list.scss
+index 24b2137..63446a8 100644
+--- a/sass/global/mixin/_thumbnail-grid-list.scss
++++ b/sass/global/mixin/_thumbnail-grid-list.scss
+@@ -1,32 +1,41 @@
+ // * --------------------------------
+ // * 썸네일 리스트 생성 믹스인
+ // * --------------------------------
+-// * container, span, gutters, 오버효과, 타이틀/텍스트 사용 ( 이외의 것은 커스텀 영역으로 )
++// * dependency: susy
++// * container, span, gutters, 오버효과, (이외의 것은 커스텀 영역으로 )
+ // * --------------------------------
+ 
+ @mixin thumbnail-grid-list(
+-	$thumb-grid-container, 
+-	$thumb-grid-columns, 
+-	$thumb-grid-span,
+-	$thumb-grid-gutters, 
+-	$thumb-grid-bottom-gutters, 
+-	$thumb-grid-output: float 
++  $thumb-grid-container: auto, 
++  $thumb-grid-columns: 12, 
++  $thumb-grid-span: 4,
++  $thumb-grid-gutters: 0.25, 
++  $thumb-grid-bottom-gutters: 0, 
++  $thumb-grid-output: float,
++  $thumb-grid-effect: true,
++  $thumb-grid-target: null,
++  $thumb-grid-effect-name: 'zoom-in'
+ ){
+-	@include layout($thumb-grid-container $thumb-grid-columns $thumb-grid-gutters before fluid $thumb-grid-output);
+ 
+-	@include container();
++  @include layout($thumb-grid-container $thumb-grid-columns $thumb-grid-gutters before fluid $thumb-grid-output);
++  @include container();
+ 
+   & > li {
+     @include span($thumb-grid-span);
+     margin-bottom: $thumb-grid-bottom-gutters;
+ 
++    // effect 쓸경우
++    @if $thumb-grid-effect == true {
++      @include thumbnail-effect($thumb-grid-target, $thumb-grid-effect-name);   
++    }
++
+     &.first {
+-    	clear: both;
+-    	@include span($thumb-grid-span first);
++        clear: both;
++        @include span($thumb-grid-span first);
+     }
+ 
+     & img {
+-    	width: 100%;
++        width: 100%;
+     }
+   }
+ }
+diff --git a/sass/global/mixin/_thumbnail-hover-effect.scss b/sass/global/mixin/_thumbnail-hover-effect.scss
+new file mode 100644
+index 0000000..c39f5e3
+--- /dev/null
++++ b/sass/global/mixin/_thumbnail-hover-effect.scss
+@@ -0,0 +1,25 @@
++// * --------------------------------
++// * 썸네일 hover effect
++// * --------------------------------
++
++// @include thumbnail-effect($thumbnail-effect-target: null, $thumbnail-effect-name: zoom-in)
++@mixin thumbnail-effect(
++	$thumbnail-effect-target: null,
++	$thumbnail-effect-name: zoom-in
++){
++	@if type-of($thumbnail-effect-target) != 'string' {
++    @warn '이펙트 대상은($thumbnail-effect-target) 필수 입력입니다'
++  }
++	.#{$thumbnail-effect-target} > img {
++		transition: all 0.3s;
++	}
++	@include hover {
++		.#{$thumbnail-effect-target} > img {
++			@if $thumbnail-effect-name == 'zoom-in'{
++        transform: scale(1.1);
++      } @else if $thumbnail-effect-name == 'blur' {
++      	 opacity: 0.8;
++      }
++		}
++	}
++}
+\ No newline at end of file
+diff --git a/sass/style.scss b/sass/style.scss
+index 718846d..d29e6b0 100644
+--- a/sass/style.scss
++++ b/sass/style.scss
+@@ -20,7 +20,8 @@
+ @import 'global/mixin/hover';
+ @import 'global/mixin/size';
+ @import 'global/mixin/position';
+-@import 'global/mixin/thumbnail-grid-list';
++@import 'global/mixin/thumbnail-hover-effect';
++// @import 'global/mixin/thumbnail-grid-list';
+ 
+ // * --------------------------------
+ // * base
+diff --git a/test/module-thumbnail-list/thumbnail-list.css b/test/module-thumbnail-list/thumbnail-list.css
+index 3e51c52..f002828 100644
+--- a/test/module-thumbnail-list/thumbnail-list.css
++++ b/test/module-thumbnail-list/thumbnail-list.css
+@@ -476,6 +476,7 @@ a:hover, a:active, a:focus {
+  * --------------------------------
+  */
+ .thumbnail-4-list {
++  margin-top: 50px;
+   max-width: 1200px;
+   margin-left: auto;
+   margin-right: auto;
+@@ -494,6 +495,14 @@ a:hover, a:active, a:focus {
+   margin-bottom: 30px;
+ }
+ 
++.thumbnail-4-list > li .thumbnail-4-list__photo > img {
++  transition: all 0.3s;
++}
++
++.thumbnail-4-list > li:hover .thumbnail-4-list__photo > img, .thumbnail-4-list > li:active .thumbnail-4-list__photo > img, .thumbnail-4-list > li:focus .thumbnail-4-list__photo > img {
++  opacity: 0.8;
++}
++
+ .thumbnail-4-list > li.first {
+   clear: both;
+   width: 23.72881%;
+@@ -504,3 +513,45 @@ a:hover, a:active, a:focus {
+ .thumbnail-4-list > li img {
+   width: 100%;
+ }
++
++.thumbnail-4-list__txt-box .title {
++  margin-top: 10px;
++  font-size: 1rem;
++  line-height: 1.5rem;
++}
++
++.thumbnail-4-list__txt-box .txt {
++  margin-top: 5px;
++  font-size: 0.75rem;
++  line-height: 1.5rem;
++  color: #999999;
++}
++
++.insta-list {
++  max-width: 1200px;
++  margin-left: auto;
++  margin-right: auto;
++}
++
++.insta-list:after {
++  content: " ";
++  display: block;
++  clear: both;
++}
++
++.insta-list > li {
++  width: 20%;
++  float: left;
++  margin-bottom: 0;
++}
++
++.insta-list > li.first {
++  clear: both;
++  width: 20%;
++  float: left;
++  margin-left: 0;
++}
++
++.insta-list > li img {
++  width: 100%;
++}
+diff --git a/test/module-thumbnail-list/thumbnail-list.html b/test/module-thumbnail-list/thumbnail-list.html
+index 2088368..c092cea 100644
+--- a/test/module-thumbnail-list/thumbnail-list.html
++++ b/test/module-thumbnail-list/thumbnail-list.html
+@@ -19,6 +19,18 @@
+ 	</script>
+ </head>
+ <body>
++	<ul class="insta-list">	
++		<li><a href="" target="_blank"><img src="http://lorempixel.com/480/480/abstract/1" alt="" class="autofit"></a></li>
++		<li><a href="" target="_blank"><img src="http://lorempixel.com/480/480/abstract/2" alt="" class="autofit"></a></li>
++		<li><a href="" target="_blank"><img src="http://lorempixel.com/480/480/abstract/3" alt="" class="autofit"></a></li>
++		<li><a href="" target="_blank"><img src="http://lorempixel.com/480/480/abstract/4" alt="" class="autofit"></a></li>
++		<li><a href="" target="_blank"><img src="http://lorempixel.com/480/480/abstract/5" alt="" class="autofit"></a></li>
++		<li><a href="" target="_blank"><img src="http://lorempixel.com/480/480/abstract/6" alt="" class="autofit"></a></li>
++		<li><a href="" target="_blank"><img src="http://lorempixel.com/480/480/abstract/7" alt="" class="autofit"></a></li>
++		<li><a href="" target="_blank"><img src="http://lorempixel.com/480/480/abstract/8" alt="" class="autofit"></a></li>
++		<li><a href="" target="_blank"><img src="http://lorempixel.com/480/480/abstract/9" alt="" class="autofit"></a></li>
++		<li><a href="" target="_blank"><img src="http://lorempixel.com/480/480/abstract/10" alt="" class="autofit"></a></li>
++	</ul>
+ 	<ul class="thumbnail-4-list">
+ 		<li>
+ 			<a href="">
+diff --git a/test/module-thumbnail-list/thumbnail-list.scss b/test/module-thumbnail-list/thumbnail-list.scss
+index c128a8d..19b476c 100644
+--- a/test/module-thumbnail-list/thumbnail-list.scss
++++ b/test/module-thumbnail-list/thumbnail-list.scss
+@@ -6,5 +6,37 @@
+  */
+ 
+ .thumbnail-4-list {
+-	@include thumbnail-grid-list( 1200px, 12, 3, 0.25, 30px);
++	margin-top: 50px;	
++	// 속기형
++	// @include thumbnail-grid-list( 1200px, 12, 3, 0.25, 30px, float, true, 'thumbnail-4-list__photo', 'blur');
++
++	// 
++	@include thumbnail-grid-list(
++	  $thumb-grid-container: 1200px, 
++	  $thumb-grid-columns: 12, 
++	  $thumb-grid-span: 3,
++	  $thumb-grid-gutters: 0.25, 
++	  $thumb-grid-bottom-gutters: 30px, 
++	  $thumb-grid-output: float,
++	  $thumb-grid-effect: true,
++	  $thumb-grid-target: 'thumbnail-4-list__photo',
++	  $thumb-grid-effect-name: 'blur'
++	);
++}
++.thumbnail-4-list__txt-box {
++	.title {
++		margin-top: 10px;
++    font-size: rem(16px);
++    line-height: rem(24px);
++	}
++	.txt {
++		margin-top: 5px;	
++    font-size: rem(12px);
++    line-height: rem(24px);
++    color: rgb(153, 153, 153);
++	}
+ }
++
++.insta-list {
++	@include thumbnail-grid-list( 1200px, 10, 2, 0, 0, float, false);
++}
+\ No newline at end of file

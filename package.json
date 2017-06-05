@@ -1,0 +1,33 @@
+{
+  "name": "Sass-project",
+  "version": "1.0.0",
+  "description": "sass project 용 테스트",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "sass": "node-sass --output-style expanded --source-map true -r sass -o css",
+    "watch": "npm run sass -- -w",
+    "server": "httpe-server -o",
+    "sassdoc": "sassdoc sass --dest sassdoc '!sass/vendor/*",
+    "start": "parallelshell \"npm run watch\" \"npm run server\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiabi88/Sass-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chiabi88/Sass-project/issues"
+  },
+  "homepage": "https://github.com/chiabi88/Sass-project#readme",
+  "devDependencies": {
+    "http-server": "^0.10.0",
+    "node-sass": "^4.5.3",
+    "parallelshell": "^2.0.0",
+    "sassdoc": "^2.2.2"
+  }
+}
