@@ -59,5 +59,25 @@ function, mixin, 변수, 플레이스홀더 등, 컴파일 시 CSS로 산출되�
 + `_bootstrap.scss`
 + `_jquery-ui.scss`
 
+### package.json scripts
+
++ sass : node-sass 명령어
++ watch : node-sass watch
++ server : [http-server](https://github.com/indexzero/http-server) -o(open browser window option)
++ sassdoc : [sassdoc](http://sassdoc.com/getting-started/) 디렉토리 생성 명령어
++ start : [parallelshell](https://github.com/keithamus/parallelshell) 사용으로 병렬적으로 node-sass 와칭하면서 http-server 실행
+
+```sp
+  "scripts": {
+    "sass": "node-sass --output-style expanded --source-map true -r sass -o css",
+    "watch": "npm run sass -- -w",
+    "server": "httpe-server -o",
+    "sassdoc": "sassdoc sass --dest sassdoc '!sass/vendor/*",
+    "start": "parallelshell \"npm run watch\" \"npm run server\""
+  }
+```
+[슬쩍 떠보는 npm 과 package.json](https://elegantcoder.com/beginning-npm-package/)
+[why npm scripts](https://css-tricks.com/why-npm-scripts/)
+
 ***
 [codepen](https://codepen.io/chiabi88/project/editor/Xmbykw/)
