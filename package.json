@@ -9,7 +9,7 @@
   "scripts": {
     "sass": "node-sass --output-style expanded --source-map true -r sass -o css",
     "watch": "npm run sass -- -w",
-    "server": "httpe-server -o",
+    "server": "http-server -o",
     "sassdoc": "sassdoc sass --dest sassdoc '!sass/vendor/*",
     "start": "parallelshell \"npm run watch\" \"npm run server\""
   },
