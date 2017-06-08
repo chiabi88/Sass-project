@@ -19,6 +19,7 @@
 	$thumbnail-effect-target: null,
 	$thumbnail-effect-name: 'zoom-in'
 ){
+	// 타켓이 설정 되지 않을경우 warn 띄움
 	@if type-of($thumbnail-effect-target) != 'string' {
     @warn '이펙트 대상은($thumbnail-effect-target) 필수 입력입니다'
   }

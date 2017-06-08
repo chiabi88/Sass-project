@@ -18,15 +18,47 @@ $base-color-point: rgb(26, 86, 152);
 $base-color-border: rgb(238, 238, 238);
 $base-color-font: rgb(51, 51, 51);
 
-// components : product-list
+// components product-list 관련 변수
+
+/// 제품 리스트 이펙트 사용 여부
+/// @type {Bool}
+/// @group components : product-list
 $product-list-effect: true;
-$product-list-effect-name: 'zoom-in';  // zoom-in, blur 
+
+/// 제품 리스트 이펙트 이름 : 'zoom-in | blur'
+/// @type {String}
+/// @group components : product-list
+$product-list-effect-name: 'zoom-in';  // zoom-in, blur
+
+/// 제품 리스트 태그 사이즈
+/// @type {Number (with unit)}
+/// @group components : product-list
 $product-list-tag-size: 45px;
-$product-list-tag-position-direction: 'vertical'; // vertical, horizontal
+
+/// 제품 리스트 태그 정렬 방향 설정 : 'vertical | horizontal'
+/// @type {String}
+/// @group components : product-list
+$product-list-tag-position-direction: 'vertical';
+
+/// 제품 리스트 태그 위치 설정
+/// @type {Map}
+/// @group components : product-list
 $product-list-tag-position-offset: (
   top: 15px,
   right: 15px
 );
+
+/// 제품 리스트 태그 간격 설정
+/// @type {Number (unit)}
+/// @group components : product-list
 $product-list-tag-margin: 10px;
+
+/// 제품 리스트 보더 스타일 설정
+/// @type {List}
+/// @group components : product-list
 $product-list-border: 1px solid $base-color-border;
+
+/// 제품 리스트 텍스트 등 정보 영역 사이드 패딩값 설정
+/// @type {Number (unit)}
+/// @group components : product-list
 $product-list-info-side: 1em;
