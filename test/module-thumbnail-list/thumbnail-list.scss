@@ -6,20 +6,36 @@
  */
 
 .thumbnail-4-list {
-	margin-top: 50px;	
+
 	// 속기형
 	// @include thumbnail-grid-list( 1200px, 12, 3, 0.25, 30px, float, true, 'thumbnail-4-list__photo', 'blur');
-
-	@include thumbnail-grid-list(
-	  $thumb-grid-container: 1200px, 
-	  $thumb-grid-columns: 12, 
-	  $thumb-grid-span: 3,
-	  $thumb-grid-gutters: 0.25, 
-	  $thumb-grid-bottom-gutters: 30px, 
-	  $thumb-grid-output: float,
-	  $thumb-grid-effect-target: 'thumbnail-4-list__photo',
-	  $thumb-grid-effect-name: 'blur'
-	);
+	@include only-desktop {
+		margin-top: 50px;	
+		@include thumbnail-grid-list(
+			$thumb-grid-list: 4,
+			$thumb-grid-container: 1200px, 
+			$thumb-grid-columns: 12, 	  
+			$thumb-grid-gutters: 0.25, 
+			$thumb-grid-bottom-gutters: 30px, 
+			$thumb-grid-output: float,
+			$thumb-grid-effect-target: '.thumbnail-4-list__photo',
+			$thumb-grid-effect-name: 'blur',
+			$thumb-grid-query-fallback: true
+		);
+	}
+	@include only-tablet {
+		margin-top: 30px;
+		@include thumbnail-grid-list(
+			$thumb-grid-list: 3
+		);
+	}
+	@include only-mobile {
+		margin-top: 20px;
+		@include thumbnail-grid-list(
+			$thumb-grid-list: 2,
+			$thumb-grid-bottom-gutters: 20px
+		);
+	}
 }
 .thumbnail-4-list__txt-box {
 	.title {
@@ -36,5 +52,5 @@
 }
 
 .insta-list {
-	@include thumbnail-grid-list( 1200px, 10, 2, 0, 0, float);
+	@include thumbnail-grid-list( 5, 1200px, 10, 0, 0, float);
 }

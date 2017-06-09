@@ -8,8 +8,6 @@
 
 // * --------------------------------
 // * global
-@import 'global/variables';
-
 @import 'global/function/helper';
 @import 'global/function/unit';
 
@@ -19,8 +17,11 @@
 @import 'global/mixin/typography';
 @import 'global/mixin/hover';
 @import 'global/mixin/size';
+@import 'global/mixin/breakpoint';
 @import 'global/mixin/thumbnail-hover-effect';
 @import 'global/mixin/thumbnail-grid-list';
+
+@import 'global/variables';
 
 // * --------------------------------
 // * base

@@ -18,6 +18,24 @@ $base-color-point: rgb(26, 86, 152);
 $base-color-border: rgb(238, 238, 238);
 $base-color-font: rgb(51, 51, 51);
 
+// break-point
+
+/// 데스크탑 태블릿 분기 지점
+/// @type {number (with unit)}
+/// @group breakpoint
+$bp-wide: 1260px;
+
+/// 모바일 분기 지점
+/// @type {number (with unit)}
+/// @group breakpoint
+$bp-small: 768px;
+
+/// no query fallback 구문을 출력할 것인지 결정하는 변수
+/// @type {Bool}
+/// @group breakpoint
+/// @link https://github.com/at-import/breakpoint/wiki/no-query-fallbacks
+$breakpoint-no-query-fallbacks: true;
+
 // components product-list 관련 변수
 
 /// 제품 리스트 이펙트 사용 여부

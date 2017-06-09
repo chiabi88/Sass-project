@@ -1,6 +1,6 @@
 /// 사각형을 만드는 사이즈 믹스인
 /// @param {Number (with unit)} $width - 상자 너비, 이 값만 있으면 정사각형
-/// @param {Number (with unit)} $height - 상자 높이, 직사각형을 만들경우 입력
+/// @param {Number (with unit)} $height [$width] - 상자 높이, 직사각형을 만들경우 입력
 /// @example scss - scss
 ///   .square {
 ///     @include size(100px);
