@@ -1,20 +1,20 @@
 /// 썸네일 이펙트 스니펫 믹스인
-/// @param {String} $thumbnail-effect-target - 썸네일 오버 이펙트 필요할 경우 대상이 되는 img의 부모요소 선택자, default : null,
-/// @param {String} $thumbnail-effect-name - 썸네일 오버 이펙트 이름 ['zoom-in' | 'blur']default : 'zoom-in'
+/// @param {String} $thumbnail-effect-target [null] - 썸네일 오버 이펙트 필요할 경우 대상이 되는 img의 부모요소 선택자
+/// @param {String} $thumbnail-effect-name ['zoom-in'] - 썸네일 오버 이펙트 이름 ['zoom-in' | 'blur']
 /// @group thumbnail
 /// @example scss - scss
-///		.thumbnail-list {
-///			@include thumbnail-effect('.thumbnail-item','blur');
-///		}
-///		.thumbnail-list .thumbnail-item > img {
-///		  transition: all 0.3s;
-///		}
+///	  .thumbnail-list {
+///	  	@include thumbnail-effect('.thumbnail-item','blur');
+///	  }
 /// @example css - css output
-///		.thumbnail-list:hover .thumbnail-item > img, 
-///		.thumbnail-list:active .thumbnail-item > img, 
-///		.thumbnail-list:focus .thumbnail-item > img {
-///		  opacity: 0.8;
-///		}
+///	  .thumbnail-list .thumbnail-item > img {
+///	    transition: all 0.3s;
+///	  }
+///	  .thumbnail-list:hover .thumbnail-item > img, 
+///	  .thumbnail-list:active .thumbnail-item > img, 
+///	  .thumbnail-list:focus .thumbnail-item > img {
+///	    opacity: 0.8;
+///	  }
 @mixin thumbnail-effect(
 	$thumbnail-effect-target: null,
 	$thumbnail-effect-name: 'zoom-in'

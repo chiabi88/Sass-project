@@ -2,8 +2,8 @@ $font-path: '../font/' !default;
 
 /// font-face 믹스인 (eot, woff, ttf, svg)
 /// @param {String} $font-name - 폰트 파일 명
-/// @param {String} $font-path - 폰트 파일 경로, $font-path, $font-name 조합의 경로를 사용하거나 직접 지정
-/// @param {List} $font-option - font-weight, font-style 값으로 들어갈 리스트, 기본값:  normal normal
+/// @param {String} $font-path ['$font-path + $font-name'] - 폰트 파일 경로, $font-path, $font-name 조합의 경로를 사용하거나 직접 지정
+/// @param {List} $font-option [normal normal] - font-weight, font-style 값으로 들어갈 리스트, 기본값:  normal normal
 /// @example scss - scss
 ///   @include font('NanumBarunGothic');
 /// @example css - css output

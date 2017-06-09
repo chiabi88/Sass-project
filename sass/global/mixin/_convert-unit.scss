@@ -1,7 +1,7 @@
 /// 지정된 프로퍼티 px단위의 값을 em으로 산출하는 믹스인
 /// @param {String} $property - padding, margin, font-size 등 프로퍼티
 /// @param {List} $values - px단위의 숫자 또는 그 리스트
-/// @param {Number (with unit)} $base-font-size: $root-font-size - 기준이 되는 부모 요소의 폰트 사이즈
+/// @param {Number (with unit)} $base-font-size [$root-font-size] - 기준이 되는 부모 요소의 폰트 사이즈
 /// @group unit
 /// @example scss - scss
 ///   .px-to-em {

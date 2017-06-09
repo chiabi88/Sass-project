@@ -1,13 +1,13 @@
 /// 썸네일 리스트 스니펫 믹스인
 /// susy에 의존함
-/// @param {auto | Number (with unit)} $thumb-grid-container - susy layout container 값, default : auto, 
-/// @param {Number (unitless)} $thumb-grid-columns - susy layout columns 값, default : 12, 
-/// @param {Number (unitless)} $thumb-grid-span - 리스트 아이템 susy span 값, default : 4,
-/// @param {Number (unitless)} $thumb-grid-gutters - susy layout gutter 값, default : 0.25, 
-/// @param {Number (with unit)} $thumb-grid-bottom-gutters - 리스트 아이템 margin-bottom 값, default : 0, 
-/// @param {String} $thumb-grid-output - susy layout output 값, default : float,
-/// @param {String} $thumb-grid-effect-target - 썸네일 오버 이펙트 필요할 경우 대상이 되는 img의 부모요소 선택자, default : null,
-/// @param {String} $thumb-grid-effect-name - 썸네일 오버 이펙트 이름 ['zoom-in' | 'blur']default : 'zoom-in'
+/// @param {auto | Number (with unit)} $thumb-grid-container [auto]- susy layout container 값
+/// @param {Number (unitless)} $thumb-grid-columns [12] - susy layout columns 값
+/// @param {Number (unitless)} $thumb-grid-span [4] - 리스트 아이템 susy span 값
+/// @param {Number (unitless)} $thumb-grid-gutters [0.25] - susy layout gutter 값
+/// @param {Number (with unit)} $thumb-grid-bottom-gutters [0] - 리스트 아이템 margin-bottom 값
+/// @param {String} $thumb-grid-output ['float'] - susy layout output 값
+/// @param {String} $thumb-grid-effect-target [null] - 썸네일 오버 이펙트 필요할 경우 대상이 되는 img의 부모요소 선택자
+/// @param {String} $thumb-grid-effect-name ['zoom-in'] - 썸네일 오버 이펙트 이름 ['zoom-in' | 'blur']
 /// @group thumbnail
 /// @example scss - scss
 ///   .thumbnail-4-list {
