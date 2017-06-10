@@ -52,5 +52,10 @@
 }
 
 .insta-list {
-	@include thumbnail-grid-list( 5, 1200px, 10, 0, 0, float);
+	@include only-desktop {
+		@include thumbnail-grid-list(5, 1200px, 10, 0, 0, float, a, 'blur', true);
+	}
+	@include only-no-desktop{
+		@include thumbnail-grid-list( 3, auto, 9, 0, 0, float);
+	}
 }
