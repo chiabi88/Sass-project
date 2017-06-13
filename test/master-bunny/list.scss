@@ -1,9 +1,20 @@
 @import '../../sass/test';
+
+/**
+ *
+ * Master bunny 썸네일 리스트 사용
+ *
+ */
+
+// 브레이크 포인트 기준 변수 설정
 $bp-wide: 1220px;
 $bp-small: 768px;
-// master-bunny
+
+// master-bunny list
+/* 데스크탑에서 썸네일 3개인 리스트 */
 .thumb_3_list{
     @include only-desktop {
+        /* 썸네일 3개인 리스트: 데스크탑 */
         // @include thumbnail-grid-list(3, auto, 3, 0.16, 46px, '.thumb_photo', 'blur', true);
         @include thumbnail-grid-list(
             $thumb-grid-list: 3,
@@ -16,7 +27,8 @@ $bp-small: 768px;
         );
     };
     @include only-no-desktop {
-         @include thumbnail-grid-list(
+        /* 썸네일 3 -> 2개인 리스트 : 태블릿 모바일 공통 */
+        @include thumbnail-grid-list(
             $thumb-grid-list: 2,
             $thumb-grid-columns: 2, 
             $thumb-grid-gutters: 0.15, 
@@ -24,8 +36,11 @@ $bp-small: 768px;
         );
     };
 }
+
+/* 데스크탑에서 썸네일 2개인 리스트 */
 .thumb_2_list {
     @include only-desktop {
+         /* 썸네일 2개인 리스트 : 데스크탑 */
         @include thumbnail-grid-list(
             $thumb-grid-list: 2,
             $thumb-grid-columns: 2, 
@@ -37,7 +52,8 @@ $bp-small: 768px;
         );
     };
     @include only-no-desktop {
-         @include thumbnail-grid-list(
+        /* 썸네일 2개인 리스트 : 태블릿 모바일 공통 */
+        @include thumbnail-grid-list(
             $thumb-grid-list: 2,
             $thumb-grid-columns: 2, 
             $thumb-grid-gutters: 0.15, 
@@ -45,8 +61,11 @@ $bp-small: 768px;
         );
     };
 }
+
+/* 데스크탑에서 썸네일 5개인 리스트 */
 .thumb_5_list {
     @include only-desktop {
+        /* 썸네일 5개인 리스트 : 데스크탑 */
         @include thumbnail-grid-list(
             $thumb-grid-list: 5,
             $thumb-grid-columns: 5, 
@@ -58,7 +77,8 @@ $bp-small: 768px;
         );
     };
     @include only-no-desktop {
-         @include thumbnail-grid-list(
+        /* 썸네일 5 -> 2개인 리스트 : 태블릿 모바일 공통 */
+        @include thumbnail-grid-list(
             $thumb-grid-list: 2,
             $thumb-grid-columns: 2, 
             $thumb-grid-gutters: 0.15, 
@@ -66,6 +86,11 @@ $bp-small: 768px;
         );
     };
 }
+
+
+/**
+ * 리스트 개별 스타일 작성
+ */
 .product_list {
 	margin-top: 20px;
 }
@@ -90,6 +115,7 @@ $bp-small: 768px;
         background: url(/images/sub/bg_list_bar.png) no-repeat 0 50%
     }
 }
+/* 태블릿 & 모바일 */
 @include only-no-desktop {
     .profile_txt {
         padding-top: 5px;
@@ -109,4 +135,3 @@ $bp-small: 768px;
         }
     }       
 }
-    

@@ -23,12 +23,12 @@ $base-color-font: rgb(51, 51, 51);
 /// 데스크탑 태블릿 분기 지점
 /// @type {number (with unit)}
 /// @group breakpoint
-$bp-wide: 1220px !global;
+$bp-wide: 1220px;
 
 /// 모바일 분기 지점
 /// @type {number (with unit)}
 /// @group breakpoint
-$bp-small: 768px !global;
+$bp-small: 768px;
 
 /// no query fallback 구문을 출력할 것인지 결정하는 변수
 /// @type {Bool}

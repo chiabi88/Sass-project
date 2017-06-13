@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.scss v0.1.0 | MIT License | based on git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -470,8 +471,15 @@ a:hover, a:active, a:focus {
   color: inherit;
 }
 
+/**
+ *
+ * Master bunny 썸네일 리스트 사용
+ *
+ */
+/* 데스크탑에서 썸네일 3개인 리스트 */
 @media screen and (min-width: 1220px) {
   .thumb_3_list {
+    /* 썸네일 3개인 리스트: 데스크탑 */
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -515,6 +523,7 @@ a:hover, a:active, a:focus {
 }
 
 .lt-ie9 .thumb_3_list {
+  /* 썸네일 3개인 리스트: 데스크탑 */
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -566,6 +575,7 @@ a:hover, a:active, a:focus {
 
 @media screen and (max-width: 1219px) {
   .thumb_3_list {
+    /* 썸네일 3 -> 2개인 리스트 : 태블릿 모바일 공통 */
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -593,8 +603,10 @@ a:hover, a:active, a:focus {
   }
 }
 
+/* 데스크탑에서 썸네일 2개인 리스트 */
 @media screen and (min-width: 1220px) {
   .thumb_2_list {
+    /* 썸네일 2개인 리스트 : 데스크탑 */
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -638,6 +650,7 @@ a:hover, a:active, a:focus {
 }
 
 .lt-ie9 .thumb_2_list {
+  /* 썸네일 2개인 리스트 : 데스크탑 */
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -689,6 +702,7 @@ a:hover, a:active, a:focus {
 
 @media screen and (max-width: 1219px) {
   .thumb_2_list {
+    /* 썸네일 2개인 리스트 : 태블릿 모바일 공통 */
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -716,8 +730,10 @@ a:hover, a:active, a:focus {
   }
 }
 
+/* 데스크탑에서 썸네일 5개인 리스트 */
 @media screen and (min-width: 1220px) {
   .thumb_5_list {
+    /* 썸네일 5개인 리스트 : 데스크탑 */
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -761,6 +777,7 @@ a:hover, a:active, a:focus {
 }
 
 .lt-ie9 .thumb_5_list {
+  /* 썸네일 5개인 리스트 : 데스크탑 */
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -812,6 +829,7 @@ a:hover, a:active, a:focus {
 
 @media screen and (max-width: 1219px) {
   .thumb_5_list {
+    /* 썸네일 5 -> 2개인 리스트 : 태블릿 모바일 공통 */
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -839,6 +857,9 @@ a:hover, a:active, a:focus {
   }
 }
 
+/**
+ * 리스트 개별 스타일 작성
+ */
 .product_list {
   margin-top: 20px;
 }
@@ -868,6 +889,7 @@ a:hover, a:active, a:focus {
   background: url(/images/sub/bg_list_bar.png) no-repeat 0 50%;
 }
 
+/* 태블릿 & 모바일 */
 @media screen and (max-width: 1219px) {
   .profile_txt {
     padding-top: 5px;
