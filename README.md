@@ -71,7 +71,7 @@ function, mixin, 변수, 플레이스홀더 등, 컴파일 시 CSS로 산출되�
   "scripts": {
     "sass": "node-sass --output-style expanded --source-map true -r sass -o css",
     "watch": "npm run sass -- -w",
-    "server": "httpe-server -o",
+    "server": "http-server -o",
     "sassdoc": "sassdoc sass --dest sassdoc '!sass/vendor/*",
     "start": "parallelshell \"npm run watch\" \"npm run server\""
   }
@@ -84,3 +84,9 @@ function, mixin, 변수, 플레이스홀더 등, 컴파일 시 CSS로 산출되�
 
 ***
 [codepen](https://codepen.io/chiabi88/project/editor/Xmbykw/)
+
+
+***
+
+주요 변경내역
+> (20170613) 썸네일 리스트 span을 리스트 아이템 수 기준으로 계산하도록 변경, 브레이크 포인트 오류 수정

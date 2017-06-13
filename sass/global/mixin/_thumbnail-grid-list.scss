@@ -75,6 +75,9 @@
 
   @include layout($thumb-grid-container $thumb-grid-columns $thumb-grid-gutters before fluid $thumb-grid-output);
   @include container();
+  
+  margin-bottom: -#{$thumb-grid-bottom-gutters};
+
   & > li {
     @include span($thumb-grid-span);
     margin-bottom: $thumb-grid-bottom-gutters;

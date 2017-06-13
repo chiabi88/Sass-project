@@ -8,26 +8,6 @@ $bp-wide: 1260px !default;
 // 모바일 분기 지점
 $bp-small: 768px !default;
 
-/// breakpoint 믹스인 매개변수 : 미디어쿼리 only desktop
-/// @type {List)}
-/// @group breakpoint
-$bp-desktop: screen $bp-wide;
-
-/// breakpoint 믹스인 매개변수 : 미디어쿼리 only tablet
-/// @type {List}
-/// @group breakpoint
-$bp-tablet: screen $bp-small ((parseInt($bp-wide) - 1) * 1px);
-
-/// breakpoint 믹스인 매개변수 : 미디어쿼리 only mobile
-/// @type {List}
-/// @group breakpoint
-$bp-mobile: screen max-width ((parseInt($bp-small) - 1) * 1px);
-
-/// breakpoint 믹스인 매개변수 : 미디어쿼리 tablet 이하
-/// @type {List}
-/// @group breakpoint
-$bp-tablet-mobile: screen max-width ((parseInt($bp-wide) - 1) * 1px);
-
 /// 데스크탑만 해당하는 코드 작성
 /// @group breakpoint
 /// @example scss - scss
@@ -42,8 +22,9 @@ $bp-tablet-mobile: screen max-width ((parseInt($bp-wide) - 1) * 1px);
 ///       width: 1260px;
 ///     }
 ///   }
-@mixin only-desktop {
-  @include breakpoint($bp-desktop, '.lt-ie9') {
+@mixin only-desktop($bp-desktop: screen $bp-wide) {
+  $bp-mq: $bp-desktop;
+  @include breakpoint($bp-mq, '.lt-ie9') {
     @content;
   }
 }
@@ -62,8 +43,9 @@ $bp-tablet-mobile: screen max-width ((parseInt($bp-wide) - 1) * 1px);
 ///       width: auto;
 ///     }
 ///   }
-@mixin only-tablet {
-  @include breakpoint($bp-tablet) {
+@mixin only-tablet($bp-tablet: screen $bp-small ((parseInt($bp-wide) - 1) * 1px)) {
+  $bp-mq: $bp-tablet;
+  @include breakpoint($bp-mq) {
     @content;
   }
 }
@@ -82,8 +64,9 @@ $bp-tablet-mobile: screen max-width ((parseInt($bp-wide) - 1) * 1px);
 ///       width: auto;
 ///     }
 ///   }
-@mixin only-mobile {
-  @include breakpoint($bp-mobile) {
+@mixin only-mobile($bp-mobile: screen max-width ((parseInt($bp-small) - 1) * 1px)) {
+  $bp-mq: $bp-mobile;
+  @include breakpoint($bp-mq) {
     @content;
   }
 }
@@ -102,8 +85,9 @@ $bp-tablet-mobile: screen max-width ((parseInt($bp-wide) - 1) * 1px);
 ///       width: auto;
 ///     }
 ///   }
-@mixin only-no-desktop {
-  @include breakpoint($bp-tablet-mobile) {
+@mixin only-no-desktop($bp-tablet-mobile: screen max-width ((parseInt($bp-wide) - 1) * 1px)) {
+  $bp-mq: $bp-tablet-mobile;
+  @include breakpoint($bp-mq) {
     @content;
   }
 }

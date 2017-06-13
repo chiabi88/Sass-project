@@ -1,0 +1,108 @@
+@import '../../sass/test';
+$bp-wide: 1220px;
+$bp-small: 768px;
+// master-bunny
+.thumb_3_list{
+    @include only-desktop {
+        @include thumbnail-grid-list(
+            $thumb-grid-list: 3,
+            $thumb-grid-columns: 3, 
+            $thumb-grid-gutters: 0.16, 
+            $thumb-grid-bottom-gutters: 46px, 
+            $thumb-grid-effect-target: null,
+            $thumb-grid-query-fallback: true
+        );
+    };
+    @include only-no-desktop {
+         @include thumbnail-grid-list(
+            $thumb-grid-list: 2,
+            $thumb-grid-columns: 2, 
+            $thumb-grid-gutters: 0.15, 
+            $thumb-grid-bottom-gutters: 25px
+        );
+    };
+}
+.thumb_2_list {
+    @include only-desktop {
+        @include thumbnail-grid-list(
+            $thumb-grid-list: 2,
+            $thumb-grid-columns: 2, 
+            $thumb-grid-gutters: 0.22, 
+            $thumb-grid-bottom-gutters: 55px, 
+            $thumb-grid-effect-target: null,
+            $thumb-grid-query-fallback: true
+        );
+    };
+    @include only-no-desktop {
+         @include thumbnail-grid-list(
+            $thumb-grid-list: 2,
+            $thumb-grid-columns: 2, 
+            $thumb-grid-gutters: 0.15, 
+            $thumb-grid-bottom-gutters: 25px
+        );
+    };
+}
+.thumb_5_list {
+    @include only-desktop {
+        @include thumbnail-grid-list(
+            $thumb-grid-list: 5,
+            $thumb-grid-columns: 5, 
+            $thumb-grid-gutters: 0.11, 
+            $thumb-grid-bottom-gutters: 2.02206%, 
+            $thumb-grid-effect-target: null,
+            $thumb-grid-query-fallback: true
+        );
+    };
+    @include only-no-desktop {
+         @include thumbnail-grid-list(
+            $thumb-grid-list: 2,
+            $thumb-grid-columns: 2, 
+            $thumb-grid-gutters: 0.15, 
+            $thumb-grid-bottom-gutters: 6.97674%
+        );
+    };
+}
+.product_list {
+	margin-top: 20px;
+}
+.profile_txt {
+    padding-top: 15px;
+    font-size: 26px;
+    font-family: 'FuturaBTExtraBlack';
+    color: rgb(0,0,0);
+}
+.gallery_txt {
+  padding-top: 22px;
+  font-family: 'NanumBarunGothic';
+  font-size: 14px;
+  line-height: 24px;
+  color: rgb(0,0,0);
+    & .title {
+        font-weight: normal;
+    }
+    & .txt,
+    & .date {
+        padding-left: 40px;
+        background: url(/images/sub/bg_list_bar.png) no-repeat 0 50%
+    }
+}
+@include only-no-desktop {
+    .profile_txt {
+        padding-top: 5px;
+        font-size: 1.167rem;
+        line-height: 1.5rem;
+    }
+    .gallery_txt {
+        padding-top: 10px;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        & .txt {
+            padding-left: 0;
+            background: none;
+        }
+        & .date {
+            display: none;
+        }
+    }       
+}
+    
