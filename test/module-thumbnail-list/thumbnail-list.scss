@@ -8,7 +8,7 @@
 .thumbnail-4-list {
 
 	// 속기형
-	// @include thumbnail-grid-list( 1200px, 12, 3, 0.25, 30px, float, true, 'thumbnail-4-list__photo', 'blur');
+	// @include thumbnail-grid-list( 4, 1200px, 12, 0.25, 30px, true, 'thumbnail-4-list__photo', 'blur', float);
 	@include only-desktop {
 		margin-top: 50px;	
 		@include thumbnail-grid-list(
@@ -53,9 +53,9 @@
 
 .insta-list {
 	@include only-desktop {
-		@include thumbnail-grid-list(5, 1200px, 10, 0, 0, float, a, 'blur', true);
+		@include thumbnail-grid-list(5, 1200px, 10, 0, 0, a, 'blur', true);
 	}
 	@include only-no-desktop{
-		@include thumbnail-grid-list( 3, auto, 9, 0, 0, float);
+		@include thumbnail-grid-list( 3, auto, 9, 0, 0);
 	}
 }

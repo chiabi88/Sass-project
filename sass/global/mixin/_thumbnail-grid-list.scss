@@ -6,24 +6,24 @@
 /// @param {Number (unitless)} $thumb-grid-columns [12] - susy layout columns 값
 /// @param {Number (unitless)} $thumb-grid-gutters [0.25] - susy layout gutter 값
 /// @param {Number (with unit)} $thumb-grid-bottom-gutters [0] - 리스트 아이템 margin-bottom 값
-/// @param {String} $thumb-grid-output ['float'] - susy layout output 값
 /// @param {String} $thumb-grid-effect-target [null] - 썸네일 오버 이펙트 필요할 경우 대상이 되는 img의 부모요소 선택자
 /// @param {String} $thumb-grid-effect-name ['zoom-in'] - 썸네일 오버 이펙트 이름 ['zoom-in' | 'blur']
 /// @param {Bool} $thumb-grid-query-fallback [false] - 미디어 쿼리 미지원 폴백 구문 노출여부, 'only-desktop' 믹스인 안에서 사용시 true로 설정
+/// @param {String} $thumb-grid-output ['float'] - susy layout output 값
 /// @group thumbnail
 /// @example scss - scss
 ///   .thumbnail-4-list {
 ///   	// 속기형
-///   	// @include thumbnail-grid-list( 4, 1200px, 12, 0.25, 30px, float, true, 'thumbnail-4-list__photo', 'blur');
+///   	// @include thumbnail-grid-list( 4, 1200px, 12, 0.25, 30px, true, 'thumbnail-4-list__photo', 'blur', float);
 ///   	@include thumbnail-grid-list(
 ///   	  $thumb-grid-list: 4,
 ///   	  $thumb-grid-container: 1200px, 
 ///   	  $thumb-grid-columns: 12, 
 ///   	  $thumb-grid-gutters: 0.25, 
 ///   	  $thumb-grid-bottom-gutters: 30px, 
-///   	  $thumb-grid-output: float,
 ///   	  $thumb-grid-effect-target: 'thumbnail-4-list__photo',
-///   	  $thumb-grid-effect-name: 'blur'
+///   	  $thumb-grid-effect-name: 'blur',
+///       $thumb-grid-output: 'float'
 ///   	);
 ///   }
 /// @example css - css output
@@ -64,10 +64,10 @@
   $thumb-grid-columns: 12, 
   $thumb-grid-gutters: 0.25, 
   $thumb-grid-bottom-gutters: 0, 
-  $thumb-grid-output: 'float',
   $thumb-grid-effect-target: null,
   $thumb-grid-effect-name: 'zoom-in',
-  $thumb-grid-query-fallback: false
+  $thumb-grid-query-fallback: false,
+  $thumb-grid-output: 'float'
 ){
   // 2017-06-09 컬럼 당 리스트 개수로 susy span 값을 구하는 것으로 수정
   $thumb-grid-span: ($thumb-grid-columns / $thumb-grid-list);

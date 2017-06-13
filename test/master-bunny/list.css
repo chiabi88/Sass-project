@@ -488,6 +488,12 @@ a:hover, a:active, a:focus {
     margin-left: 4.81928%;
     margin-bottom: 46px;
   }
+  .thumb_3_list > li .thumb_photo > img {
+    transition: all 0.3s;
+  }
+  .thumb_3_list > li:hover .thumb_photo > img, .thumb_3_list > li:active .thumb_photo > img, .thumb_3_list > li:focus .thumb_photo > img {
+    opacity: 0.8;
+  }
   .thumb_3_list > li:nth-child(3n + 1) {
     clear: left;
     width: 30.12048%;
@@ -526,6 +532,14 @@ a:hover, a:active, a:focus {
   float: left;
   margin-left: 4.81928%;
   margin-bottom: 46px;
+}
+
+.lt-ie9 .thumb_3_list > li .thumb_photo > img {
+  transition: all 0.3s;
+}
+
+.lt-ie9 .thumb_3_list > li:hover .thumb_photo > img, .lt-ie9 .thumb_3_list > li:active .thumb_photo > img, .lt-ie9 .thumb_3_list > li:focus .thumb_photo > img {
+  opacity: 0.8;
 }
 
 .lt-ie9 .thumb_3_list > li:nth-child(3n + 1) {
@@ -597,6 +611,12 @@ a:hover, a:active, a:focus {
     margin-left: 9.90991%;
     margin-bottom: 55px;
   }
+  .thumb_2_list > li .thumb_photo > img {
+    transition: all 0.3s;
+  }
+  .thumb_2_list > li:hover .thumb_photo > img, .thumb_2_list > li:active .thumb_photo > img, .thumb_2_list > li:focus .thumb_photo > img {
+    opacity: 0.8;
+  }
   .thumb_2_list > li:nth-child(2n + 1) {
     clear: left;
     width: 45.04505%;
@@ -635,6 +655,14 @@ a:hover, a:active, a:focus {
   float: left;
   margin-left: 9.90991%;
   margin-bottom: 55px;
+}
+
+.lt-ie9 .thumb_2_list > li .thumb_photo > img {
+  transition: all 0.3s;
+}
+
+.lt-ie9 .thumb_2_list > li:hover .thumb_photo > img, .lt-ie9 .thumb_2_list > li:active .thumb_photo > img, .lt-ie9 .thumb_2_list > li:focus .thumb_photo > img {
+  opacity: 0.8;
 }
 
 .lt-ie9 .thumb_2_list > li:nth-child(2n + 1) {
@@ -706,6 +734,12 @@ a:hover, a:active, a:focus {
     margin-left: 2.02206%;
     margin-bottom: 2.02206%;
   }
+  .thumb_5_list > li .thumb_photo > img {
+    transition: all 0.3s;
+  }
+  .thumb_5_list > li:hover .thumb_photo > img, .thumb_5_list > li:active .thumb_photo > img, .thumb_5_list > li:focus .thumb_photo > img {
+    opacity: 0.8;
+  }
   .thumb_5_list > li:nth-child(5n + 1) {
     clear: left;
     width: 18.38235%;
@@ -744,6 +778,14 @@ a:hover, a:active, a:focus {
   float: left;
   margin-left: 2.02206%;
   margin-bottom: 2.02206%;
+}
+
+.lt-ie9 .thumb_5_list > li .thumb_photo > img {
+  transition: all 0.3s;
+}
+
+.lt-ie9 .thumb_5_list > li:hover .thumb_photo > img, .lt-ie9 .thumb_5_list > li:active .thumb_photo > img, .lt-ie9 .thumb_5_list > li:focus .thumb_photo > img {
+  opacity: 0.8;
 }
 
 .lt-ie9 .thumb_5_list > li:nth-child(5n + 1) {
@@ -845,5 +887,3 @@ a:hover, a:active, a:focus {
     display: none;
   }
 }
-
-/*# sourceMappingURL=list.css.map */

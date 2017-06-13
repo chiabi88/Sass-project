@@ -4,12 +4,14 @@ $bp-small: 768px;
 // master-bunny
 .thumb_3_list{
     @include only-desktop {
+        // @include thumbnail-grid-list(3, auto, 3, 0.16, 46px, '.thumb_photo', 'blur', true);
         @include thumbnail-grid-list(
             $thumb-grid-list: 3,
             $thumb-grid-columns: 3, 
             $thumb-grid-gutters: 0.16, 
             $thumb-grid-bottom-gutters: 46px, 
-            $thumb-grid-effect-target: null,
+            $thumb-grid-effect-target: '.thumb_photo',
+            $thumb-grid-effect-name: 'blur',
             $thumb-grid-query-fallback: true
         );
     };
@@ -28,8 +30,9 @@ $bp-small: 768px;
             $thumb-grid-list: 2,
             $thumb-grid-columns: 2, 
             $thumb-grid-gutters: 0.22, 
-            $thumb-grid-bottom-gutters: 55px, 
-            $thumb-grid-effect-target: null,
+            $thumb-grid-bottom-gutters: 55px,
+            $thumb-grid-effect-target: '.thumb_photo',
+            $thumb-grid-effect-name: 'blur',
             $thumb-grid-query-fallback: true
         );
     };
@@ -48,8 +51,9 @@ $bp-small: 768px;
             $thumb-grid-list: 5,
             $thumb-grid-columns: 5, 
             $thumb-grid-gutters: 0.11, 
-            $thumb-grid-bottom-gutters: 2.02206%, 
-            $thumb-grid-effect-target: null,
+            $thumb-grid-bottom-gutters: 2.02206%,
+            $thumb-grid-effect-target: '.thumb_photo',
+            $thumb-grid-effect-name: 'blur',
             $thumb-grid-query-fallback: true
         );
     };

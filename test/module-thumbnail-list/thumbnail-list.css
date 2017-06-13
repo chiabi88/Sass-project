@@ -475,12 +475,13 @@ a:hover, a:active, a:focus {
  * thumbnail-grid-list 믹스인 테스트
  * --------------------------------
  */
-@media screen and (min-width: 1260px) {
+@media screen and (min-width: 1220px) {
   .thumbnail-4-list {
     margin-top: 50px;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: -30px;
   }
   .thumbnail-4-list:after {
     content: " ";
@@ -524,6 +525,7 @@ a:hover, a:active, a:focus {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: -30px;
 }
 
 .lt-ie9 .thumbnail-4-list:after {
@@ -569,12 +571,13 @@ a:hover, a:active, a:focus {
   margin-left: 0;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1259px) {
+@media screen and (min-width: 768px) and (max-width: 1219px) {
   .thumbnail-4-list {
     margin-top: 30px;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: -0;
   }
   .thumbnail-4-list:after {
     content: " ";
@@ -604,6 +607,7 @@ a:hover, a:active, a:focus {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: -20px;
   }
   .thumbnail-4-list:after {
     content: " ";
@@ -640,11 +644,12 @@ a:hover, a:active, a:focus {
   color: #999999;
 }
 
-@media screen and (min-width: 1260px) {
+@media screen and (min-width: 1220px) {
   .insta-list {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: -0;
   }
   .insta-list:after {
     content: " ";
@@ -686,6 +691,7 @@ a:hover, a:active, a:focus {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: -0;
 }
 
 .lt-ie9 .insta-list:after {
@@ -730,11 +736,12 @@ a:hover, a:active, a:focus {
   margin-left: 0;
 }
 
-@media screen and (max-width: 1259px) {
+@media screen and (max-width: 1219px) {
   .insta-list {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: -0;
   }
   .insta-list:after {
     content: " ";
