@@ -6,6 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="./list.css">
+	<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+	<script>
+		(function(ssq){
+			ssq(document).ready(function(){
+				ssq('.thumb_2_list > li:nth-child(2n+1)').addClass('first');
+				ssq('.thumb_3_list > li:nth-child(3n+1)').addClass('first');
+				ssq('.thumb_4_list > li:nth-child(4n+1)').addClass('first');
+				ssq('.thumb_5_list > li:nth-child(5n+1)').addClass('first');
+			});
+		}(jQuery));
+	</script>
 </head>
 <body>
 <div class="temp_container">
