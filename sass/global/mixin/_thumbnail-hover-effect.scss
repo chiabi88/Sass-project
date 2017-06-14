@@ -17,23 +17,29 @@
 ///	    opacity: 0.8;
 ///	  }
 @mixin thumbnail-effect(
-	$thumbnail-effect-target: null,
-	$thumbnail-effect-name: 'zoom-in'
+  $thumbnail-effect-target: null,
+  $thumbnail-effect-name: 'zoom-in'
 ){
-	// 타켓이 설정 되지 않을경우 warn 띄움
-	@if type-of($thumbnail-effect-target) != 'string' {
-    @warn '이펙트 대상은($thumbnail-effect-target) 필수 입력입니다'
+  // 타켓이 설정 되지 않을경우 warn 띄움
+  @if type-of($thumbnail-effect-target) != 'string' {
+    @warn '이펙트 대상은($thumbnail-effect-target) 필수 입력입니다';
   }
+
+  @if $thumbnail-effect-name == 'zoom-in' {
 	#{$thumbnail-effect-target} > img {
-		transition: all 0.3s;
-	}
-	@include hover {
-		#{$thumbnail-effect-target} > img {
-			@if $thumbnail-effect-name == 'zoom-in'{
-        transform: scale(1.1);
-      } @else if $thumbnail-effect-name == 'blur' {
-      	 opacity: 0.8;
-      }
-		}
-	}
+	  transform: scale(1);
+      transition: transform 0.3s;
+    }
+    @include hover {
+	  transform: scale(1.1);
+    }
+  } @else if $thumbnail-effect-name == 'blur' {
+	#{$thumbnail-effect-target} > img {
+	  opacity: 1;
+      transition: opacity 0.3s;
+    }
+    @include hover {
+	  opacity: 0.8;
+    }
+  }
 }

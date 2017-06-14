@@ -10,8 +10,10 @@
     "sass": "node-sass --output-style expanded --source-map true -r sass -o css",
     "watch": "npm run sass -- -w",
     "server": "http-server -o",
+    "postcss": "postcss css/*.css --use autoprefixer -d dist/css/",
+    "postcss-w": "npm run postcss -- -w",
     "sassdoc": "sassdoc sass --dest sassdoc '!sass/vendor/*",
-    "start": "parallelshell \"npm run watch\" \"npm run server\""
+    "start": "parallelshell \"npm run watch\" \"npm run postcss-w\" \"npm run server\""
   },
   "repository": {
     "type": "git",
@@ -25,9 +27,11 @@
   },
   "homepage": "https://github.com/chiabi88/Sass-project#readme",
   "devDependencies": {
+    "autoprefixer": "^7.1.1",
     "http-server": "^0.10.0",
     "node-sass": "^4.5.3",
     "parallelshell": "^2.0.0",
+    "postcss-cli": "^4.1.0",
     "sassdoc": "^2.2.2"
   }
 }
