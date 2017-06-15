@@ -26,20 +26,20 @@
   }
 
   @if $thumbnail-effect-name == 'zoom-in' {
-	#{$thumbnail-effect-target} > img {
-	  transform: scale(1);
+	  #{$thumbnail-effect-target} > img {
+	    transform: scale(1);
       transition: transform 0.3s;
     }
     @include hover {
-	  transform: scale(1.1);
+	    transform: scale(1.1);
     }
   } @else if $thumbnail-effect-name == 'blur' {
-	#{$thumbnail-effect-target} > img {
-	  opacity: 1;
+	  #{$thumbnail-effect-target} > img {
+	    opacity: 1;
       transition: opacity 0.3s;
     }
     @include hover {
-	  opacity: 0.8;
+	    opacity: 0.8;
     }
   }
 }

@@ -85,20 +85,22 @@
     // effect 쓸경우
     @if type-of($thumb-grid-effect-target) == string {
       @include thumbnail-effect($thumb-grid-effect-target, $thumb-grid-effect-name);
-    }
-
-    &:nth-child(#{$thumb-grid-list}n + 1) {
-        clear: left;
-        @include span($thumb-grid-span first);
+    } @else {
+      #{$thumb-grid-effect-target} > img {
+        transition: none;
+      }
+      @include hover {
+        transform: none;
+        opacity: 1;
+      }
     }
 
     & img {
-        width: 100%;
+      width: 100%;
     }
   }
   
   // 미디어 쿼리 미지원하는 익스 하위에서 필요한 구문
-  // @debug $thumb-grid-query-fallback;
   @if $thumb-grid-query-fallback == true {
     & {
       overflow: hidden;
@@ -107,6 +109,17 @@
         clear: left;
         @include span($thumb-grid-span first);
       }
+      @include only-desktop {
+        &:nth-child(#{$thumb-grid-list}n + 1) {
+          clear: left;
+          @include span($thumb-grid-span first);
+        }
+      }
     }
-  }
+  } @else {
+    &:nth-child(#{$thumb-grid-list}n + 1) {
+      clear: left;
+      @include span($thumb-grid-span first);
+    }  
+  } 
 }

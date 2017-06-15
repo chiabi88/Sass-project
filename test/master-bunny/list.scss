@@ -23,19 +23,17 @@ $bp-small: 768px;
 // master-bunny list
 /* 데스크탑에서 썸네일 3개인 리스트 */
 .thumb_3_list{
-    @include only-desktop {
-        /* 썸네일 3개인 리스트: 데스크탑 */
-        // @include thumbnail-grid-list(3, auto, 3, 0.16, 46px, '.thumb_photo', 'blur', true);
-        @include thumbnail-grid-list(
-            $thumb-grid-list: 3,
-            $thumb-grid-columns: 3, 
-            $thumb-grid-gutters: 0.16, 
-            $thumb-grid-bottom-gutters: 46px, 
-            $thumb-grid-effect-target: '.thumb_photo',
-            $thumb-grid-effect-name: 'blur',
-            $thumb-grid-query-fallback: true
-        );
-    };
+    /* 썸네일 3개인 리스트: 데스크탑 */
+    // @include thumbnail-grid-list(3, auto, 3, 0.16, 46px, '.thumb_photo', 'blur', true);
+    @include thumbnail-grid-list(
+        $thumb-grid-list: 3,
+        $thumb-grid-columns: 3, 
+        $thumb-grid-gutters: 0.16, 
+        $thumb-grid-bottom-gutters: 46px, 
+        $thumb-grid-effect-target: '.thumb_photo',
+        $thumb-grid-effect-name: 'blur',
+        $thumb-grid-query-fallback: true
+    );
     @include only-no-desktop {
         /* 썸네일 3 -> 2개인 리스트 : 태블릿 모바일 공통 */
         @include thumbnail-grid-list(
@@ -49,18 +47,16 @@ $bp-small: 768px;
 
 /* 데스크탑에서 썸네일 2개인 리스트 */
 .thumb_2_list {
-    @include only-desktop {
-         /* 썸네일 2개인 리스트 : 데스크탑 */
-        @include thumbnail-grid-list(
-            $thumb-grid-list: 2,
-            $thumb-grid-columns: 2, 
-            $thumb-grid-gutters: 0.22, 
-            $thumb-grid-bottom-gutters: 55px,
-            $thumb-grid-effect-target: '.thumb_photo',
-            $thumb-grid-effect-name: 'blur',
-            $thumb-grid-query-fallback: true
-        );
-    };
+        /* 썸네일 2개인 리스트 : 데스크탑 */
+    @include thumbnail-grid-list(
+        $thumb-grid-list: 2,
+        $thumb-grid-columns: 2, 
+        $thumb-grid-gutters: 0.22, 
+        $thumb-grid-bottom-gutters: 55px,
+        $thumb-grid-effect-target: '.thumb_photo',
+        $thumb-grid-effect-name: 'blur',
+        $thumb-grid-query-fallback: true
+    );
     @include only-no-desktop {
         /* 썸네일 2개인 리스트 : 태블릿 모바일 공통 */
         @include thumbnail-grid-list(
@@ -74,18 +70,16 @@ $bp-small: 768px;
 
 /* 데스크탑에서 썸네일 5개인 리스트 */
 .thumb_5_list {
-    @include only-desktop {
-        /* 썸네일 5개인 리스트 : 데스크탑 */
-        @include thumbnail-grid-list(
-            $thumb-grid-list: 5,
-            $thumb-grid-columns: 5, 
-            $thumb-grid-gutters: 0.11, 
-            $thumb-grid-bottom-gutters: 2.02206%,
-            $thumb-grid-effect-target: '.thumb_photo',
-            $thumb-grid-effect-name: 'blur',
-            $thumb-grid-query-fallback: true
-        );
-    };
+    /* 썸네일 5개인 리스트 : 데스크탑 */
+    @include thumbnail-grid-list(
+        $thumb-grid-list: 5,
+        $thumb-grid-columns: 5, 
+        $thumb-grid-gutters: 0.11, 
+        $thumb-grid-bottom-gutters: 2.02206%,
+        $thumb-grid-effect-target: '.thumb_photo',
+        $thumb-grid-effect-name: 'blur',
+        $thumb-grid-query-fallback: true
+    );
     @include only-no-desktop {
         /* 썸네일 5 -> 2개인 리스트 : 태블릿 모바일 공통 */
         @include thumbnail-grid-list(

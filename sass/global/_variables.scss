@@ -33,8 +33,7 @@ $bp-small: 768px;
 /// no query fallback 구문을 출력할 것인지 결정하는 변수
 /// @type {Bool}
 /// @group breakpoint
-/// @link https://github.com/at-import/breakpoint/wiki/no-query-fallbacks
-$breakpoint-no-query-fallbacks: true;
+$bp-no-query-fallbacks: true;
 
 // components product-list 관련 변수
 
