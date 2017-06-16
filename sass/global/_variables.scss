@@ -30,11 +30,7 @@ $bp-wide: 1220px;
 /// @group breakpoint
 $bp-small: 768px;
 
-/// no query fallback 구문을 출력할 것인지 결정하는 변수
-/// @type {Bool}
-/// @group breakpoint
-$bp-no-query-fallbacks: true;
-
+// -----------------------------------------------
 // components product-list 관련 변수
 
 /// 제품 리스트 이펙트 사용 여부

@@ -101,7 +101,7 @@
   }
   
   // 미디어 쿼리 미지원하는 익스 하위에서 필요한 구문
-  @if $thumb-grid-query-fallback == true {
+  @if ($thumb-grid-query-fallback == true) {
     & {
       overflow: hidden;
 
