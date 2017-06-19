@@ -537,18 +537,14 @@ a:hover, a:active, a:focus {
   overflow: hidden;
 }
 
-.thumb_3_list > li.first {
+.lt-ie9 .thumb_3_list > li.first {
   clear: left;
-  width: 30.12048%;
-  float: left;
   margin-left: 0;
 }
 
 @media screen and (min-width: 1220px) {
-  .thumb_3_list:nth-child(3n + 1) {
+  .thumb_3_list > li:nth-child(3n + 1) {
     clear: left;
-    width: 30.12048%;
-    float: left;
     margin-left: 0;
   }
 }
@@ -582,10 +578,8 @@ a:hover, a:active, a:focus {
   .thumb_3_list > li img {
     width: 100%;
   }
-  .thumb_3_list:nth-child(2n + 1) {
+  .thumb_3_list > li:nth-child(2n + 1) {
     clear: left;
-    width: 46.51163%;
-    float: left;
     margin-left: 0;
   }
 }
@@ -629,18 +623,14 @@ a:hover, a:active, a:focus {
   overflow: hidden;
 }
 
-.thumb_2_list > li.first {
+.lt-ie9 .thumb_2_list > li.first {
   clear: left;
-  width: 45.04505%;
-  float: left;
   margin-left: 0;
 }
 
 @media screen and (min-width: 1220px) {
-  .thumb_2_list:nth-child(2n + 1) {
+  .thumb_2_list > li:nth-child(2n + 1) {
     clear: left;
-    width: 45.04505%;
-    float: left;
     margin-left: 0;
   }
 }
@@ -674,10 +664,8 @@ a:hover, a:active, a:focus {
   .thumb_2_list > li img {
     width: 100%;
   }
-  .thumb_2_list:nth-child(2n + 1) {
+  .thumb_2_list > li:nth-child(2n + 1) {
     clear: left;
-    width: 46.51163%;
-    float: left;
     margin-left: 0;
   }
 }
@@ -721,18 +709,14 @@ a:hover, a:active, a:focus {
   overflow: hidden;
 }
 
-.thumb_5_list > li.first {
+.lt-ie9 .thumb_5_list > li.first {
   clear: left;
-  width: 18.38235%;
-  float: left;
   margin-left: 0;
 }
 
 @media screen and (min-width: 1220px) {
-  .thumb_5_list:nth-child(5n + 1) {
+  .thumb_5_list > li:nth-child(5n + 1) {
     clear: left;
-    width: 18.38235%;
-    float: left;
     margin-left: 0;
   }
 }
@@ -766,10 +750,8 @@ a:hover, a:active, a:focus {
   .thumb_5_list > li img {
     width: 100%;
   }
-  .thumb_5_list:nth-child(2n + 1) {
+  .thumb_5_list > li:nth-child(2n + 1) {
     clear: left;
-    width: 46.51163%;
-    float: left;
     margin-left: 0;
   }
 }
@@ -826,5 +808,3 @@ a:hover, a:active, a:focus {
     display: none;
   }
 }
-
-/*# sourceMappingURL=list.css.map */

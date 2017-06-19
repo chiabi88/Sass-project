@@ -105,21 +105,21 @@
     & {
       overflow: hidden;
 
-      & > li.first {
+      .lt-ie9 & > li.first {
         clear: left;
-        @include span($thumb-grid-span first);
+        margin-left: 0;
       }
       @include only-desktop {
-        &:nth-child(#{$thumb-grid-list}n + 1) {
+        &> li:nth-child(#{$thumb-grid-list}n + 1) {
           clear: left;
-          @include span($thumb-grid-span first);
+          margin-left: 0;
         }
       }
     }
   } @else {
-    &:nth-child(#{$thumb-grid-list}n + 1) {
+    & > li:nth-child(#{$thumb-grid-list}n + 1) {
       clear: left;
-      @include span($thumb-grid-span first);
+      margin-left: 0;
     }  
   } 
 }
