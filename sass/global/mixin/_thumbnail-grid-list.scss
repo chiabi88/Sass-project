@@ -12,52 +12,62 @@
 /// @param {String} $thumb-grid-output ['float'] - susy layout output 값
 /// @group thumbnail
 /// @example scss - scss
-///   .thumbnail-4-list {
-///   	// 속기형
-///   	// @include thumbnail-grid-list( 4, 1200px, 12, 0.25, 30px, true, 'thumbnail-4-list__photo', 'blur', float);
-///   	@include thumbnail-grid-list(
-///   	  $thumb-grid-list: 4,
-///   	  $thumb-grid-container: 1200px, 
-///   	  $thumb-grid-columns: 12, 
-///   	  $thumb-grid-gutters: 0.25, 
-///   	  $thumb-grid-bottom-gutters: 30px, 
-///   	  $thumb-grid-effect-target: 'thumbnail-4-list__photo',
-///   	  $thumb-grid-effect-name: 'blur',
-///       $thumb-grid-output: 'float'
-///   	);
-///   }
+///  .thumb_3_list{
+///    /* 썸네일 3개인 리스트: 데스크탑 */
+///    // @include thumbnail-grid-list(3, auto, 3, 0.16, 46px, '.thumb_photo', 'blur', true);
+///    @include thumbnail-grid-list(
+///        $thumb-grid-list: 3,
+///        $thumb-grid-columns: 3, 
+///        $thumb-grid-gutters: 0.16, 
+///        $thumb-grid-bottom-gutters: 46px, 
+///        $thumb-grid-effect-target: '.thumb_photo',
+///        $thumb-grid-effect-name: 'blur',
+///        $thumb-grid-query-fallback: true
+///    );
+///  }
 /// @example css - css output
-///   .thumbnail-4-list {
-///     max-width: 1200px;
-///     margin-left: auto;
-///     margin-right: auto;
-///   }
-///   .thumbnail-4-list:after {
-///     content: " ";
-///     display: block;
-///     clear: both;
-///   }
-///   .thumbnail-4-list > li {
-///     width: 23.72881%;
-///     float: left;
-///     margin-left: 1.69492%;
-///     margin-bottom: 30px;
-///   }
-///   .thumbnail-4-list > li thumbnail-4-list__photo > img {
-///     transition: all 0.3s;
-///   }
-///   .thumbnail-4-list > li:hover thumbnail-4-list__photo > img, .thumbnail-4-list > li:active thumbnail-4-list__photo > img, .thumbnail-4-list > li:focus thumbnail-4-list__photo > img {
-///     opacity: 0.8;
-///   }
-///   .thumbnail-4-list > li:nth-child(4n + 1) {
-///     clear: left;
-///     width: 23.72881%;
-///     float: left;
-///     margin-left: 0;
-///   }
-///   .thumbnail-4-list > li img {
-///     width: 100%;
-///   }
+///  .thumb_3_list {
+///    /* 썸네일 3개인 리스트: 데스크탑 */
+///    max-width: 100%;
+///    margin-left: auto;
+///    margin-right: auto;
+///    margin-bottom: -46px;
+///  }
+///  .thumb_3_list:after {
+///    content: " ";
+///    display: block;
+///    clear: both;
+///  }
+///  .thumb_3_list > li {
+///    width: 30.12048%;
+///    float: left;
+///    margin-left: 4.81928%;
+///    margin-bottom: 46px;
+///  }
+///  .thumb_3_list > li .thumb_photo > img {
+///    opacity: 1;
+///    -webkit-transition: opacity 0.3s;
+///    transition: opacity 0.3s;
+///  }
+///  .thumb_3_list > li:hover, .thumb_3_list > li:active, .thumb_3_list > li:focus {
+///    opacity: 0.8;
+///  }
+///  .thumb_3_list > li img {
+///    width: 100%;
+///  }
+///  .lt-ie9 .thumb_3_list {
+///    overflow: hidden;
+///  }
+///  .lt-ie9 .thumb_3_list > li.first {
+///    clear: left;
+///    margin-left: 0;
+///  }
+///  @media screen and (min-width: 1220px) {
+///    .thumb_3_list > li:nth-child(3n + 1) {
+///      clear: left;
+///      margin-left: 0;
+///    }
+///  }
 @mixin thumbnail-grid-list(
   $thumb-grid-list: 1,
   $thumb-grid-container: auto, 
@@ -102,20 +112,22 @@
   
   // 미디어 쿼리 미지원하는 익스 하위에서 필요한 구문
   @if ($thumb-grid-query-fallback == true) {
-    & {
-      overflow: hidden;
-
-      .lt-ie9 & > li.first {
-        clear: left;
-        margin-left: 0;
+    @at-root {
+      .lt-ie9 & {
+        overflow: hidden;
+        & > li.first {
+            clear: left;
+            margin-left: 0;
+        }
       }
       @include only-desktop {
-        &> li:nth-child(#{$thumb-grid-list}n + 1) {
+        & > li:nth-child(#{$thumb-grid-list}n + 1) {
           clear: left;
           margin-left: 0;
         }
       }
     }
+
   } @else {
     & > li:nth-child(#{$thumb-grid-list}n + 1) {
       clear: left;

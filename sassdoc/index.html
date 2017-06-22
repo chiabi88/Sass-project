@@ -98,69 +98,81 @@
   
   // 미디어 쿼리 미지원하는 익스 하위에서 필요한 구문
   @if ($thumb-grid-query-fallback == true) {
-    &amp; {
-      overflow: hidden;
-
-      &amp; &gt; li.first {
-        clear: left;
-        @include span($thumb-grid-span first);
+    @at-root {
+      .lt-ie9 &amp; {
+        overflow: hidden;
+        &amp; &gt; li.first {
+            clear: left;
+            margin-left: 0;
+        }
       }
       @include only-desktop {
-        &amp;:nth-child(#{$thumb-grid-list}n + 1) {
+        &amp; &gt; li:nth-child(#{$thumb-grid-list}n + 1) {
           clear: left;
-          @include span($thumb-grid-span first);
+          margin-left: 0;
         }
       }
     }
+
   } @else {
-    &amp;:nth-child(#{$thumb-grid-list}n + 1) {
+    &amp; &gt; li:nth-child(#{$thumb-grid-list}n + 1) {
       clear: left;
-      @include span($thumb-grid-span first);
+      margin-left: 0;
     }  
   } 
- }" data-collapsed="@mixin thumbnail-grid-list($thumb-grid-list: 1, $thumb-grid-container: auto, $thumb-grid-columns: 12, $thumb-grid-gutters: 0.25, $thumb-grid-bottom-gutters: 0, $thumb-grid-effect-target: null, $thumb-grid-effect-name: &#39;zoom-in&#39;, $thumb-grid-query-fallback: false, $thumb-grid-output: &#39;float&#39;) { ... }"><code>@mixin thumbnail-grid-list($thumb-grid-list: 1, $thumb-grid-container: auto, $thumb-grid-columns: 12, $thumb-grid-gutters: 0.25, $thumb-grid-bottom-gutters: 0, $thumb-grid-effect-target: null, $thumb-grid-effect-name: &#39;zoom-in&#39;, $thumb-grid-query-fallback: false, $thumb-grid-output: &#39;float&#39;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>썸네일 리스트 스니펫 믹스인 susy에 의존함</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-list</code></th><td data-label="desc"><p>리스트 한줄에 들어갈 아이템 개수</p></td><td data-label="type"><code>Number (unitless)</code></td><td data-label="default"><code>1</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-container</code></th><td data-label="desc"><p>susy layout container 값</p></td><td data-label="type"><code>Auto</code> or <code>Number (with unit)</code></td><td data-label="default"><code>auto</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-columns</code></th><td data-label="desc"><p>susy layout columns 값</p></td><td data-label="type"><code>Number (unitless)</code></td><td data-label="default"><code>12</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-gutters</code></th><td data-label="desc"><p>susy layout gutter 값</p></td><td data-label="type"><code>Number (unitless)</code></td><td data-label="default"><code>0.25</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-bottom-gutters</code></th><td data-label="desc"><p>리스트 아이템 margin-bottom 값</p></td><td data-label="type"><code>Number (with unit)</code></td><td data-label="default"><code>0</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-effect-target</code></th><td data-label="desc"><p>썸네일 오버 이펙트 필요할 경우 대상이 되는 img의 부모요소 선택자</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>null</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-effect-name</code></th><td data-label="desc"><p>썸네일 오버 이펙트 이름 [&#39;zoom-in&#39; | &#39;blur&#39;]</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&#39;zoom-in&#39;</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-query-fallback</code></th><td data-label="desc"><p>미디어 쿼리 미지원 폴백 구문 노출여부, &#39;only-desktop&#39; 믹스인 안에서 사용시 true로 설정</p></td><td data-label="type"><code>Bool</code></td><td data-label="default"><code>false</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-output</code></th><td data-label="desc"><p>susy layout output 값</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&#39;float&#39;</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>scss</p></div><pre class="example__code language-scss"><code>.thumbnail-4-list {
-	// 속기형
-	// @include thumbnail-grid-list( 4, 1200px, 12, 0.25, 30px, true, &#39;thumbnail-4-list__photo&#39;, &#39;blur&#39;, float);
-	@include thumbnail-grid-list(
-	  $thumb-grid-list: 4,
-	  $thumb-grid-container: 1200px, 
-	  $thumb-grid-columns: 12, 
-	  $thumb-grid-gutters: 0.25, 
-	  $thumb-grid-bottom-gutters: 30px, 
-	  $thumb-grid-effect-target: &#39;thumbnail-4-list__photo&#39;,
-	  $thumb-grid-effect-name: &#39;blur&#39;,
-    $thumb-grid-output: &#39;float&#39;
-	);
-}</code></pre></div><div class="item__example example"><div class="example__description"><p>css output</p></div><pre class="example__code language-css"><code>.thumbnail-4-list {
-  max-width: 1200px;
+ }" data-collapsed="@mixin thumbnail-grid-list($thumb-grid-list: 1, $thumb-grid-container: auto, $thumb-grid-columns: 12, $thumb-grid-gutters: 0.25, $thumb-grid-bottom-gutters: 0, $thumb-grid-effect-target: null, $thumb-grid-effect-name: &#39;zoom-in&#39;, $thumb-grid-query-fallback: false, $thumb-grid-output: &#39;float&#39;) { ... }"><code>@mixin thumbnail-grid-list($thumb-grid-list: 1, $thumb-grid-container: auto, $thumb-grid-columns: 12, $thumb-grid-gutters: 0.25, $thumb-grid-bottom-gutters: 0, $thumb-grid-effect-target: null, $thumb-grid-effect-name: &#39;zoom-in&#39;, $thumb-grid-query-fallback: false, $thumb-grid-output: &#39;float&#39;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>썸네일 리스트 스니펫 믹스인 susy에 의존함</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-list</code></th><td data-label="desc"><p>리스트 한줄에 들어갈 아이템 개수</p></td><td data-label="type"><code>Number (unitless)</code></td><td data-label="default"><code>1</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-container</code></th><td data-label="desc"><p>susy layout container 값</p></td><td data-label="type"><code>Auto</code> or <code>Number (with unit)</code></td><td data-label="default"><code>auto</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-columns</code></th><td data-label="desc"><p>susy layout columns 값</p></td><td data-label="type"><code>Number (unitless)</code></td><td data-label="default"><code>12</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-gutters</code></th><td data-label="desc"><p>susy layout gutter 값</p></td><td data-label="type"><code>Number (unitless)</code></td><td data-label="default"><code>0.25</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-bottom-gutters</code></th><td data-label="desc"><p>리스트 아이템 margin-bottom 값</p></td><td data-label="type"><code>Number (with unit)</code></td><td data-label="default"><code>0</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-effect-target</code></th><td data-label="desc"><p>썸네일 오버 이펙트 필요할 경우 대상이 되는 img의 부모요소 선택자</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>null</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-effect-name</code></th><td data-label="desc"><p>썸네일 오버 이펙트 이름 [&#39;zoom-in&#39; | &#39;blur&#39;]</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&#39;zoom-in&#39;</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-query-fallback</code></th><td data-label="desc"><p>미디어 쿼리 미지원 폴백 구문 노출여부, &#39;only-desktop&#39; 믹스인 안에서 사용시 true로 설정</p></td><td data-label="type"><code>Bool</code></td><td data-label="default"><code>false</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumb-grid-output</code></th><td data-label="desc"><p>susy layout output 값</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&#39;float&#39;</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>scss</p></div><pre class="example__code language-scss"><code>.thumb_3_list{
+  /* 썸네일 3개인 리스트: 데스크탑 */
+  // @include thumbnail-grid-list(3, auto, 3, 0.16, 46px, &#39;.thumb_photo&#39;, &#39;blur&#39;, true);
+  @include thumbnail-grid-list(
+      $thumb-grid-list: 3,
+      $thumb-grid-columns: 3, 
+      $thumb-grid-gutters: 0.16, 
+      $thumb-grid-bottom-gutters: 46px, 
+      $thumb-grid-effect-target: &#39;.thumb_photo&#39;,
+      $thumb-grid-effect-name: &#39;blur&#39;,
+      $thumb-grid-query-fallback: true
+  );
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>css output</p></div><pre class="example__code language-css"><code>.thumb_3_list {
+  /* 썸네일 3개인 리스트: 데스크탑 */
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: -46px;
 }
-.thumbnail-4-list:after {
+.thumb_3_list:after {
   content: &quot; &quot;;
   display: block;
   clear: both;
 }
-.thumbnail-4-list &gt; li {
-  width: 23.72881%;
+.thumb_3_list &gt; li {
+  width: 30.12048%;
   float: left;
-  margin-left: 1.69492%;
-  margin-bottom: 30px;
+  margin-left: 4.81928%;
+  margin-bottom: 46px;
 }
-.thumbnail-4-list &gt; li thumbnail-4-list__photo &gt; img {
-  transition: all 0.3s;
+.thumb_3_list &gt; li .thumb_photo &gt; img {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
 }
-.thumbnail-4-list &gt; li:hover thumbnail-4-list__photo &gt; img, .thumbnail-4-list &gt; li:active thumbnail-4-list__photo &gt; img, .thumbnail-4-list &gt; li:focus thumbnail-4-list__photo &gt; img {
+.thumb_3_list &gt; li:hover, .thumb_3_list &gt; li:active, .thumb_3_list &gt; li:focus {
   opacity: 0.8;
 }
-.thumbnail-4-list &gt; li:nth-child(4n + 1) {
+.thumb_3_list &gt; li img {
+  width: 100%;
+}
+.lt-ie9 .thumb_3_list {
+  overflow: hidden;
+}
+.lt-ie9 .thumb_3_list &gt; li.first {
   clear: left;
-  width: 23.72881%;
-  float: left;
   margin-left: 0;
 }
-.thumbnail-4-list &gt; li img {
-  width: 100%;
+@media screen and (min-width: 1220px) {
+  .thumb_3_list &gt; li:nth-child(3n + 1) {
+    clear: left;
+    margin-left: 0;
+  }
 }</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#thumbnail-mixin-thumbnail-effect"><code>thumbnail-effect</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>chiabi88</p></li></ul></section><section class="main__item container item" id="thumbnail-mixin-thumbnail-effect"><h3 class="item__heading"><a class="item__name" href="#mixin-thumbnail-effect">thumbnail-effect</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin thumbnail-effect($thumbnail-effect-target: null, $thumbnail-effect-name: &#39;zoom-in&#39;) { 
   // 타켓이 설정 되지 않을경우 warn 띄움
   @if type-of($thumbnail-effect-target) != &#39;string&#39; {
@@ -187,11 +199,10 @@
  }" data-collapsed="@mixin thumbnail-effect($thumbnail-effect-target: null, $thumbnail-effect-name: &#39;zoom-in&#39;) { ... }"><code>@mixin thumbnail-effect($thumbnail-effect-target: null, $thumbnail-effect-name: &#39;zoom-in&#39;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>썸네일 이펙트 스니펫 믹스인</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumbnail-effect-target</code></th><td data-label="desc"><p>썸네일 오버 이펙트 필요할 경우 대상이 되는 img의 부모요소 선택자</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>null</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$thumbnail-effect-name</code></th><td data-label="desc"><p>썸네일 오버 이펙트 이름 [&#39;zoom-in&#39; | &#39;blur&#39;]</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&#39;zoom-in&#39;</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>scss</p></div><pre class="example__code language-scss"><code>.thumbnail-list {
 	@include thumbnail-effect(&#39;.thumbnail-item&#39;,&#39;blur&#39;);
 }</code></pre></div><div class="item__example example"><div class="example__description"><p>css output</p></div><pre class="example__code language-css"><code>.thumbnail-list .thumbnail-item &gt; img {
-  transition: all 0.3s;
+  opacity: 1;
+  transition: opacity 0.3s;
 }
-.thumbnail-list:hover .thumbnail-item &gt; img, 
-.thumbnail-list:active .thumbnail-item &gt; img, 
-.thumbnail-list:focus .thumbnail-item &gt; img {
+.thumbnail-list:hover, .thumbnail-list:active, .thumbnail-list:focus {
   opacity: 0.8;
 }</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#thumbnail-mixin-thumbnail-grid-list"><code>thumbnail-grid-list</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>chiabi88</p></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-variable"><h2 class="main__heading--secondary"><div class="container">variables</div></h2><section class="main__item container item" id="undefined-variable-font-path"><h3 class="item__heading"><a class="item__name" href="#variable-font-path">font-path</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$font-path: &#39;../font/&#39;;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>폰트 경로 : default - &#39;../font/&#39;</p></div><h3 class="item__sub-heading">Type</h3><p><code>{string}</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-font"><code>font</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-font"><code>font</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-font"><code>font</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-font"><code>font</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-font"><code>font</code></a></li></ul></section><section class="main__item container item" id="undefined-variable-root-font-size"><h3 class="item__heading"><a class="item__name" href="#variable-root-font-size">root-font-size</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$root-font-size: 16px;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>루트 폰트 사이즈 : default - 16px</p></div><h3 class="item__sub-heading">Type</h3><p><code>{number (with unit)}</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#unit-function-rem"><code>rem</code></a></li></ul></section><section class="main__item container item" id="undefined-variable-rem-support"><h3 class="item__heading"><a class="item__name" href="#variable-rem-support">rem-support</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$rem-support: true;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>rem 지원여부 : default - true</p></div><h3 class="item__sub-heading">Type</h3><p><code>{bool}</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#unit-mixin-px-to-rem"><code>px-to-rem</code></a></li></ul></section></section><section class="main__sub-section" id="undefined-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="undefined-mixin-font"><h3 class="item__heading"><a class="item__name" href="#mixin-font">font</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin font($font-name, $font-path: &#39;$font-path + $font-name&#39;, $font-option: normal normal) { 
   @font-face {

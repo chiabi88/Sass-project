@@ -9,6 +9,7 @@
 .temp_container {
     @include container(1200px);
     & > section {
+        clear: both;
         margin-top: 20px;
         & > h2 {
             font-size: 20px;

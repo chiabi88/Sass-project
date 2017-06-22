@@ -8,18 +8,18 @@ Sass 함수와 믹스인, CSS 사용자 정의 속성 및 CSS 클래스 세트�
 
 이 모듈 색상은 MDC-Web의 세가지 테마 색상에서 파생된다.
 
-> * Primary : 기본 색상, 앱 막대와 같은 여러 UI 요소에 적용됨
-> * Accent : 강조색상, [FAB]> (http://davidlab.net/google-design-ko/components/buttons-floating-action-button.html)와 > 같은 UI 요소에 적용됨
-> * Background : 배경색, UI위에 그려지는 색
+* **Primary** : 기본 색상, 앱 막대와 같은 여러 UI 요소에 적용됨
+* **Accent** : 강조색상, [FAB](http://davidlab.net/google-design-ko/components/buttons-floating-action-button.html)와 같은 UI 요소에 적용됨
+* **Background** : 배경색, UI위에 그려지는 색
 
 테마 색상을 배경으로 사용할 때 대비가 충분한 텍스트 색상을 선택하는 것이 중요함  
 또한 텍스트 스타일을 고려하는 것도 중요함
 
-> * Primary, 대부분의 텍스트에 사용됨
-> * Secondary, 시각적 계층 구조에서 더 낮은 텍스트에 사용됨
-> * Hint, 텍스트 힌트에 사용 됨(텍스트 필드와 라벨 같은)
-> * Disabled, 컴포넌트와 컨텐츠에서 비활성화 된 텍스트에 사용
-> * Icon, 아이콘에 사용됨
+* **Primary** : 대부분의 텍스트에 사용됨
+* **Secondary** : 시각적 계층 구조에서 더 낮은 텍스트에 사용됨
+* **Hint** :  텍스트 힌트에 사용 됨(텍스트 필드와 라벨 같은)
+* **Disabled** : 컴포넌트와 컨텐츠에서 비활성화 된 텍스트에 사용
+* **Icon** : 아이콘에 사용됨
 
 ※ 기본 색상과 기본 텍스트를 혼동하지 말 것,  
 전자는 시각적인 정체성을 확립하고 애플리케이션에 많은 부분을 색칠하는 데 사용되는 기본 테마색을 나타냄  
