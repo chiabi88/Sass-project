@@ -128,6 +128,118 @@ $mdc-theme-background: #ffffff;
 
 ### [mixin] mdc-theme-dark
 
+MDC-Web 컴포넌트 개발에 대부분 사용되며, 컴포넌트에 어두운 테마를 적용하는 표준 방법을 제공한다.  
+(※ `mdc-theme-dark`는 테마와 관련 된 배경색을 변경하지 않는다.)
+
+대신 `mdc-theme-dark`와 CSS 클래스는 페이지의 특정 섹션이나 페이지 처리가 배경처럼 어두운 색상을 사용한 경우 사용하도록 되어 있다.  
+여기서 우리가 사용하는 기본 색상은 의미가 없다.
+
+구성 요소에 적합한 선택자를 만들고 내부에 제공된 내용을 적용한다.
+
+```scss
+// $root-selector: 베이스 선택자가 아닐 경우 전달
+// $compound: Modifier 클래스와 함께 사용하는 경우 true전달
+
+@mixin mdc-theme-dark($root-selector: null, $compound: false) {
+  // 만약 지정한 베이스 선택자가 있으면
+  @if ($root-selector) {
+    // 루트에 다음 블록 구문을 추가
+    @at-root {
+      // compound가 true이면
+      // [베이스 선택자]--theme-dark[부모요소참조], .mdc-theme-dark [부모요소 참조]에 구문을 추가
+      @if ($compound) {
+        #{$root-selector}--theme-dark#{&},
+        .mdc-theme--dark & {
+          @content;
+        }
+      }
+      // [베이스 선택자]--theme-dark [부모요소 참조], .mdc-theme-dark [부모요소 참조]
+      @else {
+        #{$root-selector}--theme-dark &,
+        .mdc-theme--dark & {
+          @content;
+        }
+      }
+    }
+  }
+  // 베이스 선택자 없으면 
+  // [부모요소참조]--theme-dark, .mdc-theme--dark [부모요소참조]에 구문을 추가
+  @else {
+    &--theme-dark,
+    .mdc-theme--dark & {
+      @content;
+    }
+  }
+}
+```
+
+#### 사용 예
+
+```scss
+.mdc-foo {
+  color: black;
+
+  @include mdc-theme-dark {
+    color: white;
+  }
+  &__bar {
+    background: black;
+    // 베이스 선택자가 아닌 다른 것에 믹스인을 사용하는 경우 베이스 선택자를 매개 변수로 지정해야함
+    @include mdc-theme-dart(".mdc-foo") {
+      background: white;
+    }
+  }
+}
+.mdc-foo--disabled {
+  opacity: 0.38;
+  // Modifier 클래스에 믹스인을 사용하는 경우 두번째 인자에 true를 전달  
+  // 믹스인에 혼합 클래스를 자손선택자가 아닌 멀티 클래스로 취급하도록 함
+  @include mdc-theme-dark(".mdc-foo", /* $compound: */ true) {
+    opacity: 0.5;
+  }
+}
+```
+```css
+/* css 컴파일 */
+.mdc-foo {
+  color: black;
+}
+.mdc-foo--theme-dark ,
+.mdc-theme--dark .mdc-foo {
+  color: white;
+}
+.mdc-foo__bar {
+  background: black;
+}
+.mdc-foo--theme-dark .mdc-foo__bar,
+.mdc-theme--dark .mdc-foo__bar {
+  background: white;
+}
+
+.mdc-foo--disabled {
+  opacity: 0.38;
+}
+.mdc-foo--theme-dark.mdc-foo--disabled,
+.mdc-theme--dark .mdc-foo-disabled {
+  opacity: 0.5;
+}
+```
+
+사용자는 다음과 같이 구체적으로 타켓팅해서 어두운 테마를 컴포넌트에 적용할 수 있다.
+
+```html
+<div class="mdc-foo mdc-foo--theme-dark"></div>
+```
+
+또는 mdc-theme--dark 전역 Modifier 클래스를 사용하여 부모 요소 아래의 모든 항목에 적용한다. 
+
+```html
+<body class="mdc-theme--dark">
+  <div class="mdc-foo"></div>
+</body>
+```
+
+
 ***
 
 + [Sass Scrip Functions](http://sass-lang.com/documentation/Sass/Script/Functions.html)
@@ -138,7 +250,7 @@ $mdc-theme-background: #ffffff;
 + var() :  
 CSS 변수는 CSS작성자가 정의한 문서 전체에서 재사용 할 특정 값을 포함하는 엔티티  
 커스텀 속성 표기법(예: --main-color: black;) 을 사용하여 설정되면  
-var() 함수(예: ㅍㅁㄱ(--main-color);) 를 사용하여 액세스 할 수 있다.
+var() 함수(예: var(--main-color);) 를 사용하여 액세스 할 수 있다.
 ※ No support - IE, IE Phone  
   - [var()](https://developer.mozilla.org/ko/docs/Web/CSS/var)  
   - [Using CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)
