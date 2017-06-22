@@ -2,9 +2,10 @@
 
 MDC-web 컴포넌트 내에서 RTL(Right-to-Left)/ 양방향 레이아웃을 지원하기 위해 Sass 믹스인을 제공한다.
 
+> [원문](https://material.io/components/web/catalog/rtl/)  
 > [참고 : 구글 디자인 양 방향성](http://davidlab.net/google-design-ko/usability/bidirectionality.html)
 
-## mdc-rtl
+### [mixin] mdc-rtl
 
 MDC-web 컴포넌트가 RTL 레이아웃의 컨텍스트 내에 있을 때 적용 될 규칙을 만듦
 
@@ -31,7 +32,7 @@ MDC-web 컴포넌트가 RTL 레이아웃의 컨텍스트 내에 있을 때 적�
 }
 ```
 
-### 사용 예
+#### 사용 예
 
 ```scss
 .mdc-foo {
@@ -84,7 +85,7 @@ MDC-web 컴포넌트가 RTL 레이아웃의 컨텍스트 내에 있을 때 적�
 </html>
 ```
 
-## mdc-rtl-reflexive-box 
+### [mixin] mdc-rtl-reflexive-box
 
 기본 박스 모델 속성(예: margin / border/ padding)과 기본 방향을 `#{$base-property} - #{$default-direction}`로   
 조합하여 값을 적용하지만, RTL 컨텍스트 내에서는 방향을 반전하는 규칙을 내보낸다. 
@@ -112,7 +113,7 @@ MDC-web 컴포넌트가 RTL 레이아웃의 컨텍스트 내에 있을 때 적�
 }
 ```
 
-### 예시
+#### 예시
 ```scss
 .mdc-foo {
   @include mdc-rtl-reflexive-box(margin, left, 8px);
@@ -146,7 +147,7 @@ MDC-web 컴포넌트가 RTL 레이아웃의 컨텍스트 내에 있을 때 적�
 
 ※ 이 함수는 항상 RTL컨텍스트의 원래 값을 0으로 만든다, 값을 뒤집으려면 `mdc-rtl-reflexive-property`를 사용한다.
 
-## mdc-rtl-reflexive-property
+### [mixin] mdc-rtl-reflexive-property
 
 LTR 컨텍스트에서 기본 속성을 가져와서 -left및 -right 로 할당하는 규칙을 내보냄,  
 RTL 컨텍스트에서 그 반대의 경우도 마찬가지
@@ -160,7 +161,7 @@ RTL 컨텍스트에서 그 반대의 경우도 마찬가지
 }
 ```
 
-### 예제
+#### 예제
 
 ```scss
 .mdc-foo { 
@@ -191,7 +192,7 @@ RTL 컨텍스트에서 그 반대의 경우도 마찬가지
 }
 ```
 
-## mdc-rtl-reflexive-position
+### [mixin] mdc-rtl-reflexive-position
 
 값뿐만 아니라 수평 위치 속성(left 또는 right)을 지정하는 인수를 취하여  
 LTR 컨텍스트의 지정된 위치에 값을 적용하고 RTL 컨텍스트에서는 전환함
@@ -217,7 +218,7 @@ LTR 컨텍스트의 지정된 위치에 값을 적용하고 RTL 컨텍스트에�
 }
 ```
 
-### 예제
+#### 예제
 
 ```scss
 .mdc-foo { 
@@ -251,7 +252,7 @@ LTR 컨텍스트의 지정된 위치에 값을 적용하고 RTL 컨텍스트에�
 }
 ```
 
-## mdc-rtl-reflexive_
+### [mixin] mdc-rtl-reflexive_
 
 `mdc-rtl-reflexive-property` 믹스인 사용 시에 각 left, right 값을  
 `$left-property`(#{$base-property}-left), `$right-property`(#{$base-property}-right)의 값으로 담음  
