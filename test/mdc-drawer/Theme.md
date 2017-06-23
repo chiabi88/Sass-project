@@ -27,13 +27,13 @@ Sass 함수와 믹스인, CSS 사용자 정의 속성 및 CSS 클래스 세트�
 
 텍스트 대조 색상은 Sass level에서 자동으로 계산되고 이 모듈의 일부로 노출 됨
 
-## 사용
-
 **Sass 구성**
 > _constants.scss  
 > _functions.scss  
 > _variables.scss  
 > _mixins.scss  
+
+## Mixin
 
 ### 테마 컬러 변경
 
@@ -239,6 +239,80 @@ MDC-Web 컴포넌트 개발에 대부분 사용되며, 컴포넌트에 어두운
 </body>
 ```
 
+## Color Functions
+
+### [function] mdc-theme-luminance
+
+주어진 색상의 휘도(luminance)값 (0 - 1)을 계산함
+
+```scss
+// __constants.scss
+// contrast 계산에 사용하기 위해 사전 계산 된 선형 색상 채널 값
+$mdc-theme-linear-channel-values:
+  0
+  .0003035269835488375
+  .000607053967097675
+  .0009105809506465125
+  // ...
+  .9822505503331171
+  .9911020971138298
+  1;
+
+// _functions.scss
+@function mdc-theme-luminance($color) {
+  $red: nth($mdc-theme-linear-channel-values, red($color) + 1);
+  $green: nth($mdc-theme-linear-channel-values, green($color) + 1);
+  $blue: nth($mdc-theme-linear-channel-values, blue($color) + 1);
+
+  @return .2126 * $red + .7152 * $green + .0722 * $blue;
+}
+```
+
+```scss
+@debug mdc-theme-luminance(#9c27b0); // 0.11654
+```
+
+### [function] mdc-theme-contrast
+
+두 색상 간의 대비 비율을 계산함
+```scss
+@function mdc-theme-contrast($back, $front) {
+  $backLum: mdc-theme-luminance($back) + .05;
+  $foreLum: mdc-theme-luminance($front) + .05;
+
+  @return max($backLum, $foreLum) / min($backLum, $foreLum);
+}
+```
+
+```scss
+@debug mdc-theme-contrast(#9c27b0, #000000); // 3.33071
+```
+
+### [function] mdc-theme-light-or-dark
+
+주어진 색상 위에 밝거나 어두운 텍스트를 사용할 것인지 여부를 결정
+
+```scss
+@function mdc-theme-light-or-dark($color) {
+  // 최소대비를 변수에 저장
+  $minimumContrast: 3.1;
+
+  $lightContrast: mdc-theme-contrast($color, white);
+  $darkContrast: mdc-theme-contrast($color, rgba(black, .87));
+
+  @if ($lightContrast < $minimumContrast) and ($darkContrast > $lightContrast) {
+    @return "dark";
+  }
+
+  @else {
+    @return "light";
+  }
+}
+```
+
+```scss
+@debug mdc-theme-light-or-dark(#9c27b0); // light
+```
 
 ***
 
@@ -264,3 +338,11 @@ var() 함수(예: var(--main-color);) 를 사용하여 액세스 할 수 있다.
 }
 ```
 
++ Sass Color Functions  
+  - red($color): 색상의 빨간색 성분을 가져옴
+  - green($color) : 색상의 초록색 성분을 가져옴
+  - blue($color) : 색상의 파란색 성분을 가져옴
++ [참고 : RGB와 HSB](https://yeun.github.io/2016/03/21/rgb-and-hsb.html)
++ Number Functions
+  - max($numbers...) : 여러가지 인수 중 최대값을 찾음
+  - min($numbers...) : 여러가지 인수 중 최소값을 찾음
