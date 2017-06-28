@@ -73,7 +73,7 @@ toolbar spacer 안에 내용을 배치할 수 있다.
 
 ### Persistent Drawer(지속적인 드로어)
 
-지속적인 드로어는 열거나 닫을 수 있다. 드로어는 컨텐츠와 동일한 계층 표면에 있다. 기본 적으로 닫혀있다.  
+지속적인 드로어는 열거나 닫을 수 있다. 드로어는 컨텐츠와 동일한 엘리베이션 표면에 있다. 기본적으로 닫혀있다.  
 드로어가 페이지 그리드 외부에 있고 열릴 때, 드로어는 더 작아진 뷰포트에 맞춰서 다른 컨텐츠 사이즈를 변경시킨다.  
 지속적인 드로어는 사용자가 닫을때까지 열려있다.
 
@@ -106,7 +106,38 @@ toolbar spacer 안에 내용을 배치할 수 있다.
 </aside>
 ```
 
+### Temporary drawer usage
+
+임시적인 드로어는 일반적으로 닫혀있고, 열릴 때 컨텐츠 보다 높은 엘리베이션에 슬라이딩하여 나타난다.  
+모든 사이즈의 디바이스에 적합하다.
+
+```html
+<aside class="mdc-temporary-drawer mdc-typography">
+  <nav class="mdc-temporary-drawer__drawer">
+    <header class="mdc-temporary-drawer__header">
+      <div class="mdc-temporary-drawer__header-content">
+        Header here
+      </div>
+    </header>
+    <nav id="icon-with-text-demo" class="mdc-temporary-drawer__content mdc-list">
+      <a class="mdc-list-item mdc-temporary-drawer--selected" href="#">
+        <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">inbox</i>Inbox
+      </a>
+      <a class="mdc-list-item" href="#">
+        <i class="material-icons mdc-list-item__start-detail" aria-hidden="true">star</i>Star
+      </a>
+    </nav>
+  </nav>
+</aside>
+```
+
+#### Headers and toolbar spacers
+
+임시적인 드로어는 툴바 스페이서, 헤더 또는 둘다 사용할 수 있다.
+
+## slidable
 
 ***
 
-+ [네비게이션 드로어](http://davidlab.net/google-design-ko/patterns/navigation-drawer.html)
++ [머티리얼 디자인 : 네비게이션 드로어](http://davidlab.net/google-design-ko/patterns/navigation-drawer.html)
++ [머티리얼 디자인 : 엘리베이션과 그림자](http://davidlab.net/google-design-ko/what-is-material/elevation-shadows.html)
