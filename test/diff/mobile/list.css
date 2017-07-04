@@ -10,18 +10,6 @@
 	padding: 48px 15px 45px;
 	z-index: 9999
 }
-.search_wrap .no_list_txt{
-	margin-top: 25px;
-    font-family: 'NanumMyeongjo';
-	color:rgb(58,46,44);
-	font-size:14px;
-	line-height: 22px;
-}
-.search_wrap .no_list_txt p{
-	margin-top: 4px;
-    font-family: 'GTSectraFineBook';
-}
-.search_wrap .no_list_txt span{font-family: 'GTSectraFineMedium','NanumMyeongjoBold';}
 .srh_box:before{
 	position: absolute;
 	top: 0;
@@ -358,12 +346,13 @@ body.filter_on .filter_box{
 	content: '';
 }
 .goods_list{
+	overflow: visible !important;
 	clear: both;	
 	display: flex;
 	flex-wrap: wrap;
 }
 .goods_list > li{
-	overflow: hidden;
+	/* overflow: hidden; */
 	float: left;
 	flex-basis: 45.39%;
 	width: 45.39%;
@@ -378,8 +367,8 @@ body.filter_on .filter_box{
 }
 .goods_list > li > div > .btn{
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	top: 15px;
+	right: 5px;
 	z-index: 333;
 }
 .goods_list > li > div >.btn a{
@@ -389,12 +378,13 @@ body.filter_on .filter_box{
 	position: relative;
 	z-index:999;
 	display: block;
-	width: 19px;
-	height: 45px;
+	width: 30px;
+	height: 30px;
 	text-indent: -9999px;
 	background: url(/images/mobile/common/ico_u_cart.svg) no-repeat 50% 50%;
 	background-size: 13px 18px;
 	transition: all 0.3s ease-in-out;
+	margin: -6px 6px 0 0;
 }
 .goods_list > li > div >.btn .cart:after {
 	position:absolute;
@@ -435,7 +425,7 @@ body.filter_on .filter_box{
 .goods_list > li  .photo img{
 	width: 100%;
 }
-.goods_list .wish{
+/* .goods_list .wish{
 	width: 45px;
 	height: 45px;
 	border-radius: 50%;
@@ -444,7 +434,7 @@ body.filter_on .filter_box{
 .goods_list .wish:after{	
 	width: 45px;
 	height: 45px;
-}
+} */
 .goods_list .txt_box{
 	padding: 5px 0 0;
 	font-size: 1.167rem;
@@ -604,12 +594,6 @@ body.filter_on .filter_box{
 	}
 	.goods_list > li:nth-child(2n+1){
 		clear: both;
-	}
-	.goods_list > li > div > .btn{
-		position: absolute;
-		top: 5px;
-		right: 5px;
-		z-index: 333;
 	}
 	.goods_list .tag_box{
 		margin-top: 3px;

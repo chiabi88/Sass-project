@@ -79,13 +79,17 @@
 .goods_view .slick-dots button{margin-right: 14px;}
 .goods_view .btn_wish{
 	position: absolute;	
-	top: 15px;
+	top: 25px;
 	right: 15px;
+	width: 30px;
+	height: 30px;
+/* 	top: 15px;
+	right: 5px;
 	width: 40px;
 	height: 40px;
 	padding: 5px 0 0 5px;
 	border-radius: 20px;
-	background: rgb(255,255,255);
+	background: rgb(255,255,255); */
 	z-index: 3;
 	box-sizing: border-box;
 }
@@ -1007,22 +1011,29 @@ a[href^=tel]{
 .look_area{
 	margin-top: 40px;
 }
+.look_area .container {
+	overflow: hidden;
+}
 .look_area .title_bar:after{
 	width:40px;
 }
 .look_area .slider_box{
 	margin-top: 20px;
-	padding: 0 25px 15px;
+	padding: 0 0 15px;
 	background: rgb(240,235,239);	
+}
+.look_area .slider_box .slick-list {
+	overflow: visible !important;
 }
 .look_area .slider_box .slick-slide{
 	position: relative;
+	padding: 0 25px;
 }
 .look_area .slider_box .slick-slide img{width: 100%;}
 .look_area .slider_box .slick-slide .wish{
 	position: absolute;
-	top: 20px;
-	right: -5px;
+	top: 15px;
+	right: 30px;
 }
 .look_area .btn_bag{
 	display: block;

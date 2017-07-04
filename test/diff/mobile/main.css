@@ -125,8 +125,10 @@
 .brick_list .goods .photo img{width: 100%;}
 .brick_list .goods .btn{
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	/* top: 10px;
+	right: 10px; */
+	top: 15px;
+	right: 5px;
 	z-index: 333;
 }
 .brick_list .goods > a{

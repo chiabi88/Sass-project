@@ -144,9 +144,14 @@ body a{color: rgb(58,46,44);}
 	font-size: 14px;
 	line-height: 30px;
 }
+.gnb_r .wish {
+	text-indent: 0;
+	width: 36px;
+	text-align: right
+}
 .gnb_r .cart{
-	padding-left: 13px;
-	margin-left: 9px;
+	/* padding-left: 13px; */
+	margin-left: 10px;
 	background: url(/images/mobile/common/bg_u_line.gif) no-repeat 0 0;
 	background-size: 1px 30px;
 }
@@ -156,94 +161,133 @@ body a{color: rgb(58,46,44);}
 	width: 30px;
 	height: 30px;
 	text-indent: -9999px;
-	background: url(/images/mobile/common/ico_wish.svg) no-repeat 50% 50%;
-	background-size: 18px;
-	/* transition: background 0.3s ease-in-out; */
 }
 
-.wish:after{
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: block;
-	content: '';
-	width: 30px;
-	height: 30px;
-	background: url(/images/mobile/common/ico_wish_active.svg) no-repeat 50% 50%;
-	background-size: 18px;
-	opacity: 1;
-	-webkit-transform: scale(0);
-	transform: scale(0);
+.wish.wish_on:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -53px; 
+	background-image: url(/images/mobile/common/ico_wish_on.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	z-index : 600;
 }
-/* .wish:hover{
-	background: url(/images/mobile/common/ico_wish_hover.png) no-repeat 0 50%;
-	background-size: 16px;
-} */
+.wish.wish_off:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -53px; 
+	background-image: url(/images/mobile/common/ico_wish_off.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	z-index : 600;
+}
+.wish.wish_change_on:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -53px; 
+	background-image: url(/images/mobile/common/ico_wish_create.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	background-position: 0 0;
+	animation: wish_ani_create 1s steps(1) 1 forwards;
+	z-index : 600;
+}
+.wish.wish_change_off:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -53px; 
+	background-image: url(/images/mobile/common/ico_wish_remove.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	background-position: 0 0;
+	animation: wish_ani_remove 1s steps(1) 1 forwards;
+	z-index : 600;
+}
+
+.wish_box .wish.wish_on:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -46px; 
+	background-image: url(/images/mobile/common/ico_wish_on.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	z-index : 600;
+}
+.wish_box .wish.wish_off:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -46px; 
+	background-image: url(/images/mobile/common/ico_wish_off.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	z-index : 600;
+}
+.wish_box .wish.wish_change_plus_s:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -46px; 
+	background-image: url(/images/mobile/common/ico_wish_plus_s.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	background-position: 0 0;
+	animation: wish_ani_create 1s steps(1) 1 forwards;
+	z-index : 600;
+}
+.wish_box .wish.wish_change_plus:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -46px; 
+	background-image: url(/images/mobile/common/ico_wish_plus.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	background-position: 0 0;
+	animation: wish_ani_create 1s steps(1) 1 forwards;
+	z-index : 600;
+}
+.wish_box .wish.wish_change_minus:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -46px; 
+	background-image: url(/images/mobile/common/ico_wish_minus.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	background-position: 0 0;
+	animation: wish_ani_minus 1s steps(1) 1 forwards;
+	z-index : 600;
+}
+.wish_box .wish.wish_change_minus_e:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -46px; 
+	background-image: url(/images/mobile/common/ico_wish_remove.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	background-position: 0 0;
+	animation: wish_ani_remove 1s steps(1) 1 forwards;
+	z-index : 600;
+}
+@keyframes wish_ani_create {
+	0% { background-position: 0px 0} 			4% { background-position: -50px 0} 			8% { background-position: -100px 0} 		12% { background-position: -150px 0} 		16% { background-position: -200px 0}
+	20% { background-position: -250px 0} 		24% { background-position: -300px 0} 		28% { background-position: -350px 0} 		32% { background-position: -400px 0} 		36% { background-position: -450px 0}
+	40% { background-position: -500px 0} 		44% { background-position: -550px 0} 		48% { background-position: -600px 0} 		52% { background-position: -650px 0} 		56% { background-position: -700px 0}
+	60% { background-position: -750px 0} 		64% { background-position: -800px 0} 		68% { background-position: -850px 0} 		72% { background-position: -900px 0} 		76% { background-position: -950px 0}
+	80% { background-position: -1000px 0} 		84% { background-position: -1050px 0} 		88% { background-position: -1100px 0} 		92% { background-position: -1150px 0} 		96% { background-position: -1200px 0}
+	100% { background-position: -1250px 0}
+}
+@keyframes wish_ani_remove {
+	0% { background-position: 0px 0} 			4% { background-position: -50px 0} 			8% { background-position: -100px 0} 		12% { background-position: -150px 0} 		16% { background-position: -200px 0}
+	20% { background-position: -250px 0} 		24% { background-position: -300px 0} 		28% { background-position: -350px 0} 		32% { background-position: -400px 0} 		36% { background-position: -450px 0}
+	40% { background-position: -500px 0} 		44% { background-position: -550px 0} 		48% { background-position: -600px 0} 		52% { background-position: -650px 0} 		56% { background-position: -700px 0}
+	60% { background-position: -750px 0} 		64% { background-position: -800px 0} 		68% { background-position: -850px 0} 		72% { background-position: -900px 0} 		76% { background-position: -950px 0}
+	80% { background-position: -1000px 0} 		84% { background-position: -1050px 0} 		88% { background-position: -1100px 0} 		92% { background-position: -1150px 0} 		96% { background-position: -1200px 0}
+	100% { background-position: -1250px 0}
+}
+@keyframes wish_ani_minus {
+	0% { background-position: 0px 0} 			4% { background-position: -50px 0} 			8% { background-position: -100px 0} 		12% { background-position: -150px 0} 		16% { background-position: -200px 0}
+	20% { background-position: -250px 0} 		24% { background-position: -300px 0} 		28% { background-position: -350px 0} 		32% { background-position: -400px 0} 		36% { background-position: -450px 0}
+	40% { background-position: -500px 0} 		44% { background-position: -550px 0} 		48% { background-position: -600px 0} 		52% { background-position: -650px 0} 		56% { background-position: -700px 0}
+	60% { background-position: -750px 0} 		64% { background-position: -800px 0} 		68% { background-position: -850px 0} 		72% { background-position: -900px 0} 		76% { background-position: -950px 0}
+	80% { background-position: -1000px 0} 		84% { background-position: -1050px 0} 		88% { background-position: -1100px 0} 		92% { background-position: -1150px 0} 		96% { background-position: -1200px 0}
+	100% { background-position: -1250px 0}
+}
+@keyframes wish_ani_plus {
+	0% { background-position: 0px 0} 			4% { background-position: -50px 0} 			8% { background-position: -100px 0} 		12% { background-position: -150px 0} 		16% { background-position: -200px 0}
+	20% { background-position: -250px 0} 		24% { background-position: -300px 0} 		28% { background-position: -350px 0} 		32% { background-position: -400px 0} 		36% { background-position: -450px 0}
+	40% { background-position: -500px 0} 		44% { background-position: -550px 0} 		48% { background-position: -600px 0} 		52% { background-position: -650px 0} 		56% { background-position: -700px 0}
+	60% { background-position: -750px 0} 		64% { background-position: -800px 0} 		68% { background-position: -850px 0} 		72% { background-position: -900px 0} 		76% { background-position: -950px 0}
+	80% { background-position: -1000px 0} 		84% { background-position: -1050px 0} 		88% { background-position: -1100px 0} 		92% { background-position: -1150px 0} 		96% { background-position: -1200px 0}
+	100% { background-position: -1250px 0}
+}
+
 .wish:active,
 .wish.on{
-	background: url(/images/mobile/common/ico_wish_active.svg) no-repeat 50% 50%;
-	background-size: 18px;
+	background: url(/images/mobile/common/ico_wish_on.gif) no-repeat;
 }
 .wish:active:after,
 .wish.on:after{
-	-webkit-animation-name: wishActive;
-	animation-name: wishActive;
-	-webkit-animation-duration: 0.5s;
-	animation-duration: 0.5s;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-	-webkit-animation-fill-mode: forwards;
-	animation-fill-mode: forwards;
+	
 }
-@-webkit-keyframes wishActive{
-	0%{
-		opacity: 1;
-	}
-	50%{
-		top: -10px;
-		-webkit-transform: scale(0.5);
-	}
-	100%{
-		top: -20px;
-		-webkit-transform: scale(0.5);
-		opacity: 0
-	}
-}
-@keyframes wishActive{
-	0%{
-		opacity: 1;
-	}
-	50%{
-		top: -10px;
-		transform: scale(0.5);
-	}
-	100%{
-		top: -20px;
-		transform: scale(0.5);
-		opacity: 0
-	}
-}
-.gnb_r .wish_box a{
-	text-indent: 0;	
-	padding-left: 20px;
-}
-.gnb_r .wish_box .wish{
-	width: 16px;
-	height: 30px;
-	background-position: 0 50%;
-	background-size: 16px;
-}
-.gnb_r .wish_box .wish:after{
-	width: 16px;
-	height: 30px;
-	background-position: 0 50%;
-	background-size: 16px;
-}
-.gnb_r .wish_box .wish:active{
-	background-position: 0 50%;
-	background-size: 16px;
-}
-.gnb_r .cart a{
+/* .gnb_r .cart a{
 	position:relative;
 	display:block;
 	padding-left: 20px;
@@ -264,21 +308,97 @@ body a{color: rgb(58,46,44);}
 	opacity: 1;
 	-webkit-transform: scale(0);
 	transform: scale(0);
+} */
+.gnb_r .cart {
+	position: relative;
 }
-
-.gnb_r .cart a:active,
-.gnb_r .cart a.on{
-	background: url(/images/mobile/common/ico_u_cart_active.svg) no-repeat 0 50%;
+.gnb_r .cart a{
+	overflow: visible;
+	display:block;
+	/* 2017-06-16 추가 아이템 수 변경되면 아이콘 액션이 흔들려 보임 */
+	min-width: 43px;
+	text-align: right;
+}
+/* (2017-06-14) 코딩수정 : IE는 background-size의 animation을 지원하지 않음 */
+.gnb_r .cart a + .icon{
+	position: absolute;
+	top: 0;
+	left: 12px;
+	width: 13px;
+	height: 100%;
+	background-position: 0 50%;
+	background-repeat: no-repeat;
+	background-image: url(/images/mobile/common/ico_u_cart.svg);
+	background-size: 13px;
+	z-index: -1
+}
+.cart a + .icon:after {
+	position: absolute;
+	top: 15px;
+	left: 6px;
+	display: block;
+	content: '';
+	opacity: 0;
+	border-radius: 100%;
+	border: 1px solid rgb(51,0,173);
+	width: 1px;
+	height: 1px;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+.cart a + .icon:hover{
+	background-image: url(/images/mobile/common/ico_u_cart_active.svg);
 	background-size: 13px;
 }
-.gnb_r .cart a:active:after,
-.gnb_r .cart a.on:after{
-	-webkit-animation-name: cartActive;
-	animation-name: wishActive;
-	-webkit-animation-duration: 0.5s;
-	animation-duration: 0.5s;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
+/* .cart a:active + .icon, */
+.cart a.on + .icon {
+	background: url(/images/mobile/common/ico_u_cart_active.svg) no-repeat 0 50%;
+	background-size:13px 18px;
+	-webkit-animation-name: cartIconAction;
+	animation-name: cartIconAction;
+	-webkit-animation-duration: 0.7s;
+	animation-duration: 0.7s;
+	-webkit-animation-timing-function: cubic-bezier(0.18, 0.76, 1, 1);
+	animation-timing-function: cubic-bezier(0.18, 0.76, 1, 1);
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+/* .gnb_r .cart a:active + .icon, */
+.gnb_r .cart a:active + .icon:after {
+	animation: none;
+}
+/* .cart a:active + .icon:after, */
+.cart a.on + .icon:after {
+	-webkit-animation-name: cartCircleAction;
+	animation-name: cartCircleAction;
+	-webkit-animation-duration: 0.7s;
+	animation-duration: 0.7s;
+	-webkit-animation-timing-function: cubic-bezier(0.82, 0.2, 1, 1);
+	animation-timing-function: cubic-bezier(0.82, 0.2, 1, 1);
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+@-webkit-keyframes cartIconAction {
+	0% { background-image: url(/images/mobile/common/ico_u_cart.svg); -webkit-transform: scale(1)}
+	50% { background-image: url(/images/mobile/common/ico_u_cart.svg); -webkit-transform: scale(1)}
+	65% { background-image: url(/images/mobile/common/ico_u_cart.svg); -webkit-transform: scale(0.1)}
+	100% { background-image: url(/images/mobile/common/ico_u_cart_active.svg); -webkit-transform: scale(1)}
+}
+@keyframes cartIconAction {
+	0% { background-image: url(/images/mobile/common/ico_u_cart.svg); transform: scale(1)}
+	50% { background-image: url(/images/mobile/common/ico_u_cart.svg); transform: scale(1)}
+	65% { background-image: url(/images/mobile/common/ico_u_cart.svg); transform: scale(0.1)}
+	100% { background-image: url(/images/mobile/common/ico_u_cart_active.svg); transform: scale(1)}
+}
+@-webkit-keyframes cartCircleAction {
+	0% { opacity: 1; border-width: 1px; width: 80px; height: 80px; }
+	45% { opacity: 1; border-width: 10px; width: 40px; height: 40px; }
+	60% { opacity: 0; border-width: 1px; width: 0; height: 0;}
+}
+@keyframes cartCircleAction {
+	0% { opacity: 1; border-width: 1px; width: 80px; height: 80px;}
+	45% { opacity: 1; border-width: 10px; width: 40px; height: 40px;}
+	60% { opacity: 0; border-width: 1px; width: 0; height: 0;}
 }
 @-webkit-keyframes cartActive{
 	0%{
@@ -1054,7 +1174,12 @@ body.store_on{
 	padding: 30px 0 40px;
 	background: rgb(229,224,230);
 }
-.g_list{overflow: hidden;}
+/* .g_list{overflow: hidden;} */
+.g_list:after {
+	display: block;
+	content: '';
+	clear: both;
+}
 .g_list > li{
 	position: relative;
 	float: left;
@@ -1067,8 +1192,8 @@ body.store_on{
 }
 .g_list > li .btn{
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	top: 15px;
+	right: 5px;
 }
 .g_list li .btn a{
 	float: left;
@@ -1156,6 +1281,15 @@ body.store_on{
 	height: 20px;
 	font-size: 1.333rem;
 	color: rgb(156,150,149);
+}
+.cart_tab #wishPage .btn .wish {
+	display: none;
+}
+.cart_tab .btn .cart {
+	margin-right: 6px;
+}
+.cart_tab .btn .wish {
+	margin-top: 6px;
 }
 .cart_tab .tab_menu.kor > a{
 	font-size: 1.083rem;
