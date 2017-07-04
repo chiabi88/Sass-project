@@ -458,9 +458,6 @@ body a{color: rgb(58,46,44);}
 .sale_type3 {
 	background: url(/images/pc/common/bg_sale_gnb2.jpg) no-repeat 50% 0;
 }
-.sale_type3.bg_type1 {
-	background: url(/images/pc/common/bg_sale_gnb3.jpg) no-repeat 50% 0;
-}
 .sale_type3_inner {
 	padding-top: 87px;
 	padding-left: 686px;
@@ -540,117 +537,227 @@ body a{color: rgb(58,46,44);}
 	width: 18px;
 	height: 17px;
 	text-indent: -9999px;
-	background: url(/images/pc/common/ico_wish.png) no-repeat 0 50%;
-	transition: all 0.3s ease-in-out;
 }
-.wish:after{
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: block;
-	content: '';
-	width: 18px;
-	height: 17px;
-	background: url(/images/mobile/common/ico_wish_active.png) no-repeat 0 50%;
-	background-size: 18px;
-	opacity: 1;
-	-webkit-transform: scale(0);
-	transform: scale(0);
+.wish.wish_on:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -53px; 
+	background-image: url(/images/mobile/common/ico_wish_on.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	z-index : 600;
+}
+.wish.wish_off:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -53px; 
+	background-image: url(/images/mobile/common/ico_wish_off.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	z-index : 600;
+}
+.wish.wish_change_on:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -53px; 
+	background-image: url(/images/mobile/common/ico_wish_create.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	background-position: 0 0;
+	animation: wish_ani_create 1s steps(1) 1 forwards;
+	z-index : 600;
+}
+.wish.wish_change_off:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -53px; 
+	background-image: url(/images/mobile/common/ico_wish_remove.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	background-position: 0 0;
+	animation: wish_ani_remove 1s steps(1) 1 forwards;
+	z-index : 600;
+}
+
+.wish_box .wish.wish_on:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -46px; 
+	background-image: url(/images/mobile/common/ico_wish_on.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	z-index : 600;
+}
+.wish_box .wish.wish_off:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -46px; 
+	background-image: url(/images/mobile/common/ico_wish_off.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	z-index : 600;
+}
+.wish_box .wish.wish_change_plus_s:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -46px; 
+	background-image: url(/images/mobile/common/ico_wish_plus_s.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	background-position: 0 0;
+	animation: wish_ani_create 1s steps(1) 1 forwards;
+	z-index : 600;
+}
+.wish_box .wish.wish_change_plus:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -46px; 
+	background-image: url(/images/mobile/common/ico_wish_plus.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	background-position: 0 0;
+	animation: wish_ani_create 1s steps(1) 1 forwards;
+	z-index : 600;
+}
+.wish_box .wish.wish_change_minus:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -46px; 
+	background-image: url(/images/mobile/common/ico_wish_minus.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	background-position: 0 0;
+	animation: wish_ani_minus 1s steps(1) 1 forwards;
+	z-index : 600;
+}
+.wish_box .wish.wish_change_minus_e:after{
+	content: ''; position: absolute; display: block;
+	width: 50px; height: 80px; left : -16px; top : -46px; 
+	background-image: url(/images/mobile/common/ico_wish_remove.png);
+	background-repeat: no-repeat; background-size: auto 80px;
+	background-position: 0 0;
+	animation: wish_ani_remove 1s steps(1) 1 forwards;
+	z-index : 600;
+}
+@keyframes wish_ani_create {
+	0% { background-position: 0px 0} 			4% { background-position: -50px 0} 			8% { background-position: -100px 0} 		12% { background-position: -150px 0} 		16% { background-position: -200px 0}
+	20% { background-position: -250px 0} 		24% { background-position: -300px 0} 		28% { background-position: -350px 0} 		32% { background-position: -400px 0} 		36% { background-position: -450px 0}
+	40% { background-position: -500px 0} 		44% { background-position: -550px 0} 		48% { background-position: -600px 0} 		52% { background-position: -650px 0} 		56% { background-position: -700px 0}
+	60% { background-position: -750px 0} 		64% { background-position: -800px 0} 		68% { background-position: -850px 0} 		72% { background-position: -900px 0} 		76% { background-position: -950px 0}
+	80% { background-position: -1000px 0} 		84% { background-position: -1050px 0} 		88% { background-position: -1100px 0} 		92% { background-position: -1150px 0} 		96% { background-position: -1200px 0}
+	100% { background-position: -1250px 0}
+}
+@keyframes wish_ani_remove {
+	0% { background-position: 0px 0} 			4% { background-position: -50px 0} 			8% { background-position: -100px 0} 		12% { background-position: -150px 0} 		16% { background-position: -200px 0}
+	20% { background-position: -250px 0} 		24% { background-position: -300px 0} 		28% { background-position: -350px 0} 		32% { background-position: -400px 0} 		36% { background-position: -450px 0}
+	40% { background-position: -500px 0} 		44% { background-position: -550px 0} 		48% { background-position: -600px 0} 		52% { background-position: -650px 0} 		56% { background-position: -700px 0}
+	60% { background-position: -750px 0} 		64% { background-position: -800px 0} 		68% { background-position: -850px 0} 		72% { background-position: -900px 0} 		76% { background-position: -950px 0}
+	80% { background-position: -1000px 0} 		84% { background-position: -1050px 0} 		88% { background-position: -1100px 0} 		92% { background-position: -1150px 0} 		96% { background-position: -1200px 0}
+	100% { background-position: -1250px 0}
+}
+@keyframes wish_ani_minus {
+	0% { background-position: 0px 0} 			4% { background-position: -50px 0} 			8% { background-position: -100px 0} 		12% { background-position: -150px 0} 		16% { background-position: -200px 0}
+	20% { background-position: -250px 0} 		24% { background-position: -300px 0} 		28% { background-position: -350px 0} 		32% { background-position: -400px 0} 		36% { background-position: -450px 0}
+	40% { background-position: -500px 0} 		44% { background-position: -550px 0} 		48% { background-position: -600px 0} 		52% { background-position: -650px 0} 		56% { background-position: -700px 0}
+	60% { background-position: -750px 0} 		64% { background-position: -800px 0} 		68% { background-position: -850px 0} 		72% { background-position: -900px 0} 		76% { background-position: -950px 0}
+	80% { background-position: -1000px 0} 		84% { background-position: -1050px 0} 		88% { background-position: -1100px 0} 		92% { background-position: -1150px 0} 		96% { background-position: -1200px 0}
+	100% { background-position: -1250px 0}
+}
+@keyframes wish_ani_plus {
+	0% { background-position: 0px 0} 			4% { background-position: -50px 0} 			8% { background-position: -100px 0} 		12% { background-position: -150px 0} 		16% { background-position: -200px 0}
+	20% { background-position: -250px 0} 		24% { background-position: -300px 0} 		28% { background-position: -350px 0} 		32% { background-position: -400px 0} 		36% { background-position: -450px 0}
+	40% { background-position: -500px 0} 		44% { background-position: -550px 0} 		48% { background-position: -600px 0} 		52% { background-position: -650px 0} 		56% { background-position: -700px 0}
+	60% { background-position: -750px 0} 		64% { background-position: -800px 0} 		68% { background-position: -850px 0} 		72% { background-position: -900px 0} 		76% { background-position: -950px 0}
+	80% { background-position: -1000px 0} 		84% { background-position: -1050px 0} 		88% { background-position: -1100px 0} 		92% { background-position: -1150px 0} 		96% { background-position: -1200px 0}
+	100% { background-position: -1250px 0}
 }
 .ie8 .wish:after{display: none; content: none}
-.wish:hover{
-	background: url(/images/mobile/common/ico_wish_hover.png) no-repeat 0 50%;
-}
+
 .wish:active,
 .wish.on{
-	background: url(/images/mobile/common/ico_wish_active.png) no-repeat 0 50%;
+	background: url(/images/mobile/common/ico_wish_on.gif) no-repeat;
 }
 .wish:active:after,
 .wish.on:after{
-	-webkit-animation-name: wishActive;
-	animation-name: wishActive;
-	-webkit-animation-duration: 0.3s;
-	animation-duration: 0.3s;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-	-webkit-animation-fill-mode: forwards;
-	animation-fill-mode: forwards;
-}
-@-webkit-keyframes wishActive{
-	0%{
-		opacity: 1;
-	}
-	50%{
-		top: -10px;
-		-webkit-transform: scale(0.5);
-	}
-	100%{
-		top: -20px;
-		-webkit-transform: scale(0.5);
-		opacity: 0
-	}
-}
-@keyframes wishActive{
-	0%{
-		opacity: 1;
-	}
-	50%{
-		top: -10px;
-		transform: scale(0.5);
-	}
-	100%{
-		top: -20px;
-		transform: scale(0.5);
-		opacity: 0
-	}
+	
 }
 .gnb_r .wish_box a{
 	text-indent: 0;	
-	padding-left: 24px;
+	padding-left: 28px;
+}
+.gnb_r .cart {
+	position: relative;
 }
 .gnb_r .cart a{
-	position:relative;
+	overflow: visible;
 	display:block;
-	padding-left: 21px;
-	background: url(/images/pc/common/ico_u_cart.png) no-repeat 0 50%;
-	transition: all 0.3s ease-in-out;
+	/* 2017-06-16 추가 아이템 수 변경되면 아이콘 액션이 흔들려 보임 */
+	padding-left: 17px;
+	min-width: 55px;
+	text-align: right;
 }
-.cart a:after {
-	position:absolute;
-	top:0;
-	left:0;
-	display:block;
-	content:'';
-	width:13px;
-	height:18px;
+/* (2017-06-14) 코딩수정 : IE는 background-size의 animation을 지원하지 않음 */
+.gnb_r .cart a + .icon{
+	position: absolute;
+	top: 0;
+	left: 19px;
+	width: 13px;
+	height: 100%;
+	background-position: 0 50%;
+	background-repeat: no-repeat;
+	background-image: url(/images/pc/common/ico_u_cart.png);
+}
+.cart a + .icon:after {
+	position: absolute;
+	top: 15px;
+	left: 6px;
+	display: block;
+	content: '';
+	opacity: 0;
+	border-radius: 100%;
+	border: 1px solid rgb(51,0,173);
+	width: 1px;
+	height: 1px;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+.ie8 .cart a + .icon:after { display:none; content:none }
+.cart a + .icon:hover{
+	background-image: url(/images/pc/common/ico_u_cart_over.png);
+	background-size:13px 18px;
+}
+.cart a:active + .icon,
+.cart a.on + .icon {
 	background: url(/images/pc/common/ico_u_cart_on.png) no-repeat 0 50%;
 	background-size:13px 18px;
-	opacity:0;
-	-webkit-transform:scale(0);
-	transform:(0);
-}
-.ie8 .cart a:after { display:none; content:none }
-.cart a:hover{
-	background: url(/images/pc/common/ico_u_cart_over.png) no-repeat 0 50%;
-	background-size:13px 18px
-}
-.cart a:active,
-.cart a.on {
-	background: url(/images/pc/common/ico_u_cart_on.png) no-repeat 0 50%;
-	background-size:13px 18px
-}
-.cart a:active:after ,
-.cart a.on:after {
-	-webkit-animation-name: cartActive;
-	animation-name: cartActive;
-	-webkit-animation-duration: 0.3s;
-	animation-duration: 0.3s;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
+	-webkit-animation-name: cartIconAction;
+	animation-name: cartIconAction;
+	-webkit-animation-duration: 0.7s;
+	animation-duration: 0.7s;
+	-webkit-animation-timing-function: cubic-bezier(0.18, 0.76, 1, 1);
+	animation-timing-function: cubic-bezier(0.18, 0.76, 1, 1);
 	-webkit-animation-fill-mode: forwards;
-	animation-fill-mode: forwards;	
+	animation-fill-mode: forwards;
 }
-
+.gnb_r .cart a:active + .icon,
+.gnb_r .cart a:active + .icon:after {
+	animation: none;
+}
+.cart a:active + .icon:after,
+.cart a.on + .icon:after {
+	-webkit-animation-name: cartCircleAction;
+	animation-name: cartCircleAction;
+	-webkit-animation-duration: 0.7s;
+	animation-duration: 0.7s;
+	-webkit-animation-timing-function: cubic-bezier(0.82, 0.2, 1, 1);
+	animation-timing-function: cubic-bezier(0.82, 0.2, 1, 1);
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+@-webkit-keyframes cartIconAction {
+	0% { background-image: url(/images/pc/common/ico_u_cart.png); -webkit-transform: scale(1)}
+	50% { background-image: url(/images/pc/common/ico_u_cart.png); -webkit-transform: scale(1)}
+	65% { background-image: url(/images/pc/common/ico_u_cart.png); -webkit-transform: scale(0.1)}
+	100% { background-image: url(/images/pc/common/ico_u_cart_on.png); -webkit-transform: scale(1)}
+}
+@keyframes cartIconAction {
+	0% { background-image: url(/images/pc/common/ico_u_cart.png); transform: scale(1)}
+	50% { background-image: url(/images/pc/common/ico_u_cart.png); transform: scale(1)}
+	65% { background-image: url(/images/pc/common/ico_u_cart.png); transform: scale(0.1)}
+	100% { background-image: url(/images/pc/common/ico_u_cart_on.png); transform: scale(1)}
+}
+@-webkit-keyframes cartCircleAction {
+	0% { opacity: 1; border-width: 1px; width: 80px; height: 80px; }
+	45% { opacity: 1; border-width: 10px; width: 40px; height: 40px; }
+	60% { opacity: 0; border-width: 1px; width: 0; height: 0;}
+}
+@keyframes cartCircleAction {
+	0% { opacity: 1; border-width: 1px; width: 80px; height: 80px;}
+	45% { opacity: 1; border-width: 10px; width: 40px; height: 40px;}
+	60% { opacity: 0; border-width: 1px; width: 0; height: 0;}
+}
 @-webkit-keyframes cartActive{
 	0%{
 		opacity: 1;
@@ -808,7 +915,9 @@ body a{color: rgb(58,46,44);}
 .f_slider .goods .list > li + li{margin-left: 20px;}
 .f_slider .goods .wish{
 	float: right;
-	margin-top: 30px;
+	margin-right:15px;
+	margin-top: 50px;
+	outline:0px none;
 }
 .f_slider .goods .photo{
 	overflow: hidden;
@@ -940,13 +1049,27 @@ body a{color: rgb(58,46,44);}
 	background: rgb(255,255,255);
 }
 .g_list li .btn{
-	opacity: 0;
+	/* opacity: 0; */
 	position: absolute;
 	top: 10px;
 	right: 10px;
 	z-index: 333;
-	transition: all 0.2s ease-in
+	/* transition: all 0.2s ease-in */
 }
+
+/*				*/
+.cart_tab #cartTab2 .g_list li .btn{
+	opacity: 1;
+}
+.cart_tab #cartTab2 .g_list li .btn a.wish {
+	margin-top:8px;
+}
+.cart_tab #cartTab1 .g_list li .btn a.wish {
+	display : none;
+}
+/*				*/
+
+
 .g_list li:hover .btn{
 	opacity: 1;
 }
@@ -962,11 +1085,11 @@ body a{color: rgb(58,46,44);}
 .g_list li .btn .cart,
 .goods_list > li > .btn .cart{
 	position: relative;
-	width: 13px;
-	height: 18px;
+	width: 30px;
+	height: 30px;
 	margin-right: 10px;
 	text-indent: -99999px;
-	background: url(/images/pc/common/ico_u_cart.png) no-repeat 0 50%
+	background: url(/images/pc/common/ico_u_cart.png) no-repeat 50% 50%
 }
 .g_list li .btn .cart:after,
 .goods_list > li > .btn .cart:after {
@@ -975,9 +1098,9 @@ body a{color: rgb(58,46,44);}
 	left: 0;
 	display: block;
 	content: '';
-	width: 13px;
-	height: 18px;
-	background: url(/images/pc/common/ico_u_cart_on.png) no-repeat 0 50%;
+	width: 30px;
+	height: 30px;
+	background: url(/images/pc/common/ico_u_cart_on.png) no-repeat 50% 50%;
 	background-size: 13px;
 	opacity: 1;
 	-webkit-transform: scale(0);
@@ -990,13 +1113,13 @@ body a{color: rgb(58,46,44);}
 }
 .g_list li .btn .cart:hover,
 .goods_list > li > .btn .cart:hover{
-	background: url(/images/pc/common/ico_u_cart_over.png) no-repeat 0 50%;
+	background: url(/images/pc/common/ico_u_cart_over.png) no-repeat 50% 50%;
 }
 .g_list li .btn .cart:active,
 .g_list li .btn .cart.on,
 .goods_list > li > .btn .cart:active,
 .goods_list > li > .btn .cart.on{
-	background: url(/images/pc/common/ico_u_cart_on.png) no-repeat 0 50%;
+	background: url(/images/pc/common/ico_u_cart_on.png) no-repeat 50% 50%;
 	background-size: 13px;
 }
 .g_list li .btn .cart:active:after,

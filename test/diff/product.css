@@ -405,9 +405,9 @@
 	width: 45px;
 	height: 45px;
 	padding: 15px 0 0 13px;
-	border-radius: 50%;
+	/*border-radius: 50%;*/
 	box-sizing: border-box;
-	background: rgba(255,255,255,0.8);
+	/*background: rgba(255,255,255,0.8);*/
 	z-index: 666;
 }
 .goods_view > .tag_area{
@@ -1209,9 +1209,10 @@ a[href^=tel]{
 }
 .g_look .slider_box .wish{
 	position: absolute;
-	top: 20px;
-	right: 20px;
-	z-index: 666
+	top: 55px;
+	right: 35px;
+	z-index: 666;
+	outline:0px none;
 }
 .g_look .slider_box .txt_box{
 	position: absolute;
