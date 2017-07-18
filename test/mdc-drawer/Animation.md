@@ -1,12 +1,14 @@
 # Animation
 
 MDC Animation은 Sass/CSS/JavaScript 라이브러리로 [모션 가이드라인](https://material.io/guidelines/motion/duration-easing.html#)을 기반으로  
-Material Design 애니메이션을 위한 툴뱃을 제공한다.  
+Material Design 애니메이션을 위한 툴뱃<sup>Tool belt</sup>을 제공한다.  
 현재는 easing curves만 커버한다.
 
 ## 사용
 
 ### variables
+
+`animation-timing-function` 속성에 들어갈 값을 정의한 변수
 
 | 변수 이름 | timing function | 사용 |
 | -------- | --------------- | --- |
@@ -15,11 +17,17 @@ Material Design 애니메이션을 위한 툴뱃을 제공한다.
 | $mdc-animation-fast-out-linear-in-timing-function | cubic-bezier(.4, 0, 1, 1) !default } | 오브젝트가 화면을 떠나는 애니메이션 (예. fade out) |
 ***
 
-사용 시 해당 변수를 `animation-timing-function` 속성에 할당하기만 하여 됨
+animtion 사용 시 해당 변수를 `animation-timing-function` 속성에 할당하기만 하면 된다.
 
 ```scss
 .mdc-thing-animating {
     animation: foo 17ms $mdc-animation-fast-out-slow-in-timing-function;
+}
+```
+```css
+// css 컴파일
+.mdc-thing-animating {
+    animation: foo 17ms cubic-bezier(0, 0, .2, 1);
 }
 ```
 
