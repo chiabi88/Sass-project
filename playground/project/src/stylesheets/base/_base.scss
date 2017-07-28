@@ -1,0 +1,50 @@
+/* 
+ * reset.scss 외 base 설정 파일
+ * 폰트, root 등
+ */
+@import url('https://fonts.googleapis.com/css?family=Teko:400,700');
+@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+
+:root,
+html {
+  font-family: $base-font-eng, $base-font-kor, sans-serif;
+  font-size: $base-font-size;
+}
+
+// button reset style
+%button-style-reset {
+  padding: 0;
+  border: 0;
+  background: none;
+  line-height: normal;
+  font: inherit;
+  color: inherit;
+  overflow: visible;
+  box-sizing: content-box;
+}
+
+button {
+  @extend %button-style-reset;
+  // user-select - 하위요소 선택 가능 여부
+  // user-select: [auto | none | text | contain | all]
+  user-select: none;
+}
+
+// input reset style
+input {
+  &[type='submit'],
+  &[type='reset'],
+  &[type='button'] {
+    @extend %button-style-reset;
+    // -webkit-apperance, -moz-apperance: [none | button | checkbox | scrollbarbutton-up]
+    appearance: button;
+  }
+}
+
+// anchor reset style
+a {
+  color: inherit;
+  &:link {
+    text-decoration: none
+  }
+}

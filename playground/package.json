@@ -1,0 +1,35 @@
+{
+  "name": "sass_with_gulp",
+  "version": "1.0.0",
+  "description": "gulp starter-kit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiabi88/sass-with-gulp.git"
+  },
+  "keywords": [],
+  "author": "chiabi88@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chiabi88/sass-with-gulp/issues"
+  },
+  "homepage": "https://github.com/chiabi88/sass-with-gulp#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp.spritesmith": "^3.5.0",
+    "merge-stream": "^1.0.1",
+    "sassdoc": "^2.3.0"
+  }
+}
