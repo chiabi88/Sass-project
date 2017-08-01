@@ -1,194 +1,29 @@
-/// 단위 묶음
-/// @group unit
-/// @type {Map}
-$unit-map: (
-  px: 1px, pt: 1pt, pc: 1pc, in: 1in, mm: 1mm, cm: 1cm, // absolute length
-  em: 1em, rem: 1rem, ch: 1ch, ex: 1ex,                 // relative length - font based
-  vw: 1vw, vh: 1vh, vmin: 1vmin, vmax: 1vmax,           // relative length - viewport based
-  deg: 1deg, turn: 1turn, grad: 1grad, rad: 1rad,       // angle
-  s: 1s, ms: 1ms,                                       // time
-  hz: 1Hz, khz: 1kHz,                                   // frequency
-  dpi: 1dpi, dpcm: 1dpcm, dppx: 1dppx,                  // resolution
-  pct: 1%, percent: 1%, num: 1, number: 1               // percent or number  
-);
+$header-height: 5rem;
 
-/// 단위를 제거하고 정수를 구하는 함수
-/// @group unit
-/// @param {Number (with unit)} $number - 단위를 포함한 숫자
-/// @retun {Number} - 단위가 제거된 정수
-@function strip-units($number) {
-  @return $number / ($number * 0 + 1);
-}
-
-/// 숫자의 단위를 구하는 함수
-/// @group unit
-/// @param {Number (with unit)} $number - 단위를 포함한 숫자
-/// @retun {String} - 주어진 수의 단위
-@function get-unit($number) {
-  @return unit($number);
-}
-
-/// 1에 단위를 추가하는 함수 
-/// @group unit
-/// @param {String} $unit - 숫자 단위
-/// @retun {Number (with unit)} - 단위가 추가된 1을 리턴함(e.g 1px, 1em, 1deg등을 리턴함)
-@function set-unit($unit) {
-  @return map-get($unit-map, $unit);
-}
-
-/// 제곱근(square root)을 구하는 함수
-/// @group calculator
-/// @param {Number} $r - 제곱근을 구할 수
-/// @return {Number} - 계산된 제곱근 값
-/// @link http://www.antimath.info/css/sass-sqrt-function/
-@function sqrt($r) {
-  $x0: 1;
-  $x1: $x0;
-
-  @for $i from 1 through 10 {
-    // abs (sass function) : 숫자의 절대값을 리턴한다.
-    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
-    $x0: $x1;
-  }
-  @return $x1;
-}
-
-/// 제곱(square)을 구하는 함수
-/// @group calculator
-/// @param {Number} $number - 제곱을 구할 수
-/// @return {Number} - 제곱으로 계산된 값(단위는 제거된다.)
-@function square($number) {
-  $unitless: strip-units($number);
-  @return ($unitless * $unitless);
-}
-
-/// 삼각형의 빗변을 구하는 함수
-/// @group calculator
-/// @param {Number (with unit)} - 
-@function get-hypotenuse($ab, $ac) {
-  // unit (sass function) : 숫자와 관련된 단위를 리턴한다.
-  @if unitless($ab) {
-    @return sqrt(square($ab)) + sqrt(square($ac));
-  } @else {
-    @if get-unit($ab) == get-unit($ac) {
-      @return (sqrt(square($ab)) + sqrt(square($ac))) * set-unit(get-unit($ab));
-    } @else {
-      @warn "get-hypoteneus() 함수의 두 값은 단위가 같아야합니다.";
-    }
-  }
-}
-/* 나는 주석이다 */
-
-.box {
-  padding: get-hypotenuse(30px, 20px);
-}
-/// burder-menu 생성 믹스인
-/// @group burger
-/// @param {Number (width unit)} $width [30px] - 햄버거 메뉴 넓이
-/// @param {Number (width unit)} $height [2ppx] - 햄버거 메뉴 라인 굵기
-/// @param {Number (width unit)} $gutter [3px] - 햄버거 메뉴 라인 간 간격
-/// @param {Color} $color [#000000] - 햄버거 메뉴 라인 컬러
-/// @param {Number (time, width unit)} $transition-duration - 햄버거 메뉴 트랜지션 속도
-@mixin burger-menu($width: 30px, $height: 2px, $gutter: 3px, $color: #000000, $transition-duration: 0.3s) {
-  $burger-width: $width !global;
-  $burger-height: $height !global;
-  $burger-gutter: $gutter !global;
-
-  position: relative;
-  margin-top: $height + $gutter;
-  margin-bottom: $height + $gutter;
-  text-indent: -9999px;
-
-  &, 
-  &::before,
-  &::after {
-    display: block;
-    width: $width;
-    height: $height;
-    background-color: $color;
-    transition-property: background-color, transform;
-    transition-duration: $transition-duration;
-  }
-  &::before,
-  &::after {
-    position: absolute;
-    content: '';
-  }
-  &::before {
-    top: -($height + $gutter);
-  }
-  &::after {
-    bottom: -($height + $gutter);
-  }
-}
-
-/// burder-menu 애니메이션 믹스인
-@mixin burger-menu--cross($color: auto) {
-  @if ($color != auto) {
-    background-color: $color;
-  }
-  & {
-    background-color: transparent;
-  }
-  &::before {
-    transform: translateY($burger-height + $burger-gutter) rotate(45deg) ;
-  }
-  &::after {
-    transform: translateY(-($burger-height + $burger-gutter)) rotate(-45deg) ;
-  }
-}
-@mixin burger-menu--minus($color: auto) {
-  @if ($color != auto) {
-    background-color: $color;
-  }
-  &::before {
-    transform: translateY($burger-height + $burger-gutter)
-  }
-  &::after {
-    transform: translateY(-($burger-height + $burger-gutter))
-  }    
-}
-@mixin burger-menu--arrow($color: auto) {
-  @if ($color != auto) {
-    background-color: $color;
-  }
-  &::before {
-    // transform-origin: 50% 50% 0;
-    transform: rotate(-45deg) translateX($burger-width * -0.4) scaleX(0.5);
-  }
-  &::after {
-    // transform-origin: 50% 50% 0;
-    transform: rotate(45deg) translateX($burger-width * -0.4) scaleX(0.5);
-  }
-}
+// header
 #header {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 9999;
   width: 100%;
-  height: 50px;
+  height: $header-height;
   background: $color-primary;
-}
-#header .btn-gnb {
-  float: left;
-  padding: 17px 15px;
-  border-right: 1px solid rgba(255,255,255,0.2);
-  & > button {
-    @include burger-menu(30px, 1px, 5px, #ffffff);
-    &:hover {
-      @include burger-menu--arrow;
+  .btn-gnb {
+    float: left;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    @include burger-menu($header-height, $header-height, 1.5rem, 0.5rem, 0.3rem, rgb(255,255,255), 0.3s, 0.3rem);
+
+    .is-gnb--open & {
+      @include burger-menu--cross;
     }
   }
 }
 #header .logo {
   float: left;
   margin-left: 20px;
-  font-size: 30px;
-  line-height: 50px;
+  font-size: 3rem;
+  line-height: $header-height;
   letter-spacing: 0.1em;
   color: #ffffff
-}
-
-.gnb {
-  float: right;
 }

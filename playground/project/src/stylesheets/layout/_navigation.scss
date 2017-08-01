@@ -1,0 +1,48 @@
+// gnb
+.gnb-wrap {
+  display: none;
+  position: fixed;
+  top: $header-height;
+  width: 100%;
+  color: #ffffff;
+  height: calc(100% - #{$header-height});
+  background: rgba(0,0,0,0.8);
+  .is-gnb--open & {
+    display: block;
+  }
+}
+.gnb-inner {
+  max-height: 100%;
+  background: darken($color-primary, 10%);
+}
+.gnb-menu {
+  & a {
+    display: block;
+  }
+  & > li {
+    border-bottom: 1px solid rgba(255,255,255,0.2)
+  }
+  & > li > a {
+    padding: 0 1.5rem;
+    font-size: 2.4rem;
+    line-height: 5rem;
+  }
+}
+
+.gnb__depth1--is-depth2 > a {
+  @include menu-arrow(1.5rem, 1.2rem, 0.2rem, rgb(255,255,255));
+  &.gnb__depth1--open {
+    @include menu-arrow--filp-upside;
+  }
+}
+.gnb__depth2{
+  display: none;
+  padding: 1.5rem 1.5rem;
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  background: darken($color-primary, 15%);
+  .gnb__depth1--open + & {
+    display: block;
+  }
+}

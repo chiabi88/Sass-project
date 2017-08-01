@@ -1,0 +1,13 @@
+/// 단위를 제거하고 정수를 구하는 함수
+/// @group [math] helpers
+/// @author terkel
+/// @link https://github.com/terkel/mathsass
+/// @param {Number (with unit)} $number - 단위를 포함한 숫자
+/// @return {Number} - 단위가 제거된 정수
+@function strip-unit ($number) {
+    @if unitless($number) {
+        @return $number;
+    } @else {
+        @return $number / ($number * 0 + 1);
+    }
+}

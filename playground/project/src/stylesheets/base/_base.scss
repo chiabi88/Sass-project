@@ -11,6 +11,12 @@ html {
   font-size: $base-font-size;
 }
 
+body {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: $text-color-default;
+}
+
 // button reset style
 %button-style-reset {
   padding: 0;

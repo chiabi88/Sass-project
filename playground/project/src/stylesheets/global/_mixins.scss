@@ -1,0 +1,9 @@
+/// clearfix 믹스인
+/// @group global
+@mixin clearfix {
+  &:after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+}

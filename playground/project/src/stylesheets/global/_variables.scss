@@ -1,18 +1,14 @@
-
 $base-font-eng: 'Teko';
 $base-font-kor: 'Noto Sans KR';
 
-$base-font-size: 16px !default;
+$base-font-size: 10px !default;
 
-$color-primary: #7a437e;
-$color-error: #e91b1b;
-$color-success: #01be0b;
+$color-primary: rgb(51,152,152);
+$color-error: rgb(251,13,0);
+$color-success: rgb(26,152,86);
 
-$text-default-color: #333333;
-$text-gray-color: #666666;
-$text-light-color: #999999;
-$text-white-color: #ffffff;
+$text-color-default: rgb(51,51,51);
+$text-color-gray: rgb(102,102,102);
+$text-color-light: rgb(153,153,153);
 
-$border-default-color: #999999;
-
-
+$border-color-default: rgb(238,238,238);

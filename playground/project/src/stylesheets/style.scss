@@ -1,13 +1,28 @@
 @charset 'utf-8';
 
 // global
-@import './global/variables';
-@import './global/functions';
-@import './global/mixins';
+@import 'global/variables';
+@import 'global/mixins';
 
-// import
-@import './base/reset';
-@import './base/base';
+// util
+@import 'math/math';
+
+// base
+@import 'base/reset';
+@import 'base/base';
+
+// animation
+@import 'animations/animation';
+
+// component
+@import 'components/burger/mixins';
+@import 'components/menu-arrow/mixins';
 
 // layout
-@import './layout/header';
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/footer';
+@import 'layout/contents';
+
+// pages
+@import 'pages/guide';

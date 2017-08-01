@@ -1,0 +1,31 @@
+/// animation-timing-function 설정하는 믹스인
+/// @group animation
+/// @param {String} $easing-name - $animation-easing 맵의 키
+/// @example
+///     .animation-test {
+///       animation-name: fadeIn;
+///       animation-duration: 0.3s;
+///       @include animation-timing-function(easeInOutQuad);
+///       animation-delay: 0s;
+///       animation-iteration-count: 1;
+///       animation-direction: normal;
+///       animation-fill-mode: forwards;
+///       animation-play-state: running;
+///     }
+@mixin animation-timing-function($easing) {
+  animation-timing-function: map-get($animation-easing, $easing);
+}
+
+/// transition-timing-function 설정하는 믹스인
+/// @group animation
+/// @param {String} $easing-name - $animation-easing 맵의 키
+/// @example
+///     .transtion-test {
+///       transition-property: margin;
+///       transition-duration: 0.3s;
+///       @include transition-timing-function(easeInOutQuad);
+///       transition-delay: 0s;
+///     }
+@mixin transition-timing-function($easing) {
+  transition-timing-function: map-get($animation-easing, $easing);
+}

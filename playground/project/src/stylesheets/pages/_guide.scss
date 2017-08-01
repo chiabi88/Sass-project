@@ -1,0 +1,105 @@
+.guide-section {
+  padding: 2rem 3rem;
+  &__title {
+    font-size: 3.2rem;
+  }
+  &__table {    
+    margin-top: 2rem;
+    font-family: $base-font-kor;
+    & td {
+      padding: 2rem;
+      font-size: 1.4rem;
+      vertical-align: middle;
+      border: 1px solid $border-color-default;
+    }
+  }
+  pre {
+    margin-top: 2rem;
+    padding: 2rem 3rem;
+    font-family: $base-font-kor;
+    font-size: 1.2rem;
+    background: rgb(238,238,238);
+    .pre-sass {
+      color: rgb(51,153,13)
+    }
+    .pre-sass__mixin {
+      color: rgb(180,56,56);
+    }
+    .pre-sass__var {
+      color: rgb(180,23,180);
+    }
+  }
+}
+
+.guide__color {
+  &--primary {
+    color: $color-primary;
+  }
+  &--error {
+    color: $color-error;
+  }
+  &--success {
+    color: $color-success;
+  }
+}
+.guide__text-color {
+  &--default {
+    color: $text-color-default; 
+  }
+  &--gray {
+    color: $text-color-gray; 
+  }
+  &--light {
+    color: $text-color-light; 
+  }
+}
+
+.guide-burger {
+  background: rgb(151,123,152);
+  @include burger-menu(7rem, 7rem, 2rem, 0.5rem, 0.3rem, #ffffff, 0.3s, 0.3rem);
+
+  &--cross:hover {
+    @include burger-menu--cross(rgb(51,51,51));
+  }
+  &--minus:hover {
+    @include burger-menu--minus(rgb(51,51,51));
+  }
+  &--arrow:hover {
+    @include burger-menu--arrow(rgb(51,51,51));
+  }
+}
+
+.guide-list-menu {
+  position: relative;
+  width: 100px;
+  & > a {
+    font-size: 1.6rem;
+    line-height: 4.8rem;
+    padding-left: 1rem;
+    color: rgb(255,255,255);
+    background: rgb(180,23,180);
+    @include menu-arrow(1rem, 2rem, 0.3rem, #ffffff);
+  }
+  &--upside > a:hover {
+    @include menu-arrow--filp-upside(rgb(51,51,51));
+  }
+  &--side > a:hover {
+    @include menu-arrow--filp-side(rgb(51,51,51));
+  }
+  &--cross > a:hover {
+    @include menu-arrow--cross(rgb(51,51,51));
+  }
+  & > ul {
+    display: none;
+    position: absolute;
+    top: 4.8rem;
+    left: 0;
+    width: 100%;
+    padding: 1.2rem;
+    background: lighten(rgb(180,23,180), 40%);
+    box-sizing: border-box;
+  }
+  &:hover > ul {
+    display: block;
+  }
+}

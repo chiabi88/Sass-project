@@ -1,18 +1,25 @@
-(function(global){
+(function(ssq) {
 	'use strict';
-	global.toggleGrid = function(container, className) {
-		if (!container) { console.error('컨테이너에 해당되는 CSS 선택자를 입력해주세요.'); }
-		var container = document.querySelector(container);
-		className = className || 'grid';
-		document.onkeydown = function(e) {
-			var key = e.keyCode || e.which;
-			// 사용자가 입력한 키가 Shift + G 키라면... 토글 그리드 실행
-			// g === 71
-			// d === 68 (Windows, Chrome 사용자)
-			if (key === 68 && e.shiftKey === true) {
-				container.classList.toggle(className);
-			}
-		}
-  };
-
-})(window);
+	ssq(document).ready(function(){
+		activeGnb();
+	});
+	// gnb
+	function activeGnb() {
+		var body = ssq('body'),
+				btn = ssq('#header .btn-gnb'),
+				gnb = ssq('#gnb'),
+				depth1 = ssq('.gnb__depth1--is-depth2', gnb),
+				depth2 = ssq('.gnb__depth2');
+		btn.on('click', function(){
+			body.toggleClass('is-gnb--open');
+		});
+		depth1.children('a').on('click', function(e){
+			e.preventDefault();
+			ssq(this).toggleClass('gnb__depth1--open')
+				.parent()
+				.siblings()
+				.children('a')
+				.removeClass('gnb__depth1--open');
+		});
+	};
+}(jQuery));

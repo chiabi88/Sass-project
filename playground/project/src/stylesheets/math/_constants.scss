@@ -1,0 +1,19 @@
+// Constants(상수)
+$E:     2.718281828459045;
+$PI:    3.141592653589793;
+$LN2:   0.6931471805599453;
+$SQRT2: 1.4142135623730951;
+
+/// 단위 묶음
+/// @group [math] helpers
+/// @type {Map}
+$unit-map: (
+  px: 1px, pt: 1pt, pc: 1pc, in: 1in, mm: 1mm, cm: 1cm, // absolute length
+  em: 1em, rem: 1rem, ch: 1ch, ex: 1ex,                 // relative length - font based
+  vw: 1vw, vh: 1vh, vmin: 1vmin, vmax: 1vmax,           // relative length - viewport based
+  deg: 1deg, turn: 1turn, grad: 1grad, rad: 1rad,       // angle
+  s: 1s, ms: 1ms,                                       // time
+  hz: 1Hz, khz: 1kHz,                                   // frequency
+  dpi: 1dpi, dpcm: 1dpcm, dppx: 1dppx,                  // resolution
+  pct: 1%, percent: 1%, num: 1, number: 1               // percent or number  
+);
