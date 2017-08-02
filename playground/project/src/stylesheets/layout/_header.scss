@@ -5,7 +5,7 @@ $header-height: 5rem;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 9998;
   width: 100%;
   height: $header-height;
   background: $color-primary;
@@ -14,7 +14,7 @@ $header-height: 5rem;
     border-right: 1px solid rgba(255,255,255,0.2);
     @include burger-menu($header-height, $header-height, 1.5rem, 0.5rem, 0.3rem, rgb(255,255,255), 0.3s, 0.3rem);
 
-    .is-gnb--open & {
+    &--active {
       @include burger-menu--cross;
     }
   }

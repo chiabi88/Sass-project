@@ -18,15 +18,33 @@
     <nav class="gnb-wrap" id="gnb">
       <div class="gnb-inner">
         <ul class="gnb-menu">
-          <li class="gnb__depth1--is-depth2">
+          <li class="gnb__depth1--is-depth">
             <a href="">DEPTH1</a>
             <ul class="gnb__depth2">
-              <li><a href="">뎁스1-1</a></li>
-              <li><a href="">뎁스1-2</a></li>
-              <li><a href="">뎁스1-3</a></li>
+              <li class="gnb__depth2--is-depth">
+                <a href="">뎁스1-1</a>
+                <ul class="gnb__depth3">
+                  <li><a href="">뎁스1-1-1</a></li>
+                  <li><a href="">뎁스1-1-2</a></li>
+                </ul>
+              </li>
+              <li class="gnb__depth2--is-depth">
+                <a href="">뎁스1-2</a>
+                <ul class="gnb__depth3">
+                  <li><a href="">뎁스1-2-1</a></li>
+                  <li><a href="">뎁스1-2-2</a></li>
+                </ul>
+              </li>
+              <li class="gnb__depth2--is-depth">
+                <a href="">뎁스1-3</a>
+                <ul class="gnb__depth3">
+                  <li><a href="">뎁스1-3-1</a></li>
+                  <li><a href="">뎁스1-3-2</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
-          <li class="gnb__depth1--is-depth2">
+          <li class="gnb__depth1--is-depth">
             <a href="">DEPTH2</a>
             <ul class="gnb__depth2">
               <li><a href="">뎁스2-1</a></li>
@@ -37,6 +55,7 @@
           <li><a href="">DEPTH4</a></li>
         </ul>
       </div>
+      <div class="gnb-wrap__mask"></div>
     </nav>
   </header>
   <div id="contents">

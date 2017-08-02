@@ -3,16 +3,26 @@
   display: none;
   position: fixed;
   top: $header-height;
+  z-index: 9999;
   width: 100%;
   color: #ffffff;
   height: calc(100% - #{$header-height});
-  background: rgba(0,0,0,0.8);
-  .is-gnb--open & {
+  &--open {
     display: block;
+  }
+  &__mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: -1
   }
 }
 .gnb-inner {
   max-height: 100%;
+  overflow-y: auto;
   background: darken($color-primary, 10%);
 }
 .gnb-menu {
@@ -20,29 +30,56 @@
     display: block;
   }
   & > li {
-    border-bottom: 1px solid rgba(255,255,255,0.2)
-  }
-  & > li > a {
-    padding: 0 1.5rem;
-    font-size: 2.4rem;
-    line-height: 5rem;
+    & + li {
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    & > a {
+      padding: 0 1.5rem;
+      font-size: 2.4rem;
+      line-height: 5rem;
+    }
   }
 }
-
-.gnb__depth1--is-depth2 > a {
-  @include menu-arrow(1.5rem, 1.2rem, 0.2rem, rgb(255,255,255));
-  &.gnb__depth1--open {
+.gnb__depth1 {
+  &--is-depth > a {
+    @include menu-arrow(1.5rem, 1.2rem, 0.2rem, rgb(255,255,255));
+  }
+  &--open > a {
+      @include menu-arrow--filp-upside;
+  }
+}
+.gnb__depth2 {
+  display: none;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  background: darken($color-primary, 15%);
+  .gnb__depth1--open > & {
+    display: block;
+  }
+  & > li {
+    & + li {
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    & > a {
+      padding: 0 1.5rem;
+      font-size: 1.6rem;
+      line-height: 5rem;
+    }
+  }
+  &--is-depth > a {
+    @include menu-arrow(1.5rem, 1.2rem, 0.2rem, rgb(255,255,255));
+  }
+  &--open > a {
     @include menu-arrow--filp-upside;
   }
 }
-.gnb__depth2{
+.gnb__depth3 {
   display: none;
   padding: 1.5rem 1.5rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   line-height: 3.2rem;
   border-top: 1px solid rgba(255,255,255,0.2);
-  background: darken($color-primary, 15%);
-  .gnb__depth1--open + & {
+  background: darken($color-primary, 20%);
+  .gnb__depth2--open > & {
     display: block;
   }
 }

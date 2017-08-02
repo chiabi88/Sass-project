@@ -108,7 +108,7 @@ a:link {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 9998;
   width: 100%;
   height: 5rem;
   background: #339898;
@@ -172,19 +172,19 @@ a:link {
   transition-property: bottom, background-color, transform, -webkit-transform;
 }
 
-.is-gnb--open #header .btn-gnb > span {
+#header .btn-gnb--active > span {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   background-color: transparent;
 }
 
-.is-gnb--open #header .btn-gnb > span::before {
+#header .btn-gnb--active > span::before {
   top: 0;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
-.is-gnb--open #header .btn-gnb > span::after {
+#header .btn-gnb--active > span::after {
   bottom: 0;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
@@ -203,18 +203,29 @@ a:link {
   display: none;
   position: fixed;
   top: 5rem;
+  z-index: 9999;
   width: 100%;
   color: #ffffff;
   height: calc(100% - 5rem);
-  background: rgba(0, 0, 0, 0.8);
 }
 
-.is-gnb--open .gnb-wrap {
+.gnb-wrap--open {
   display: block;
+}
+
+.gnb-wrap__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: -1;
 }
 
 .gnb-inner {
   max-height: 100%;
+  overflow-y: auto;
   background: #267272;
 }
 
@@ -222,8 +233,8 @@ a:link {
   display: block;
 }
 
-.gnb-menu > li {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+.gnb-menu > li + li {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .gnb-menu > li > a {
@@ -232,12 +243,12 @@ a:link {
   line-height: 5rem;
 }
 
-.gnb__depth1--is-depth2 > a {
+.gnb__depth1--is-depth > a {
   display: block;
   position: relative;
 }
 
-.gnb__depth1--is-depth2 > a:before, .gnb__depth1--is-depth2 > a:after {
+.gnb__depth1--is-depth > a:before, .gnb__depth1--is-depth > a:after {
   position: absolute;
   top: 50%;
   margin-top: -0.2rem;
@@ -252,39 +263,102 @@ a:link {
   border-radius: 0;
 }
 
-.gnb__depth1--is-depth2 > a:before {
+.gnb__depth1--is-depth > a:before {
   right: 1.5rem;
   right: 2rem;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
-.gnb__depth1--is-depth2 > a:after {
+.gnb__depth1--is-depth > a:after {
   right: 1.5rem;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 
-.gnb__depth1--is-depth2 > a.gnb__depth1--open:before {
+.gnb__depth1--open > a:before {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 
-.gnb__depth1--is-depth2 > a.gnb__depth1--open:after {
+.gnb__depth1--open > a:after {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
 .gnb__depth2 {
   display: none;
-  padding: 1.5rem 1.5rem;
-  font-size: 1.6rem;
-  line-height: 3.2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   background: #205f5f;
 }
 
-.gnb__depth1--open + .gnb__depth2 {
+.gnb__depth1--open > .gnb__depth2 {
+  display: block;
+}
+
+.gnb__depth2 > li + li {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gnb__depth2 > li > a {
+  padding: 0 1.5rem;
+  font-size: 1.6rem;
+  line-height: 5rem;
+}
+
+.gnb__depth2--is-depth > a {
+  display: block;
+  position: relative;
+}
+
+.gnb__depth2--is-depth > a:before, .gnb__depth2--is-depth > a:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.2rem;
+  content: '';
+  width: 0.84853rem;
+  height: 0.2rem;
+  background-color: white;
+  -webkit-transition: all;
+  transition: all;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  border-radius: 0;
+}
+
+.gnb__depth2--is-depth > a:before {
+  right: 1.5rem;
+  right: 2rem;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.gnb__depth2--is-depth > a:after {
+  right: 1.5rem;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.gnb__depth2--open > a:before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.gnb__depth2--open > a:after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.gnb__depth3 {
+  display: none;
+  padding: 1.5rem 1.5rem;
+  font-size: 1.4rem;
+  line-height: 3.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  background: #194c4c;
+}
+
+.gnb__depth2--open > .gnb__depth3 {
   display: block;
 }
 
