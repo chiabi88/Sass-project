@@ -1,0 +1,110 @@
+/// 위로 향하는 화살표 만들기 믹스인
+/// @param {Number (with unit)} $list-arrow-width [15px] - 리스트 화살표 넓이
+/// @param {Number (with unit)} $list-arrow-thickness [2px] - 리스트 화살표 두깨
+/// @param {Color} $list-arrow-color [rgb(0,0,0)] - 리스트 화살표 컬러
+/// @param {Number (with unit)} $list-arrow-radius [$list-arrow-thickness/2] - 리스트 화살표 라운딩
+@mixin list-arrow-up(
+  $list-arrow-width: 15px,
+  $list-arrow-thickness: 2px,
+  $list-arrow-color: rgb(0,0,0),
+  $list-arrow-border-radius: $list-arrow-thickness/2
+){
+  $list-arrow-width: $list-arrow-width !global;
+  $list-arrow-height: $list-arrow-width/2 !global;
+  $list-arrow-left: ($list-arrow-width + $list-arrow-thickness)/2 - $list-arrow-thickness !global;
+
+  $list-arrow-hypo: get-hypotenuse($list-arrow-height, $list-arrow-height) !global;
+
+  & {
+    display: block;
+    width: $list-arrow-width;
+    height: $list-arrow-height;
+    @content;
+  }
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    margin-top: ($list-arrow-height - $list-arrow-thickness) / -2;
+    content: '';
+    width: $list-arrow-hypo;
+    height: $list-arrow-thickness;
+    background-color: $list-arrow-color;
+    transition: all;
+    transition-duration: 0.3s;
+    border-radius: $list-arrow-border-radius;
+  }
+  &::before {
+    $list-arrow-before-rotate: -45deg !global;
+    left: 0;
+    transform: rotate($list-arrow-before-rotate);
+  }
+  &::after {
+    $list-arrow-after-rotate: 45deg !global;
+    left: $list-arrow-left;
+    transform: rotate($list-arrow-after-rotate);
+  }
+}
+
+/// 아래로 향하는 화살표 만들기 믹스인
+/// @param {Number (with unit)} $list-arrow-width [15px] - 리스트 화살표 넓이
+/// @param {Number (with unit)} $list-arrow-thickness [2px] - 리스트 화살표 두깨
+/// @param {Color} $list-arrow-color [rgb(0,0,0)] - 리스트 화살표 컬러
+/// @param {Number (with unit)} $list-arrow-radius [$list-arrow-thickness/2] - 리스트 화살표 라운딩
+@mixin list-arrow-down(
+  $list-arrow-width: 15px,
+  $list-arrow-thickness: 2px,
+  $list-arrow-color: rgb(0,0,0),
+  $list-arrow-border-radius: $list-arrow-thickness/2
+){
+  $list-arrow-width: $list-arrow-width !global;
+  $list-arrow-height: $list-arrow-width/2 !global;
+  $list-arrow-left: ($list-arrow-width + $list-arrow-thickness)/2 - $list-arrow-thickness !global;
+
+  $list-arrow-hypo: get-hypotenuse($list-arrow-height, $list-arrow-height) !global;
+
+  & {
+    display: block;
+    width: $list-arrow-width;
+    height: $list-arrow-height;
+    @content;
+  }
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    margin-top: ($list-arrow-height - $list-arrow-thickness) / -2;
+    content: '';
+    width: $list-arrow-hypo;
+    height: $list-arrow-thickness;
+    background-color: $list-arrow-color;
+    transition: all;
+    transition-duration: 0.3s;
+    border-radius: $list-arrow-border-radius;
+  }
+  &::before {
+    left: 0;
+    transform: rotate(45deg);
+  }
+  &::after {
+    left: $list-arrow-left;
+    transform: rotate(-45deg);
+  }
+}
+
+/// 화살표 방향 뒤집기 믹스인
+/// @param {Color} $color [auto] - 색이 변경될 경우 지정
+@mixin list-arrow-flip($color: auto){
+  @if($color != auto) {
+    &::before,
+    &::after {
+      background-color: $list-arrow-color;
+    }
+  }
+  &::before {
+    transform: rotate(-($list-arrow-before-rotate));
+  }
+  &::after {
+    transform: rotate(-($list-arrow-after-rotate));
+  }
+}

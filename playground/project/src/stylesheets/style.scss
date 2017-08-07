@@ -1,11 +1,13 @@
 @charset 'utf-8';
 
+// util
+@import 'math/math';
+@import 'util/util';
+
 // global
 @import 'global/variables';
 @import 'global/mixins';
 
-// util
-@import 'math/math';
 
 // base
 @import 'base/reset';
@@ -13,6 +15,9 @@
 
 // animation
 @import 'animations/animation';
+
+// shape
+@import 'shape/shape';
 
 // component
 @import 'components/burger/mixins';

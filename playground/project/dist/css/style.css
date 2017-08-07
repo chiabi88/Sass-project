@@ -1,4 +1,8 @@
 @charset "UTF-8";
+/*
+ * darken, light등의 color function 사용하지 않는 gulp 프로젝트에서 
+ * 16진수값이 아닌 rgb 값으로 컴파일 되었으면 할 때 사용한다.
+ */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -414,6 +418,7 @@ a:link {
 }
 
 .guide-section pre {
+  overflow-y: auto;
   margin-top: 2rem;
   padding: 2rem 3rem;
   font-family: "Noto Sans KR";

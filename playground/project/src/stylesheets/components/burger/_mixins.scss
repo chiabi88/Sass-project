@@ -19,51 +19,57 @@
   $burger-transition-duration: 0.3s, 
   $burger-border-radius: 0
   ) {
-  $burger-width: $burger-width !global;
-  $burger-height: $burger-height !global;
-  $burger-side: $burger-side !global;
-  $burger-thickness: $burger-thickness !global;
-  $burger-transition-duration: !global;
+  // 다음 값의 단위는 모두 같아야합니다.
+  @if unit($burger-height) == unit($burger-thickness) && unit($burger-thickness) == unit($burger-gutter) {
+    $burger-width: $burger-width !global;
+      $burger-height: $burger-height !global;
+      $burger-side: $burger-side !global;
+      $burger-thickness: $burger-thickness !global;
+      $burger-transition-duration: !global;
 
-  position: relative;
-  width: $burger-width;
-  height: $burger-height;
-  padding: 0;
-  text-indent: -9999px;
-  overflow: hidden;
-  cursor: pointer;
-  & > span {
-    position: absolute;
-    top: ($burger-height / 2) - ($burger-thickness / 2);
-    left: $burger-side;
-    right: $burger-side;
-    transition-property: transform;
-    transition-duration: $burger-transition-duration;
-    &,
-    &::before,
-    &::after {
-      display: block;
-      height: $burger-thickness;
-      background-color: $burger-color;
-      border-radius: $burger-border-radius;
-    }
+      position: relative;
+      width: $burger-width;
+      height: $burger-height;
+      padding: 0;
+      text-indent: -9999px;
+      overflow: hidden;
+      cursor: pointer;
+      & > span {
+        position: absolute;
+        top: ($burger-height / 2) - ($burger-thickness / 2);
+        left: $burger-side;
+        right: $burger-side;
+        transition-property: transform;
+        transition-duration: $burger-transition-duration;
+        &,
+        &::before,
+        &::after {
+          display: block;
+          height: $burger-thickness;
+          background-color: $burger-color;
+          border-radius: $burger-border-radius;
+        }
+      }
+      & > span::before,
+      & > span::after {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        content: '';
+        transition-duration: $burger-transition-duration;
+      }
+      & > span::before {
+        top: -($burger-thickness + $burger-gutter);
+        transition-property: top, background-color, transform;
+      }
+      & > span::after {
+        bottom: -($burger-thickness + $burger-gutter);
+        transition-property: bottom, background-color, transform;
+      }
+  } @else {
+    @error 'The value into the burger-menu mixin must share the same unit type';
   }
-  & > span::before,
-  & > span::after {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    content: '';
-    transition-duration: $burger-transition-duration;
-  }
-  & > span::before {
-    top: -($burger-thickness + $burger-gutter);
-    transition-property: top, background-color, transform;
-  }
-  & > span::after {
-    bottom: -($burger-thickness + $burger-gutter);
-    transition-property: bottom, background-color, transform;
-  }
+ 
 }
 
 /// burger-menu 크로스 효과 애니메이션 믹스인
