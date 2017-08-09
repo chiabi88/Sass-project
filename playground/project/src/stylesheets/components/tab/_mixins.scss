@@ -80,8 +80,13 @@
       }
     }  
   }
-  // 추가 스타일
-  @content;
+  @at-root {
+    // 탭 스타일 작성
+    /* tab :: style */
+    & {
+      @content;
+    }
+  }
 }
 
 

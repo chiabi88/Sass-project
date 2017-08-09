@@ -799,10 +799,10 @@ a:link {
           transform: rotate(-45deg);
 }
 
+/* guide-tab--2 */
 .guide-tab--2 {
   position: relative;
   padding-top: 4rem;
-  margin-top: 30px;
 }
 
 .guide-tab--2 .tab-menu {
@@ -840,6 +840,11 @@ a:link {
   display: none;
 }
 
+/* tab :: style */
+.guide-tab--2 {
+  margin-top: 30px;
+}
+
 .guide-tab--2 .tab-menu {
   background: #fec7d2;
 }
@@ -864,10 +869,10 @@ a:link {
   border: 1px solid #fa325a;
 }
 
+/* guide-tab--3 */
 .guide-tab--3 {
   position: relative;
   padding-top: 4rem;
-  margin-top: 30px;
 }
 
 .guide-tab--3 .tab-menu {
@@ -920,6 +925,11 @@ a:link {
   }
 }
 
+/* tab :: style */
+.guide-tab--3 {
+  margin-top: 30px;
+}
+
 .guide-tab--3 .tab-menu {
   background: #fec7d2;
 }
@@ -942,6 +952,25 @@ a:link {
 .guide-tab--3 .tab-con {
   padding: 2rem 1.5rem;
   border: 1px solid #fa325a;
+}
+
+@media screen and (max-width: 480px) {
+  .guide-tab--3 .tab-menu {
+    background: #beee52;
+  }
+  .guide-tab--3 .tab-menu a {
+    font-size: 1.2rem;
+    color: #6e980f;
+  }
+  .guide-tab--3 .tab-menu--open {
+    background-color: #6e980f;
+  }
+  .guide-tab--3 .tab-menu--open a {
+    color: white;
+  }
+  .guide-tab--3 .tab-con {
+    border-color: #6e980f;
+  }
 }
 
 /*# sourceMappingURL=maps/style.css.map */
