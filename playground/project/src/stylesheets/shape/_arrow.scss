@@ -16,10 +16,10 @@
   $list-arrow-hypo: get-hypotenuse($list-arrow-height, $list-arrow-height) !global;
 
   & {
+    position: relative;
     display: block;
     width: $list-arrow-width;
     height: $list-arrow-height;
-    @content;
   }
   &::before,
   &::after {
@@ -64,10 +64,10 @@
   $list-arrow-hypo: get-hypotenuse($list-arrow-height, $list-arrow-height) !global;
 
   & {
+    position: relative;
     display: block;
     width: $list-arrow-width;
     height: $list-arrow-height;
-    @content;
   }
   &::before,
   &::after {
@@ -83,12 +83,14 @@
     border-radius: $list-arrow-border-radius;
   }
   &::before {
+    $list-arrow-before-rotate: 45deg !global;
     left: 0;
-    transform: rotate(45deg);
+    transform: rotate($list-arrow-before-rotate);
   }
   &::after {
+    $list-arrow-after-rotate: -45deg !global;
     left: $list-arrow-left;
-    transform: rotate(-45deg);
+    transform: rotate($list-arrow-after-rotate);
   }
 }
 

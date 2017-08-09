@@ -1,0 +1,11 @@
+/// 원형, 타원형 믹스인
+/// @param {Number (with unit)} $shape-width [40px] - 사각형 넓이
+/// @param {Number (with unit)} $shape-height [$shape-width] - 사각형 높이
+/// @param {Number (with unit)} $line-height [$shape-width] - 글자 라인 높이
+@mixin circle($shape-width: 40px, $shape-height: $shape-width, $line-height: $shape-width){
+  width: $shape-width;
+  height: $shape-height;
+  line-height: $line-height;
+  border-radius: 100%;
+  box-sizing: border-box;
+}

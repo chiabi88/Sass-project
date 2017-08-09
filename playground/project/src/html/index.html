@@ -132,9 +132,9 @@
       <h2 class="guide-section__title">[Components] menu-arrows</h2>
       <p>뎁스 액티브 화살표</p>
       <pre>li > a {
-    @include <span class="pre-sass__mixin">menu-arrow(1.5rem, 0.7rem, 0.7rem, 0.2rem)</span>;
+    <span class="pre-sass">@include</span> <span class="pre-sass__mixin">menu-arrow(1.5rem, 0.7rem, 0.7rem, 0.2rem)</span>;
     &:hover {
-      @include <span class="pre-sass__mixin">menu-arrow--filp-upside</span>;
+      <span class="pre-sass">@include</span> <span class="pre-sass__mixin">menu-arrow--filp-upside</span>;
     }
 }</pre>
       <table class="guide-section__table">
@@ -178,6 +178,47 @@
           <td>@include menu-arrows--filp-cross</td>
         </tr>
       </table>
+    </section>
+    <section class="guide-section">
+      <h2 class="guide-section__title">[Shape] list-arrow</h2>
+      <p>리스트에서 주로 사용하는 화살표 모양</p>
+      <pre>.button--up {
+  <span class="pre-sass">@include</span> <span class="pre-sass__mixin">list-arrow-up(30rem, 0.2rem, rgb(0,0,0))</span>;
+  &:hover {
+    <span class="pre-sass">@include</span> <span class="pre-sass__mixin">list-arrow-flip</span>;
+  }
+}
+.button--down {
+  <span class="pre-sass">@include</span> <span class="pre-sass__mixin">list-arrow-down(30rem, 0.2rem, rgb(0,0,0))</span>;
+  &:hover {
+    <span class="pre-sass">@include</span> <span class="pre-sass__mixin">list-arrow-filp</span>;
+  }
+}</pre>
+      <table class="guide-section__table">
+        <tr>
+          <td>
+            <button class="guide-shape__list-arrow--up"></button>
+          </td>
+          <td>@include list-arrow-up</td>
+        </tr>
+        <tr>
+          <td>
+            <button class="guide-shape__list-arrow--down"></button>
+          </td>
+          <td>@include list-arrow-down</td>
+        </tr>
+        <tr>
+          <td>
+            <button class="guide-shape__list-arrow--filp"></button>
+          </td>
+          <td>@include list-arrow-filp</td>
+        </tr>
+      </table>
+    </section>
+    <section class="guide-section">
+      <h2 class="guide-section__title">[component] tab</h2>
+      <p>탭</p>
+      <pre></pre>
     </section>
   </div>
   <footer id="footer">

@@ -13,7 +13,7 @@
   }
   $circle-radius: $circle-size * 2;
 
-  color: $circle-color;
+  background-color: $circle-color;
   @if ($circle-direction == 'top') {
     @include circle-upside;
     border-top-left-radius: $circle-radius;
