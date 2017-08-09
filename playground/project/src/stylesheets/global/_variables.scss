@@ -3,7 +3,7 @@ $base-font-kor: 'Noto Sans KR';
 
 $base-font-size: 10px !default;
 
-$color-primary: rgb(51,152,152);
+$color-primary: rgb(250,50,90);
 $color-error: rgb(251,13,0);
 $color-success: rgb(26,152,86);
 
@@ -12,3 +12,5 @@ $text-color-gray: rgb(102,102,102);
 $text-color-light: rgb(153,153,153);
 
 $border-color-default: rgb(238,238,238);
+
+$breakpoint-mobile: 768px;

@@ -2,6 +2,7 @@
 	'use strict';
 	$(document).ready(function(){
 		activeGnb();
+		activeTab();
 	});
 	// gnb
 	
@@ -103,4 +104,37 @@
 				accordionMenu.reset(gnb_menu);
 		});
 	};
+
+	function activeTab() {
+		var tab, tab_2, tab_3;
+		tab = {
+			curr: null,
+			menu: '.tab-menu', 
+			con: '.tab-con',
+			init: function(obj){
+				tab.curr = obj;
+				$('.tab-menu:not(.tab-menu--open)', tab.curr).next().hide();
+				tab.clickEvent(tab.curr);
+			},
+			clickEvent: function(obj){
+				var tab_menu, tab_con;
+				tab.curr = obj;
+				tab_menu = tab.curr.children(tab.menu);
+				tab_con = tab.curr.children(tab.con);
+				tab_menu.children('a').click(function(e){
+					e.preventDefault();
+					var this_parent = $(this).parent();
+					tab_menu.removeClass('tab-menu--open');
+					this_parent.addClass('tab-menu--open');
+					tab_con.hide();
+					this_parent.next().show();
+				});
+			}
+		}
+		tab_2 = $('.guide-tab--2');
+		tab_3 = $('.guide-tab--3');
+		
+		tab.init(tab_2);
+		tab.init(tab_3);
+	}
 }(jQuery));

@@ -107,19 +107,75 @@
   }
 }
 
+%guide-shape-cursor {
+  cursor: pointer;
+}
 .guide-shape {
   &__list-arrow {
     &--up {
-      @include list-arrow-up(3rem, 0.2rem, $color-primary);
+      @extend %guide-shape-cursor;
+      @include list-arrow-up(2rem, 0.2rem, $color-primary);
     }
     &--down {
-      @include list-arrow-down(3rem, 0.2rem, $color-primary);
+      @extend %guide-shape-cursor;
+      @include list-arrow-down(2rem, 0.2rem, $color-primary);
     }
     &--filp {
-      @include list-arrow-up(3rem, 0.2rem, $color-primary);
+      @extend %guide-shape-cursor;
+      @include list-arrow-up(2rem, 0.2rem, $color-primary);
       &:hover {
         @include list-arrow-flip
       }
+    }
+  }
+}
+
+.guide-tab--2 {
+  @include component-tab(4rem, 2) {
+    margin-top: 30px;
+    .tab-menu {
+      background: lighten($color-primary, 30%);
+      a {
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-align: center;
+        color: $color-primary;
+      }
+      &--open {
+        background: $color-primary;
+        a {
+          color: rgb(255,255,255)
+        }
+      }
+    }
+    .tab-con {
+      padding: 2rem 1.5rem;
+      border: 1px solid $color-primary;
+    }
+  }
+}
+
+.guide-tab--3 {
+  @include component-tab(4rem, 3, true, 480px) {
+    margin-top: 30px;
+    .tab-menu {
+      background: lighten($color-primary, 30%);
+      a {
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-align: center;
+        color: $color-primary;
+      }
+      &--open {
+        background: $color-primary;
+        a {
+          color: rgb(255,255,255)
+        }
+      }
+    }
+    .tab-con {
+      padding: 2rem 1.5rem;
+      border: 1px solid $color-primary;
     }
   }
 }

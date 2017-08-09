@@ -92,6 +92,42 @@
         </tr>
       </table>
     </section>
+       <section class="guide-section">
+      <h2 class="guide-section__title">[Shape] list-arrow</h2>
+      <p>리스트에서 주로 사용하는 화살표 모양</p>
+      <pre>.button--up {
+  <span class="pre-sass">@include</span> <span class="pre-sass__mixin">list-arrow-up(30rem, 0.2rem, rgb(0,0,0))</span>;
+  &:hover {
+    <span class="pre-sass">@include</span> <span class="pre-sass__mixin">list-arrow-flip</span>;
+  }
+}
+.button--down {
+  <span class="pre-sass">@include</span> <span class="pre-sass__mixin">list-arrow-down(30rem, 0.2rem, rgb(0,0,0))</span>;
+  &:hover {
+    <span class="pre-sass">@include</span> <span class="pre-sass__mixin">list-arrow-filp</span>;
+  }
+}</pre>
+      <table class="guide-section__table">
+        <tr>
+          <td>
+            <button class="guide-shape__list-arrow--up"></button>
+          </td>
+          <td>@include list-arrow-up</td>
+        </tr>
+        <tr>
+          <td>
+            <button class="guide-shape__list-arrow--down"></button>
+          </td>
+          <td>@include list-arrow-down</td>
+        </tr>
+        <tr>
+          <td>
+            <button class="guide-shape__list-arrow--filp"></button>
+          </td>
+          <td>@include list-arrow-filp</td>
+        </tr>
+      </table>
+    </section>
     <section class="guide-section">
       <h2 class="guide-section__title">[Components] Burger</h2>
       <p>햄버거 메뉴(cross, minus, arrow) </p>
@@ -180,45 +216,67 @@
       </table>
     </section>
     <section class="guide-section">
-      <h2 class="guide-section__title">[Shape] list-arrow</h2>
-      <p>리스트에서 주로 사용하는 화살표 모양</p>
-      <pre>.button--up {
-  <span class="pre-sass">@include</span> <span class="pre-sass__mixin">list-arrow-up(30rem, 0.2rem, rgb(0,0,0))</span>;
-  &:hover {
-    <span class="pre-sass">@include</span> <span class="pre-sass__mixin">list-arrow-flip</span>;
-  }
-}
-.button--down {
-  <span class="pre-sass">@include</span> <span class="pre-sass__mixin">list-arrow-down(30rem, 0.2rem, rgb(0,0,0))</span>;
-  &:hover {
-    <span class="pre-sass">@include</span> <span class="pre-sass__mixin">list-arrow-filp</span>;
-  }
-}</pre>
-      <table class="guide-section__table">
-        <tr>
-          <td>
-            <button class="guide-shape__list-arrow--up"></button>
-          </td>
-          <td>@include list-arrow-up</td>
-        </tr>
-        <tr>
-          <td>
-            <button class="guide-shape__list-arrow--down"></button>
-          </td>
-          <td>@include list-arrow-down</td>
-        </tr>
-        <tr>
-          <td>
-            <button class="guide-shape__list-arrow--filp"></button>
-          </td>
-          <td>@include list-arrow-filp</td>
-        </tr>
-      </table>
-    </section>
-    <section class="guide-section">
-      <h2 class="guide-section__title">[component] tab</h2>
+      <h2 class="guide-section__title">[component] component-tab</h2>
       <p>탭</p>
-      <pre></pre>
+      <pre>.guide-tab--3 {
+  <span class="pre-sass">@include</span> <span class="pre-sass__mixin">component-tab(4rem, 3, true, 480px) {
+    margin-top: 30px;
+    .tab-menu {
+      background: lighten($color-primary, 30%);
+      a {
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-align: center;
+        color: $color-primary;
+      }
+      &--open {
+        background: $color-primary;
+        a {
+          color: rgb(255,255,255)
+        }
+      }
+    }
+    .tab-con {
+      padding: 2rem 1.5rem;
+      border: 1px solid $color-primary;
+    }
+  }</span>
+}
+      </pre>
+      <div class="guide-tab guide-tab--2">
+        <h2 class="tab-menu tab-menu--open">
+          <a href="">TAB 1</a>
+        </h2>
+        <div class="tab-con">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum officiis qui blanditiis ullam laudantium id quaerat sit alias quae quasi?
+        </div>
+        <h2 class="tab-menu">
+          <a href="">TAB 2</a>
+        </h2>
+        <div class="tab-con">
+          Alias mollitia omnis eligendi aperiam cumque quibusdam a praesentium blanditiis possimus atque debitis sequi, labore velit nulla vel libero recusandae quam iste.
+        </div>
+      </div>
+      <div class="guide-tab guide-tab--3">
+        <h2 class="tab-menu tab-menu--open">
+          <a href="">TAB 1</a>
+        </h2>
+        <div class="tab-con">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum officiis qui blanditiis ullam laudantium id quaerat sit alias quae quasi?
+        </div>
+        <h2 class="tab-menu">
+          <a href="">TAB 2</a>
+        </h2>
+        <div class="tab-con">
+          Alias mollitia omnis eligendi aperiam cumque quibusdam a praesentium blanditiis possimus atque debitis sequi, labore velit nulla vel libero recusandae quam iste.
+        </div>
+        <h2 class="tab-menu">
+          <a href="">TAB 3</a>
+        </h2>
+        <div class="tab-con">
+          Ad voluptatibus fugiat aspernatur perspiciatis, architecto animi, mollitia eos ipsa, explicabo aliquam modi, facilis odit dolore vel officia excepturi nesciunt quia sapiente hic reiciendis aut. Fuga blanditiis fugit quia ullam accusantium asperiores odio esse error repudiandae consequatur et, perferendis!
+        </div>
+      </div>
     </section>
   </div>
   <footer id="footer">

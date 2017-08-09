@@ -25,7 +25,7 @@
   &::after {
     position: absolute;
     top: 50%;
-    margin-top: ($list-arrow-height - $list-arrow-thickness) / -2;
+    margin-top: 0;
     content: '';
     width: $list-arrow-hypo;
     height: $list-arrow-thickness;
@@ -36,12 +36,12 @@
   }
   &::before {
     $list-arrow-before-rotate: -45deg !global;
-    left: 0;
+    left: $list-arrow-left / -4;
     transform: rotate($list-arrow-before-rotate);
   }
   &::after {
     $list-arrow-after-rotate: 45deg !global;
-    left: $list-arrow-left;
+    left: $list-arrow-left / 4 * 3;
     transform: rotate($list-arrow-after-rotate);
   }
 }
@@ -73,7 +73,7 @@
   &::after {
     position: absolute;
     top: 50%;
-    margin-top: ($list-arrow-height - $list-arrow-thickness) / -2;
+    margin-top: 0;
     content: '';
     width: $list-arrow-hypo;
     height: $list-arrow-thickness;
@@ -84,12 +84,12 @@
   }
   &::before {
     $list-arrow-before-rotate: 45deg !global;
-    left: 0;
+    left: $list-arrow-left / -4;
     transform: rotate($list-arrow-before-rotate);
   }
   &::after {
     $list-arrow-after-rotate: -45deg !global;
-    left: $list-arrow-left;
+    left: $list-arrow-left / 4 * 3;
     transform: rotate($list-arrow-after-rotate);
   }
 }
