@@ -1,0 +1,386 @@
+@import './variables';
+
+/// 커스텀 체크 박스 믹스인
+/// @group [component] checkbox
+/// @param {Number (width unit)} $check-box-margin [10px] - 체크박스 사이즈 + 라벨과 체큽박스 사이 간격
+/// @param {Number (width unit)}-$check-box-size [20px] - 체크박스 사이즈
+/// @param {Number (width unit)} $check-box-thickness [1px] - 체크박스 보더 두께
+/// @param {Color} $check-box-border-color [rgb(220,220,220)] - 체크박스 보더 컬러
+/// @param {Color} $check-box-background [rgb(255,255,255)] - 체크박스 백그라운드 컬러
+/// @param {Number (width unit)} $check-mark-size [8px] - 체크마크 사이즈
+/// @param {Number (width unit)} $check-mark-thickness [1px] - 체크마크 두께
+/// @param {Color} $check-mark-color [rgb(0,0,0)] - 체크마크 컬러
+/// @param {Number (width unit)} $check-c-box-thickness [auto] - 체크되었을때 변경되는 체크박스 보더 두께
+/// @param {Color} $check-c-box-border-color [auto] - 체크되었을때 변경되는 체크박스 보더 컬러
+/// @param {Color} $check-c-box-background [auto] - 체크되었을때 변경되는 체크 박스 백그라운드 컬러
+@mixin checkbox(
+  $check-box-margin: 10px,
+  $check-box-size: 20px,
+  $check-box-thickness: 1px,
+  $check-box-border-color: rgb(220,220,220), 
+  $check-box-background: rgb(255,255,255),
+  $check-mark-size: 8px, 
+  $check-mark-thickness: 1px,
+  $check-mark-color: rgb(0,0,0),
+  $check-c-box-thickness: auto,
+  $check-c-box-border-color: auto,
+  $check-c-box-background: auto  
+) {
+  $check-box-size:  $check-box-size !global;
+
+  input[type="checkbox"] {
+    display: none;
+    + label {
+      display: block;
+      min-height: $check-box-size;
+      padding-left: $check-box-margin + $check-box-size;
+      line-height: $check-box-size;
+      position: relative;
+      cursor: pointer;
+      span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        float: left;
+        display: block;
+        width: $check-box-size;
+        height: $check-box-size;
+        border: $check-box-thickness solid $check-box-border-color;
+        box-sizing: border-box;
+        background: $check-box-background;
+        @content;
+        @if $checkbox-animation-use == true {
+          &:before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            content: '';
+            width: $check-box-size;
+            height: $check-box-size;
+            border-radius: $check-box-size;
+            transform: translateX(-50%) translateY(-50%) scale(0);
+            background: rgb(238,238,238);
+          }
+        }
+      }
+    }
+  }
+  @include checkbox--checked(
+    $check-mark-size,
+    $check-mark-thickness,
+    $check-mark-color,
+    $check-c-box-thickness,
+    $check-c-box-border-color,
+    $check-c-box-background  
+  );
+  @include checkbox--disabled;
+  @include checkbox--checked-disabled(
+    $check-mark-size,
+    $check-mark-thickness
+  );
+  @if $support-ie8 == true {
+    .ie8 & {
+      input[type="checkbox"]{
+        float: left;
+        display: block;
+        width: $check-box-size;
+        height: $check-box-size;
+        & + label span {
+          display: none
+        }
+      }
+    }
+  }
+}
+
+/// 라벨 내용 없는 커스텀 체크박스
+/// @group [component] checkbox
+/// @param {Number (width unit)}-$check-box-size [20px] - 체크박스 사이즈
+/// @param {Number (width unit)} $check-box-thickness [1px] - 체크박스 보더 두께
+/// @param {Color} $check-box-border-color [rgb(220,220,220)] - 체크박스 보더 컬러
+/// @param {Color} $check-box-background [rgb(255,255,255)] - 체크박스 백그라운드 컬러
+/// @param {Number (width unit)} $check-mark-size [8px] - 체크마크 사이즈
+/// @param {Number (width unit)} $check-mark-thickness [1px] - 체크마크 두께
+/// @param {Color} $check-mark-color [rgb(0,0,0)] - 체크마크 컬러
+/// @param {Number (width unit)} $check-c-box-thickness [auto] - 체크되었을때 변경되는 체크박스 보더 두께
+/// @param {Color} $check-c-box-border-color [auto] - 체크되었을때 변경되는 체크박스 보더 컬러
+/// @param {Color} $check-c-box-background [auto] - 체크되었을때 변경되는 체크 박스 백그라운드 컬러
+@mixin checkbox--no-label (
+  $check-box-size: 20px,
+  $check-box-thickness: 1px,
+  $check-box-border-color: rgb(220,220,220), 
+  $check-box-background: rgb(255,255,255),
+  $check-mark-size: 8px, 
+  $check-mark-thickness: 1px,
+  $check-mark-color: rgb(0,0,0),
+  $check-c-box-thickness: auto,
+  $check-c-box-border-color: auto,
+  $check-c-box-background: auto  
+) {
+  $check-box-size:  $check-box-size !global;
+
+  input[type="checkbox"] {
+    display: none;
+    + label {
+      display: block;
+      width: $check-box-size;
+      height: $check-box-size;
+      position: relative;
+      cursor: pointer;
+      span {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: $check-box-thickness solid $check-box-border-color;
+        box-sizing: border-box;
+        background: $check-box-background;
+        @content;
+        @if $checkbox-animation-use == true {
+          &:before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            content: '';
+            width: $check-box-size;
+            height: $check-box-size;
+            border-radius: $check-box-size;
+            transform: translateX(-50%) translateY(-50%) scale(0);
+            background: rgb(238,238,238);
+          }
+        }
+      }
+    }
+  }
+  @include checkbox--checked(
+    $check-mark-size,
+    $check-mark-thickness,
+    $check-mark-color,
+    $check-c-box-thickness,
+    $check-c-box-border-color,
+    $check-c-box-background  
+  );
+  @include checkbox--disabled;
+  @include checkbox--checked-disabled(
+    $check-mark-size,
+    $check-mark-thickness
+  );
+  @if $support-ie8 == true {
+    .ie8 & {
+      input[type="checkbox"]{
+        float: left;
+        display: block;
+        width: $check-box-size;
+        height: $check-box-size;
+        & + label span {
+          display: none
+        }
+      }
+    }
+  }
+}
+
+/// 원형 커스텀 체크 박스 믹스인
+/// @group [component] checkbox
+/// @param {Number (width unit)} $check-box-margin [10px] - 체크박스 사이즈 + 라벨과 체큽박스 사이 간격
+/// @param {Number (width unit)}-$check-box-size [20px] - 체크박스 사이즈
+/// @param {Number (width unit)} $check-box-thickness [1px] - 체크박스 보더 두께
+/// @param {Color} $check-box-border-color [rgb(220,220,220)] - 체크박스 보더 컬러
+/// @param {Color} $check-box-background [rgb(255,255,255)] - 체크박스 백그라운드 컬러
+/// @param {Number (width unit)} $check-mark-size [8px] - 체크마크 사이즈
+/// @param {Number (width unit)} $check-mark-thickness [1px] - 체크마크 두께
+/// @param {Color} $check-mark-color [rgb(0,0,0)] - 체크마크 컬러
+/// @param {Number (width unit)} $check-c-box-thickness [auto] - 체크되었을때 변경되는 체크박스 보더 두께
+/// @param {Color} $check-c-box-border-color [auto] - 체크되었을때 변경되는 체크박스 보더 컬러
+/// @param {Color} $check-c-box-background [auto] - 체크되었을때 변경되는 체크 박스 백그라운드 컬러
+@mixin circle-checkbox(
+  $check-box-margin: 10px,
+  $check-box-size: 20px,
+  $check-box-thickness: 1px,
+  $check-box-border-color: rgb(220,220,220), 
+  $check-box-background: rgb(255,255,255),
+  $check-mark-size: 8px, 
+  $check-mark-thickness: 1px,
+  $check-mark-color: rgb(0,0,0),
+  $check-c-box-thickness: auto,
+  $check-c-box-border-color: auto,
+  $check-c-box-background: auto  
+) {
+  @include checkbox(
+    $check-box-margin,
+    $check-box-size,
+    $check-box-thickness,
+    $check-box-border-color,
+    $check-box-background,
+    $check-mark-size,
+    $check-mark-thickness,
+    $check-mark-color,
+    $check-c-box-thickness, 
+    $check-c-box-border-color, 
+    $check-c-box-background      
+  ) {
+    border-radius: $check-box-size;
+  }
+}
+
+/// 라벨 내용 없는 원형 커스텀 체크박스
+/// @group [component] checkbox
+/// @param {Number (width unit)}-$check-box-size [20px] - 체크박스 사이즈
+/// @param {Number (width unit)} $check-box-thickness [1px] - 체크박스 보더 두께
+/// @param {Color} $check-box-border-color [rgb(220,220,220)] - 체크박스 보더 컬러
+/// @param {Color} $check-box-background [rgb(255,255,255)] - 체크박스 백그라운드 컬러
+/// @param {Number (width unit)} $check-mark-size [8px] - 체크마크 사이즈
+/// @param {Number (width unit)} $check-mark-thickness [1px] - 체크마크 두께
+/// @param {Color} $check-mark-color [rgb(0,0,0)] - 체크마크 컬러
+/// @param {Number (width unit)} $check-c-box-thickness [auto] - 체크되었을때 변경되는 체크박스 보더 두께
+/// @param {Color} $check-c-box-border-color [auto] - 체크되었을때 변경되는 체크박스 보더 컬러
+/// @param {Color} $check-c-box-background [auto] - 체크되었을때 변경되는 체크 박스 백그라운드 컬러
+@mixin circle-checkbox--no-label(
+  $check-box-size: 20px,
+  $check-box-thickness: 1px,
+  $check-box-border-color: rgb(220,220,220), 
+  $check-box-background: rgb(255,255,255),
+  $check-mark-size: 8px, 
+  $check-mark-thickness: 1px,
+  $check-mark-color: rgb(0,0,0),
+  $check-c-box-thickness: auto,
+  $check-c-box-border-color: auto,
+  $check-c-box-background: auto  
+) {
+  @include checkbox--no-label(
+    $check-box-size,
+    $check-box-thickness,
+    $check-box-border-color,
+    $check-box-background,
+    $check-mark-size,
+    $check-mark-thickness,
+    $check-mark-color,
+    $check-c-box-thickness, 
+    $check-c-box-border-color, 
+    $check-c-box-background      
+  ) {
+    border-radius: $check-box-size;
+  }
+}
+
+// ==========================
+// :checked 믹스인
+// ==========================
+
+/// 체크(:checked)되었을 때 믹스인
+/// @group [component] checkbox
+/// @param {Number (width unit)} $check-mark-size [10px] - 체크 마크 긴 길이
+/// @param {Number (width unit)} $check-mark-thickness [2px] - 체크 마크 두께
+/// @param {Color} $check-mark-color [rgb(0,0,0)] - 체크 마크 컬러
+/// @param {Number (width unit)} $check-c-box-thickness [auto] - 체크 박스 변경되는 보더 두께
+/// @param {Number (width unit)} $check-c-box-border-color [auto] - 체크 박스 변경되는 보더 컬러
+/// @param {Number (width unit)} $check-c-box-size [auto] - 체크 박스 변경되는 백그라운드
+@mixin checked (
+  $check-mark-size: 10px, 
+  $check-mark-thickness: 2px,
+  $check-mark-color: rgb(0,0,0),
+  $check-c-box-thickness: auto,
+  $check-c-box-border-color: auto,
+  $check-c-box-background: auto  
+){
+  $check-box-margin: ($check-box-size - $check-mark-size)/2;
+  @if( $check-c-box-thickness != auto ) {
+    $check-box-margin: (($check-box-size - $check-c-box-thickness*2) - $check-mark-size)/2;
+    border-width: $check-c-box-thickness;
+  }
+  @if( $check-c-box-border-color != auto ) {
+    border-color: $check-c-box-border-color;
+  }
+  @if( $check-c-box-background!= auto ) {
+    background-color: $check-c-box-background;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: $check-box-margin 0 0 ($check-box-margin - $check-mark-thickness*2);
+    @include checkmark($check-mark-size, $check-mark-thickness, $check-mark-color);
+  }
+}
+
+/// 체크(:checked)된 체크 박스 믹스인
+/// @group [component] checkbox
+/// @param {Number (width unit)} $check-mark-size [10px] - 체크 마크 긴 길이
+/// @param {Number (width unit)} $check-mark-thickness [2px] - 체크 마크 두께
+/// @param {Color} $check-mark-color [rgb(0,0,0)] - 체크 마크 컬러
+/// @param {Number (width unit)} $check-c-box-thickness [auto] - 체크 박스 변경되는 보더 두께
+/// @param {Number (width unit)} $check-c-box-border-color [auto] - 체크 박스 변경되는 보더 컬러
+/// @param {Number (width unit)} $check-c-box-size [auto] - 체크 박스 변경되는 백그라운드
+@mixin checkbox--checked(
+  $check-mark-size: 10px, 
+  $check-mark-thickness: 2px,
+  $check-mark-color: rgb(0,0,0),
+  $check-c-box-thickness: auto,
+  $check-c-box-border-color: auto,
+  $check-c-box-background: auto
+){
+  input[type="checkbox"]:checked {
+    + label span {
+      @include checked(
+        $check-mark-size, 
+        $check-mark-thickness,
+        $check-mark-color,
+        $check-c-box-thickness,
+        $check-c-box-border-color,
+        $check-c-box-background
+      );
+      @if $checkbox-animation-use == true {
+        &:before {
+          animation: checkboxChecked 0.3s;
+        }
+      }
+    }
+  }
+}
+
+// ==========================
+// :disabled 믹스인
+// ==========================
+
+/// 비활성화(:disabled)된 체크 박스 믹스인
+/// @group [component] checkbox
+@mixin checkbox--disabled{
+  input[type="checkbox"]:disabled {
+    + label{
+      cursor: default;
+      span {
+        border-color: $check-disabled-border-color;
+        background-color: $check-disabled-background;
+      }
+    }
+  }
+}
+
+/// 비활성화(:disabled)된 체크 박스 믹스인
+/// @group [component] checkbox
+/// @param {Number (width unit)} $check-mark-size [10px] - 체크 마크 긴 길이
+/// @param {Number (width unit)} $check-mark-thickness [2px] - 체크 마크 두께
+@mixin checkbox--checked-disabled(
+  $check-mark-size: 10px, 
+  $check-mark-thickness: 2px
+){
+  $check-box-margin: ($check-box-size - $check-mark-size)/2;
+  input[type="checkbox"]:checked:disabled {
+    + label{
+      cursor: default;
+      span {
+        @include checked(
+          $check-mark-size, 
+          $check-mark-thickness,
+          $check-disabled-color,
+          $check-disabled-border-color,
+          $check-disabled-background
+        );
+        &:before{
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+/// 체크 마크 모양 믹스인
+/// @group shape
+/// @param {Number (width unit)} $check-mark-size [16px] - 체크 마크 긴 길이
+/// @param {Number (width unit)} $check-mark-thickness [2px] - 체크 마크 두께
+/// @param {Color} $check-mark-color [rgb(0,0,0)] - 체크 마크 컬러
+@mixin checkmark(
+  $check-mark-size: 16px, 
+  $check-mark-thickness: 2px,
+  $check-mark-color: rgb(0,0,0)
+){
+  $check-mark-width: $check-mark-size / 2;
+  $check-mark-height: $check-mark-size;
+  
+  display: block;
+  width: $check-mark-width;
+  height: $check-mark-height;
+  border-style: solid;
+  border-color: $check-mark-color;
+  border-width: 0 $check-mark-thickness $check-mark-thickness 0; // 뒤집힌 "L" 모양을 만든다
+  transform: translateX(50%) translateY(-25%) rotate(45deg)
+}

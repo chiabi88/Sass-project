@@ -1,0 +1,25 @@
+/// 체크박스 애니메이션 사용 여부
+/// @group [compontent] checkbox
+/// @type {Boolean}
+$checkbox-animation-use: true !default;
+
+@if ($checkbox-animation-use == true) {
+  @keyframes checkboxChecked {
+    0% {
+      opacity: 0.2;
+      transform: translateX(-50%) translateY(-50%) scale(0);
+    } 
+    80% {
+      opacity: 0.8;
+      transform: translateX(-50%) translateY(-50%) scale(2);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-50%) scale(3);
+    }
+  }
+}
+
+$check-disabled-color: rgb(255,255,255);
+$check-disabled-border-color: rgb(238,238,238);
+$check-disabled-background: rgb(238,238,238)

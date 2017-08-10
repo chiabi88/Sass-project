@@ -135,7 +135,7 @@ gulp.task('html', function() {
  */
 gulp.task('js', function() {
   return gulp.src(SRC.JS)
-             .pipe(uglify())
+             .pipe(uglify({ie8: true}))
              .pipe(rename({suffix: '.min'}))
              .pipe(gulp.dest(DIST.JS))
              .pipe(reload({stream: true}));

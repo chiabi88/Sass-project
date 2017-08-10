@@ -129,6 +129,8 @@
     }
   }
 }
+
+
 /* guide-tab--2 */
 .guide-tab--2 {
   @include component-tab(4rem, 2) {
@@ -197,5 +199,147 @@
         border-color: $color-primary-trans;
       }
     }
+  }
+}
+
+.guide-shape__checkmark {
+  @include checkmark(3rem, 0.2rem, darken($color-primary, 20%))
+}
+
+.guide-checkbox {
+  .guide-checkbox--label {
+    .checkbox:nth-child(1) {
+      margin-top: 2rem;
+      @include checkbox(
+        1rem, 
+        2.4rem, 
+        0.1rem, 
+        rgb(153,153,153), 
+        rgb(255,255,255), 
+        0.9rem, 
+        0.1rem, 
+        $color-primary,
+        0.2rem,
+        $color-primary
+      );
+    }
+    .checkbox:nth-child(2),
+    .checkbox:nth-child(3),
+    .checkbox:nth-child(4) {
+      margin-top: 2rem;
+      @include checkbox(
+        1rem, 
+        2.4rem, 
+        0.1rem, 
+        $color-primary, 
+        rgb(255,255,255), 
+        0.9rem, 
+        0.1rem, 
+        rgb(255,255,255),
+        0,
+        auto,
+        $color-primary
+      );
+    }
+  }
+  .guide-checkbox--no-label {
+    .checkbox:nth-child(1) {
+      margin-top: 2rem;
+      @include checkbox--no-label(
+        2.4rem, 
+        0.1rem, 
+        rgb(153,153,153), 
+        rgb(255,255,255), 
+        0.9rem, 
+        0.1rem, 
+        $color-primary,
+        0.2rem,
+        $color-primary
+      );
+    }
+    .checkbox:nth-child(2) {
+      margin-top: 2rem;
+      @include checkbox--no-label(
+        2.4rem, 
+        0.1rem, 
+        $color-primary, 
+        rgb(255,255,255), 
+        0.9rem, 
+        0.1rem, 
+        rgb(255,255,255),
+        0,
+        auto,
+        $color-primary
+      );
+    }
+  }
+  .guide-checkbox__circle--label {
+    .checkbox:nth-child(1) {
+      margin-top: 2rem;
+      @include circle-checkbox(
+        1rem, 
+        2.4rem, 
+        0.1rem, 
+        rgb(153,153,153), 
+        rgb(255,255,255), 
+        0.9rem, 
+        0.1rem, 
+        $color-primary,
+        0.2rem,
+        $color-primary
+      );
+    }
+    .checkbox:nth-child(2),
+    .checkbox:nth-child(3),
+    .checkbox:nth-child(4) {
+      margin-top: 2rem;
+      @include circle-checkbox(
+        1rem, 
+        2.4rem, 
+        0.1rem, 
+        none, 
+        rgb(153,153,153), 
+        0.9rem, 
+        0.1rem, 
+        rgb(255,255,255),
+        0,
+        auto,
+        $color-primary
+      );
+    }
+  }
+  .guide-checkbox__circle--no-label {
+    .checkbox:nth-child(1) {
+      margin-top: 2rem;
+      @include circle-checkbox--no-label(
+        2.4rem, 
+        0.1rem, 
+        rgb(153,153,153), 
+        rgb(255,255,255), 
+        0.9rem, 
+        0.1rem, 
+        $color-primary,
+        0.2rem,
+        $color-primary
+      );
+    }
+    .checkbox:nth-child(2) {
+      margin-top: 2rem;
+      @include circle-checkbox--no-label(
+        2.4rem, 
+        0.1rem, 
+        none, 
+        rgb(153,153,153), 
+        0.9rem, 
+        0.1rem, 
+        rgb(255,255,255),
+        0,
+        auto,
+        $color-primary
+      );
+    }
+  }
+  td .checkbox {
+    margin-top: 0 !important;
   }
 }

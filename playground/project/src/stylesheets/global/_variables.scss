@@ -1,16 +1,66 @@
+/// 기본 영문 폰트 이름
+/// @group global
+/// @type {String} 
 $base-font-eng: 'Teko';
+
+/// 기본 한글 폰트 이름
+/// @group global
+/// @type {String} 
 $base-font-kor: 'Noto Sans KR';
 
+/// 기본 폰트 사이즈 (:root 폰트 사이즈)
+/// @group global
+/// @type {Number} 
 $base-font-size: 10px !default;
 
+/// 메인 컬러, 브랜드 컬러, 포인트컬러
+/// @group global
+/// @type {Color} 
 $color-primary: rgb(250,50,90);
+
+/// 경고 메시지 관련 컬러
+/// @group global
+/// @type {Color} 
 $color-error: rgb(251,13,0);
+
+/// 조건에 맞았을때, 성공했을 때 컬러
+/// @group global
+/// @type {Color} 
 $color-success: rgb(26,152,86);
 
+/// 기본 텍스트 컬러
+/// @group global
+/// @type {Color} 
 $text-color-default: rgb(51,51,51);
+
+/// 회색계열 가장 많이 쓰이는 텍스트 컬러
+/// @group global
+/// @type {Color} 
 $text-color-gray: rgb(102,102,102);
+
+/// 좀 더 밝은 그레이 텍스트 컬러
+/// @group global
+/// @type {Color} 
 $text-color-light: rgb(153,153,153);
 
+/// 기본 보더 컬러 (구분선)
+/// @group global
+/// @type {Color} 
 $border-color-default: rgb(238,238,238);
 
+/// 브레이크 포인트 - 모바일
+/// @group global
+/// @type {Number (with unit)} 
 $breakpoint-mobile: 768px;
+
+
+/// 프로젝트 ie8 지원 여부
+/// @group global
+/// @type {Boolean} 
+$support-ie8: true;
+
+/// 체크박스 애니메이션 사용 여부
+/// @group global
+/// @group [compontent] checkbox
+/// @type {Boolean}
+$checkbox-animation-use: true;

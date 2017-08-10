@@ -54,3 +54,9 @@ a {
     text-decoration: none
   }
 }
+
+input, 
+label, 
+select {
+  font-family:$base-font-kor, sans-serif;
+}

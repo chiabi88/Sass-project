@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if IE 6]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 ie6" lang="ko-KR"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 ie7" lang="ko-KR"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie10 lt-ie9 ie8" lang="ko-KR"> <![endif]-->
+<!--[if IE 9]> <html class="no-js lt-ie10 ie9" lang="ko-KR"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="ko-KR"> <!--<![endif]-->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>gulp</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/libs/modernizr-custom.min.js"></script> 
   <script src="../js/libs/jquery.min.js"></script>
   <script src="../js/index.min.js"></script>
-  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <header id="header">
@@ -92,7 +97,7 @@
         </tr>
       </table>
     </section>
-       <section class="guide-section">
+    <section class="guide-section">
       <h2 class="guide-section__title">[Shape] list-arrow</h2>
       <p>리스트에서 주로 사용하는 화살표 모양</p>
       <pre>.button--up {
@@ -125,6 +130,21 @@
             <button class="guide-shape__list-arrow--filp"></button>
           </td>
           <td>@include list-arrow-filp</td>
+        </tr>
+      </table>
+    </section>
+    <section class="guide-section">
+      <h2 class="guide-section__title">[Shape] checkmark</h2>
+      <p>체크 모양</p>
+      <pre>.check {
+    <span class="pre-sass">@include</span> <span class="pre-sass__mixin">checkmark(10px, 2px, rgb(0,0,0))</span>;
+}</pre>
+      <table class="guide-section__table">
+        <tr>
+          <td>
+            <button class="guide-shape__checkmark"></button>
+          </td>
+          <td>@include checkmark</td>
         </tr>
       </table>
     </section>
@@ -217,7 +237,7 @@
     </section>
     <section class="guide-section">
       <h2 class="guide-section__title">[component] component-tab</h2>
-      <p>탭</p>
+      <p>탭 믹스인( + 반응형 시 형태 변경되는 탭)</p>
       <pre>.guide-tab--3 {
     <span class="pre-sass">@include</span> <span class="pre-sass__mixin">component-tab(4rem, 3, true, 480px) {
         // 추가 스타일... 
@@ -257,6 +277,113 @@
         </h2>
         <div class="tab-con">
           Ad voluptatibus fugiat aspernatur perspiciatis, architecto animi, mollitia eos ipsa, explicabo aliquam modi, facilis odit dolore vel officia excepturi nesciunt quia sapiente hic reiciendis aut. Fuga blanditiis fugit quia ullam accusantium asperiores odio esse error repudiandae consequatur et, perferendis!
+        </div>
+      </div>
+    </section>
+    <section class="guide-section">
+      <h2 class="guide-section__title">[component] checkbox</h2>
+      <p>커스텀 체크박스 믹스인</p>
+      <pre>.guide-tab--3 {
+    <span class="pre-sass">@include</span> <span class="pre-sass__mixin">component-tab(4rem, 3, true, 480px) {
+        // 추가 스타일... 
+        margin-top: 30px;
+    }</span> 
+}
+      </pre>
+      <table class="guide-section__table guide-checkbox">
+        <tr>
+          <td class="guide-checkbox--label">
+            <div class="checkbox">
+              <input type="checkbox" id="check1" name="" value="">
+              <label for="check1"><span></span>체크박스 1</label>
+            </div>
+          </td>
+          <td>@include checkbox</td>
+        </tr>
+        <tr>
+          <td class="guide-checkbox--no-label">
+            <div class="checkbox">
+              <input type="checkbox" id="check2" name="" value="">
+              <label for="check2"><span></span></label>
+            </div>
+          </td>
+          <td>@include checkbox--no-label</td>
+        </tr>
+        <tr>
+          <td class="guide-checkbox__circle--label">
+            <div class="checkbox">
+              <input type="checkbox" id="check3" name="" value="">
+              <label for="check3"><span></span>체크박스 2</label>
+            </div>
+          </td>
+          <td>@include circle-checkbox</td>
+        </tr>
+        <tr>
+          <td class="guide-checkbox__circle--label">
+            <div class="checkbox">
+              <input type="checkbox" id="check4" name="" value="">
+              <label for="check4"><span></span></label>
+            </div>
+          </td>
+          <td>@include circle-checkbox--no-label</td>
+        </tr>
+      </table>
+      <div class="guide-checkbox">
+        <div class="guide-checkbox--label">
+          <div class="checkbox">
+            <input type="checkbox" id="check1-1" name="" value="">
+            <label for="check1-1"><span></span>정사각 체크박스 1</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="check1-2" name="" value="">
+            <label for="check1-2"><span></span>정사각 체크박스 2</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="check1-3" name="" value="" disabled>
+            <label for="check1-3"><span></span>:disabled</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="check1-3" name="" value="" checked disabled>
+            <label for="check1-3"><span></span>:checked + :disabled</label>
+          </div>
+        </div>
+        <div class="guide-checkbox--no-label">
+          <div class="checkbox">
+            <input type="checkbox" id="check2-1" name="" value="">
+            <label for="check2-1"><span></span></label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="check2-2" name="" value="">
+            <label for="check2-2"><span></span></label>
+          </div>
+        </div>
+        <div class="guide-checkbox__circle--label">
+          <div class="checkbox">
+            <input type="checkbox" id="check3-1" name="" value="">
+            <label for="check3-1"><span></span>원형 체크박스 1</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="check3-2" name="" value="">
+            <label for="check3-2"><span></span>원형 체크박스 2</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="check3-3" name="" value="" disabled>
+            <label for="check3-3"><span></span>:disabled</label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="check3-4" name="" value="" checked disabled>
+            <label for="check3-4"><span></span>:checked + :disabled</label>
+          </div>
+        </div>
+        <div class="guide-checkbox__circle--no-label">
+          <div class="checkbox">
+            <input type="checkbox" id="check4-1" name="" value="">
+            <label for="check4-1"><span></span></label>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" id="check4-2" name="" value="">
+            <label for="check4-2"><span></span></label>
+          </div>
         </div>
       </div>
     </section>
