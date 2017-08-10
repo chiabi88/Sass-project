@@ -151,6 +151,11 @@
     <section class="guide-section">
       <h2 class="guide-section__title">[Components] Burger</h2>
       <p>햄버거 메뉴(cross, minus, arrow) </p>
+      <pre>
+&lt;button <span class="pre-html__attr">type=</span><span class="pre-html__attr-value">"button"</span>&gt;
+    &lt;span&gt;크로스 햄버거 메뉴&lt;/span&gt;
+&lt;/button&gt;       
+      </pre>
       <pre>button {
     <span class="pre-sass">@include</span> <span class="pre-sass__mixin">burger-menu</span>;
     &:hover {
@@ -238,6 +243,22 @@
     <section class="guide-section">
       <h2 class="guide-section__title">[component] component-tab</h2>
       <p>탭 믹스인( + 반응형 시 형태 변경되는 탭)</p>
+      <pre>
+&lt;div <span class="pre-html__attr">class=</span><span class="pre-html__attr-value">guide-tab--3"</span>&gt;
+    &lt;h2 <span class="pre-html__attr">class=</span><span class="pre-html__attr-value">"tab-menu tab-menu--open"</span>&gt;
+        &lt;a <span class="pre-html__attr">href=</span><span class="pre-html__attr-value">""</span>&gt;TAB 1&lt;/a&gt;
+    &lt;/h2&gt;
+    &lt;div <span class="pre-html__attr">class=</span><span class="pre-html__attr-value">"tab-con"</span>&gt;....탭 내용.....&lt;/div&gt;
+    &lt;h2 <span class="pre-html__attr">class=</span><span class="pre-html__attr-value">"tab-menu"</span>&gt;
+        &lt;a <span class="pre-html__attr">href=</span><span class="pre-html__attr-value">""</span>&gt;TAB 2&lt;/a&gt;
+    &lt;/h2&gt;
+    &lt;div <span class="pre-html__attr">class=</span><span class="pre-html__attr-value">"tab-con"</span>&gt;....탭 내용.....&lt;/div&gt;
+    &lt;h2 <span class="pre-html__attr">class=</span><span class="pre-html__attr-value">"tab-menu"</span>&gt;
+        &lt;a <span class="pre-html__attr">href=</span><span class="pre-html__attr-value">""</span>&gt;TAB 3&lt;/a&gt;
+    &lt;/h2&gt;
+    &lt;div <span class="pre-html__attr">class=</span><span class="pre-html__attr-value">"tab-con"</span>&gt;....탭 내용.....&lt;/div&gt;
+&lt;/div&gt;
+      </pre>
       <pre>.guide-tab--3 {
     <span class="pre-sass">@include</span> <span class="pre-sass__mixin">component-tab(4rem, 3, true, 480px) {
         // 추가 스타일... 
@@ -283,12 +304,30 @@
     <section class="guide-section">
       <h2 class="guide-section__title">[component] checkbox</h2>
       <p>커스텀 체크박스 믹스인</p>
-      <pre>.guide-tab--3 {
-    <span class="pre-sass">@include</span> <span class="pre-sass__mixin">component-tab(4rem, 3, true, 480px) {
-        // 추가 스타일... 
-        margin-top: 30px;
-    }</span> 
-}
+      <pre>
+&lt;div <span class="pre-html__attr">class=</span><span class="pre-html__attr-value">"checkbox_style1"</span>&gt;
+    &lt;input <span class="pre-html__attr">type=</span><span class="pre-html__attr-value">"checkbox"</span> <span class="pre-html__attr">id=</span><span class="pre-html__attr-value">"check1"</span> <span class="pre-html__attr">name=</span><span class="pre-html__attr-value">""</span> <span class="pre-html__attr">value=</span><span class="pre-html__attr-value">""</span>&gt;
+    &lt;label <span class="pre-html__attr">for=</span><span class="pre-html__attr-value">"check1"</span>&gt;&lt;span&gt;&lt;/span&gt;커스텀 체크박스&lt;/label&gt;
+&lt;/div&gt;
+&lt;div <span class="pre-html__attr">class=</span><span class="pre-html__attr-value">"checkbox_style2"</span>&gt;
+    &lt;input <span class="pre-html__attr">type=</span><span class="pre-html__attr-value">"checkbox"</span> <span class="pre-html__attr">id=</span><span class="pre-html__attr-value">"check1"</span> <span class="pre-html__attr">name=</span><span class="pre-html__attr-value">""</span> <span class="pre-html__attr">value=</span><span class="pre-html__attr-value">""</span>&gt;
+    &lt;label <span class="pre-html__attr">for=</span><span class="pre-html__attr-value">"check1"</span>&gt;&lt;span&gt;&lt;/span&gt;&lt;/label&gt;
+&lt;/div&gt;
+      </pre>
+      <pre>.checkbox_style1 {
+    <span class="pre-sass">@include</span> <span class="pre-sass__mixin">checkbox(
+          1rem, 
+          2.4rem, 
+          0.1rem, 
+          rgb(153,153,153), 
+          rgb(255,255,255), 
+          0.9rem, 
+          0.1rem, 
+          $color-primary,
+          0.2rem,
+          $color-primary
+    );</span>
+} 
       </pre>
       <table class="guide-section__table guide-checkbox">
         <tr>

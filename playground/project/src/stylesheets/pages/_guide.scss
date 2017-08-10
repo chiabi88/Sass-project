@@ -21,13 +21,21 @@
     font-size: 1.2rem;
     background: rgb(238,238,238);
     .pre-sass {
-      color: rgb(51,153,13)
+      color: rgb(51,153,13);
+      &__mixin {
+        color: rgb(180,56,56);
+      }
+      &__var {
+        color: rgb(180,23,180);
+      }
     }
-    .pre-sass__mixin {
-      color: rgb(180,56,56);
-    }
-    .pre-sass__var {
-      color: rgb(180,23,180);
+    .pre-html {
+      &__attr {
+        color: rgb(150,152,153);
+        &-value {
+          color: rgb(30,152,153);
+        }
+      }
     }
   }
 }

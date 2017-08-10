@@ -480,6 +480,14 @@ select {
   color: #b417b4;
 }
 
+.guide-section pre .pre-html__attr {
+  color: #969899;
+}
+
+.guide-section pre .pre-html__attr-value {
+  color: #1e9899;
+}
+
 .guide__color--primary {
   color: #fa325a;
 }
