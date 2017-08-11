@@ -27,6 +27,7 @@
   $check-c-box-background: auto  
 ) {
   $check-box-size:  $check-box-size !global;
+  $check-c-box-thickness: $check-c-box-thickness !global;
 
   input[type="checkbox"] {
     display: none;
@@ -51,14 +52,11 @@
         @content;
         @if $checkbox-animation-use == true {
           &:before {
-            position: absolute;
-            top: 50%;
-            left: 50%;
             content: '';
             width: $check-box-size;
             height: $check-box-size;
             border-radius: $check-box-size;
-            transform: translateX(-50%) translateY(-50%) scale(0);
+            @include floating-center(scale(0));
             background: rgb(238,238,238);
           }
         }
@@ -118,7 +116,7 @@
   $check-c-box-background: auto  
 ) {
   $check-box-size:  $check-box-size !global;
-
+  $check-c-box-thickness: $check-c-box-thickness !global;
   input[type="checkbox"] {
     display: none;
     + label {
@@ -138,14 +136,11 @@
         @content;
         @if $checkbox-animation-use == true {
           &:before {
-            position: absolute;
-            top: 50%;
-            left: 50%;
             content: '';
             width: $check-box-size;
             height: $check-box-size;
             border-radius: $check-box-size;
-            transform: translateX(-50%) translateY(-50%) scale(0);
+            @include floating-center(scale(0));
             background: rgb(238,238,238);
           }
         }
@@ -283,9 +278,9 @@
   $check-c-box-border-color: auto,
   $check-c-box-background: auto  
 ){
-  $check-box-margin: ($check-box-size - $check-mark-size)/2;
+  $check-box-margin: ($check-box-size - $check-mark-size) / 2;
   @if( $check-c-box-thickness != auto ) {
-    $check-box-margin: (($check-box-size - $check-c-box-thickness*2) - $check-mark-size)/2;
+    $check-box-margin: (($check-box-size - $check-c-box-thickness*2) - $check-mark-size) / 2;
     border-width: $check-c-box-thickness;
   }
   @if( $check-c-box-border-color != auto ) {
@@ -365,7 +360,6 @@
   $check-mark-size: 10px, 
   $check-mark-thickness: 2px
 ){
-  $check-box-margin: ($check-box-size - $check-mark-size)/2;
   input[type="checkbox"]:checked:disabled {
     + label{
       cursor: default;
@@ -374,6 +368,7 @@
           $check-mark-size, 
           $check-mark-thickness,
           $check-disabled-color,
+          $check-c-box-thickness,
           $check-disabled-border-color,
           $check-disabled-background
         );

@@ -1,0 +1,42 @@
+$theme-color-normal: rgb(255,255,255); 
+$theme-color-change: rgb(12,150,153);
+
+.btn__theme-change {
+  $btn-size: 4rem;
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  width: $btn-size;
+  height: $btn-size;
+  border-radius: $btn-size;
+  z-index: 9999;
+  cursor: pointer;
+  box-shadow: 0 0 2rem 0.2rem rgba(0,0,0,0.25);
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    @include semi-circle($btn-size, $theme-color-normal, left);
+  }
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: '';
+    @include semi-circle($btn-size, $theme-color-change, right);
+  }
+  body.theme & {
+    &:before {
+      background-color: $theme-color-change;
+    }
+    &:after {
+      background-color: $theme-color-normal;
+    }
+  }
+}
+
+body.theme {
+  background: $theme-color-change;
+  color: rgb(255,255,255);
+}

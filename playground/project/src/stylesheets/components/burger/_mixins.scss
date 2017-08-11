@@ -20,7 +20,7 @@
   $burger-border-radius: 0
   ) {
   // 다음 값의 단위는 모두 같아야합니다.
-  @if unit($burger-height) == unit($burger-thickness) && unit($burger-thickness) == unit($burger-gutter) {
+  @if unit($burger-height) == unit($burger-thickness) and unit($burger-thickness) == unit($burger-gutter) {
     $burger-width: $burger-width !global;
       $burger-height: $burger-height !global;
       $burger-side: $burger-side !global;

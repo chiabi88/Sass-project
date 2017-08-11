@@ -19,6 +19,7 @@
     padding: 2rem 3rem;
     font-family: $base-font-kor;
     font-size: 1.2rem;
+    color: $text-color-default;
     background: rgb(238,238,238);
     .pre-sass {
       color: rgb(51,153,13);
@@ -223,7 +224,7 @@
         2.4rem, 
         0.1rem, 
         rgb(153,153,153), 
-        rgb(255,255,255), 
+        transparent, 
         0.9rem, 
         0.1rem, 
         $color-primary,
@@ -240,7 +241,7 @@
         2.4rem, 
         0.1rem, 
         $color-primary, 
-        rgb(255,255,255), 
+        transparent, 
         0.9rem, 
         0.1rem, 
         rgb(255,255,255),
@@ -257,7 +258,7 @@
         2.4rem, 
         0.1rem, 
         rgb(153,153,153), 
-        rgb(255,255,255), 
+        transparent, 
         0.9rem, 
         0.1rem, 
         $color-primary,
@@ -271,7 +272,7 @@
         2.4rem, 
         0.1rem, 
         $color-primary, 
-        rgb(255,255,255), 
+        transparent, 
         0.9rem, 
         0.1rem, 
         rgb(255,255,255),
@@ -289,7 +290,7 @@
         2.4rem, 
         0.1rem, 
         rgb(153,153,153), 
-        rgb(255,255,255), 
+        transparent, 
         0.9rem, 
         0.1rem, 
         $color-primary,
@@ -305,7 +306,7 @@
         1rem, 
         2.4rem, 
         0.1rem, 
-        none, 
+        transparent, 
         rgb(153,153,153), 
         0.9rem, 
         0.1rem, 
@@ -323,7 +324,7 @@
         2.4rem, 
         0.1rem, 
         rgb(153,153,153), 
-        rgb(255,255,255), 
+        transparent, 
         0.9rem, 
         0.1rem, 
         $color-primary,

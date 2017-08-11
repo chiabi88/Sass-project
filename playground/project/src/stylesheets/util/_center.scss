@@ -1,0 +1,8 @@
+/// 포지션 앱솔루트로 띄운 요소 가운데 정렬
+/// @param {List (no comma)} $transform - 같이 사용할 transform function
+@mixin floating-center($transform) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) $transform;
+}

@@ -3,6 +3,7 @@
 	$(document).ready(function(){
 		activeGnb();
 		activeTab();
+		activeChangeTheme();
 	});
 	// gnb
 	
@@ -103,7 +104,7 @@
 				gnb.removeClass('gnb-wrap--open');
 				accordionMenu.reset(gnb_menu);
 		});
-	};
+	}
 
 	function activeTab() {
 		var tab, tab_2, tab_3;
@@ -136,5 +137,18 @@
 		
 		tab.init(tab_2);
 		tab.init(tab_3);
+	}
+
+	function activeChangeTheme() {
+		var body, btn;
+		body = $('body');
+		btn = $('.btn__theme-change');
+		btn.on('click', function(){
+			if(body.hasClass('theme')){
+				body.removeClass('theme');
+			} else {
+				body.addClass('theme');
+			}
+		});
 	}
 }(jQuery));

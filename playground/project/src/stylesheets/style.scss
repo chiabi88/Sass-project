@@ -8,7 +8,6 @@
 @import 'global/variables';
 @import 'global/mixins';
 
-
 // base
 @import 'base/reset';
 @import 'base/base';
@@ -33,3 +32,6 @@
 
 // pages
 @import 'pages/guide';
+
+// theme
+@import 'theme/theme';

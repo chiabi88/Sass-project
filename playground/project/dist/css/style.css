@@ -157,7 +157,8 @@ select {
   z-index: 9998;
   width: 100%;
   height: 5rem;
-  background: #fa325a;
+  background-color: #fa325a;
+  background-image: linear-gradient(45deg, #fa325a, #0c9699);
 }
 
 #header .btn-gnb {
@@ -465,6 +466,7 @@ select {
   padding: 2rem 3rem;
   font-family: "Noto Sans KR";
   font-size: 1.2rem;
+  color: #333333;
   background: #eeeeee;
 }
 
@@ -1062,17 +1064,17 @@ select {
   border: 0.1rem solid #999999;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: white;
+  background: transparent;
 }
 
 .guide-checkbox .guide-checkbox--label .checkbox:nth-child(1) input[type="checkbox"] + label span:before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   content: '';
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 2.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) scale(0);
           transform: translateX(-50%) translateY(-50%) scale(0);
   background: #eeeeee;
@@ -1118,8 +1120,9 @@ select {
 }
 
 .guide-checkbox .guide-checkbox--label .checkbox:nth-child(1) input[type="checkbox"]:checked:disabled + label span {
-  border-width: #eeeeee;
+  border-width: 0.2rem;
   border-color: #eeeeee;
+  background-color: #eeeeee;
 }
 
 .guide-checkbox .guide-checkbox--label .checkbox:nth-child(1) input[type="checkbox"]:checked:disabled + label span:after {
@@ -1127,7 +1130,7 @@ select {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 2.4rem-white-0.9rem/2 0 0 2.4rem-white-0.9rem/2-0.2rem;
+  margin: 0.55rem 0 0 0.35rem;
   display: block;
   width: 0.45rem;
   height: 0.9rem;
@@ -1189,19 +1192,19 @@ select {
   border: 0.1rem solid #fa325a;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: white;
+  background: transparent;
 }
 
 .guide-checkbox .guide-checkbox--label .checkbox:nth-child(2) input[type="checkbox"] + label span:before,
 .guide-checkbox .guide-checkbox--label .checkbox:nth-child(3) input[type="checkbox"] + label span:before,
 .guide-checkbox .guide-checkbox--label .checkbox:nth-child(4) input[type="checkbox"] + label span:before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   content: '';
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 2.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) scale(0);
           transform: translateX(-50%) translateY(-50%) scale(0);
   background: #eeeeee;
@@ -1261,8 +1264,9 @@ select {
 .guide-checkbox .guide-checkbox--label .checkbox:nth-child(2) input[type="checkbox"]:checked:disabled + label span,
 .guide-checkbox .guide-checkbox--label .checkbox:nth-child(3) input[type="checkbox"]:checked:disabled + label span,
 .guide-checkbox .guide-checkbox--label .checkbox:nth-child(4) input[type="checkbox"]:checked:disabled + label span {
-  border-width: #eeeeee;
+  border-width: 0;
   border-color: #eeeeee;
+  background-color: #eeeeee;
 }
 
 .guide-checkbox .guide-checkbox--label .checkbox:nth-child(2) input[type="checkbox"]:checked:disabled + label span:after,
@@ -1272,7 +1276,7 @@ select {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 2.4rem-white-0.9rem/2 0 0 2.4rem-white-0.9rem/2-0.2rem;
+  margin: 0.75rem 0 0 0.55rem;
   display: block;
   width: 0.45rem;
   height: 0.9rem;
@@ -1328,17 +1332,17 @@ select {
   border: 0.1rem solid #999999;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: white;
+  background: transparent;
 }
 
 .guide-checkbox .guide-checkbox--no-label .checkbox:nth-child(1) input[type="checkbox"] + label span:before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   content: '';
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 2.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) scale(0);
           transform: translateX(-50%) translateY(-50%) scale(0);
   background: #eeeeee;
@@ -1384,8 +1388,9 @@ select {
 }
 
 .guide-checkbox .guide-checkbox--no-label .checkbox:nth-child(1) input[type="checkbox"]:checked:disabled + label span {
-  border-width: #eeeeee;
+  border-width: 0.2rem;
   border-color: #eeeeee;
+  background-color: #eeeeee;
 }
 
 .guide-checkbox .guide-checkbox--no-label .checkbox:nth-child(1) input[type="checkbox"]:checked:disabled + label span:after {
@@ -1393,7 +1398,7 @@ select {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 2.4rem-white-0.9rem/2 0 0 2.4rem-white-0.9rem/2-0.2rem;
+  margin: 0.55rem 0 0 0.35rem;
   display: block;
   width: 0.45rem;
   height: 0.9rem;
@@ -1443,17 +1448,17 @@ select {
   border: 0.1rem solid #fa325a;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: white;
+  background: transparent;
 }
 
 .guide-checkbox .guide-checkbox--no-label .checkbox:nth-child(2) input[type="checkbox"] + label span:before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   content: '';
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 2.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) scale(0);
           transform: translateX(-50%) translateY(-50%) scale(0);
   background: #eeeeee;
@@ -1499,8 +1504,9 @@ select {
 }
 
 .guide-checkbox .guide-checkbox--no-label .checkbox:nth-child(2) input[type="checkbox"]:checked:disabled + label span {
-  border-width: #eeeeee;
+  border-width: 0;
   border-color: #eeeeee;
+  background-color: #eeeeee;
 }
 
 .guide-checkbox .guide-checkbox--no-label .checkbox:nth-child(2) input[type="checkbox"]:checked:disabled + label span:after {
@@ -1508,7 +1514,7 @@ select {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 2.4rem-white-0.9rem/2 0 0 2.4rem-white-0.9rem/2-0.2rem;
+  margin: 0.75rem 0 0 0.55rem;
   display: block;
   width: 0.45rem;
   height: 0.9rem;
@@ -1562,18 +1568,18 @@ select {
   border: 0.1rem solid #999999;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: white;
+  background: transparent;
   border-radius: 2.4rem;
 }
 
 .guide-checkbox .guide-checkbox__circle--label .checkbox:nth-child(1) input[type="checkbox"] + label span:before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   content: '';
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 2.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) scale(0);
           transform: translateX(-50%) translateY(-50%) scale(0);
   background: #eeeeee;
@@ -1619,8 +1625,9 @@ select {
 }
 
 .guide-checkbox .guide-checkbox__circle--label .checkbox:nth-child(1) input[type="checkbox"]:checked:disabled + label span {
-  border-width: #eeeeee;
+  border-width: 0.2rem;
   border-color: #eeeeee;
+  background-color: #eeeeee;
 }
 
 .guide-checkbox .guide-checkbox__circle--label .checkbox:nth-child(1) input[type="checkbox"]:checked:disabled + label span:after {
@@ -1628,7 +1635,7 @@ select {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 2.4rem-white-0.9rem/2 0 0 2.4rem-white-0.9rem/2-0.2rem;
+  margin: 0.55rem 0 0 0.35rem;
   display: block;
   width: 0.45rem;
   height: 0.9rem;
@@ -1687,7 +1694,7 @@ select {
   display: block;
   width: 2.4rem;
   height: 2.4rem;
-  border: 0.1rem solid none;
+  border: 0.1rem solid transparent;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background: #999999;
@@ -1697,13 +1704,13 @@ select {
 .guide-checkbox .guide-checkbox__circle--label .checkbox:nth-child(2) input[type="checkbox"] + label span:before,
 .guide-checkbox .guide-checkbox__circle--label .checkbox:nth-child(3) input[type="checkbox"] + label span:before,
 .guide-checkbox .guide-checkbox__circle--label .checkbox:nth-child(4) input[type="checkbox"] + label span:before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   content: '';
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 2.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) scale(0);
           transform: translateX(-50%) translateY(-50%) scale(0);
   background: #eeeeee;
@@ -1763,8 +1770,9 @@ select {
 .guide-checkbox .guide-checkbox__circle--label .checkbox:nth-child(2) input[type="checkbox"]:checked:disabled + label span,
 .guide-checkbox .guide-checkbox__circle--label .checkbox:nth-child(3) input[type="checkbox"]:checked:disabled + label span,
 .guide-checkbox .guide-checkbox__circle--label .checkbox:nth-child(4) input[type="checkbox"]:checked:disabled + label span {
-  border-width: #eeeeee;
+  border-width: 0;
   border-color: #eeeeee;
+  background-color: #eeeeee;
 }
 
 .guide-checkbox .guide-checkbox__circle--label .checkbox:nth-child(2) input[type="checkbox"]:checked:disabled + label span:after,
@@ -1774,7 +1782,7 @@ select {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 2.4rem-white-0.9rem/2 0 0 2.4rem-white-0.9rem/2-0.2rem;
+  margin: 0.75rem 0 0 0.55rem;
   display: block;
   width: 0.45rem;
   height: 0.9rem;
@@ -1830,18 +1838,18 @@ select {
   border: 0.1rem solid #999999;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: white;
+  background: transparent;
   border-radius: 2.4rem;
 }
 
 .guide-checkbox .guide-checkbox__circle--no-label .checkbox:nth-child(1) input[type="checkbox"] + label span:before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   content: '';
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 2.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) scale(0);
           transform: translateX(-50%) translateY(-50%) scale(0);
   background: #eeeeee;
@@ -1887,8 +1895,9 @@ select {
 }
 
 .guide-checkbox .guide-checkbox__circle--no-label .checkbox:nth-child(1) input[type="checkbox"]:checked:disabled + label span {
-  border-width: #eeeeee;
+  border-width: 0.2rem;
   border-color: #eeeeee;
+  background-color: #eeeeee;
 }
 
 .guide-checkbox .guide-checkbox__circle--no-label .checkbox:nth-child(1) input[type="checkbox"]:checked:disabled + label span:after {
@@ -1896,7 +1905,7 @@ select {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 2.4rem-white-0.9rem/2 0 0 2.4rem-white-0.9rem/2-0.2rem;
+  margin: 0.55rem 0 0 0.35rem;
   display: block;
   width: 0.45rem;
   height: 0.9rem;
@@ -1951,13 +1960,13 @@ select {
 }
 
 .guide-checkbox .guide-checkbox__circle--no-label .checkbox:nth-child(2) input[type="checkbox"] + label span:before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   content: '';
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 2.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) scale(0);
           transform: translateX(-50%) translateY(-50%) scale(0);
   background: #eeeeee;
@@ -2003,8 +2012,9 @@ select {
 }
 
 .guide-checkbox .guide-checkbox__circle--no-label .checkbox:nth-child(2) input[type="checkbox"]:checked:disabled + label span {
-  border-width: #eeeeee;
+  border-width: 0;
   border-color: #eeeeee;
+  background-color: #eeeeee;
 }
 
 .guide-checkbox .guide-checkbox__circle--no-label .checkbox:nth-child(2) input[type="checkbox"]:checked:disabled + label span:after {
@@ -2012,7 +2022,7 @@ select {
   position: absolute;
   top: 0;
   left: 0;
-  margin: 2.4rem-white-0.9rem/2 0 0 2.4rem-white-0.9rem/2-0.2rem;
+  margin: 0.75rem 0 0 0.55rem;
   display: block;
   width: 0.45rem;
   height: 0.9rem;
@@ -2040,6 +2050,56 @@ select {
 
 .guide-checkbox td .checkbox {
   margin-top: 0 !important;
+}
+
+.btn__theme-change {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 4rem;
+  z-index: 9999;
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 2rem 0.2rem rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 2rem 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+.btn__theme-change:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  background-color: white;
+  height: 4rem;
+  width: 2rem;
+  border-bottom-left-radius: 4rem;
+  border-top-left-radius: 4rem;
+}
+
+.btn__theme-change:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: '';
+  background-color: #0c9699;
+  height: 4rem;
+  width: 2rem;
+  border-bottom-right-radius: 4rem;
+  border-top-right-radius: 4rem;
+}
+
+body.theme .btn__theme-change:before {
+  background-color: #0c9699;
+}
+
+body.theme .btn__theme-change:after {
+  background-color: white;
+}
+
+body.theme {
+  background: #0c9699;
+  color: white;
 }
 
 /*# sourceMappingURL=maps/style.css.map */

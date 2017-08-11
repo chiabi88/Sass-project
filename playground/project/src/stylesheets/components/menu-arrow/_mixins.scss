@@ -15,7 +15,7 @@
   ){
 
   // 다음 값의 단위는 모두 같아야합니다.
-  @if unit($menu-arrow-right) == unit($menu-arrow-width) && unit($menu-arrow-width) == unit($menu-arrow-thickness) {
+  @if unit($menu-arrow-right) == unit($menu-arrow-width) and unit($menu-arrow-width) == unit($menu-arrow-thickness) {
 
     $menu-arrow-width: $menu-arrow-width !global;
     $menu-arrow-height: $menu-arrow-width/2 !global;

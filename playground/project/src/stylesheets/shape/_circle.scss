@@ -13,37 +13,36 @@
 
 /// 반원 형태 만드는 믹스인
 /// @group shape
-/// @param {Number (with unit)} $circle-size [40px] - 원의 반지름이 될 길이
+/// @param {Number (with unit)} $circle-diameter [40px] - 원의 지름이 될 길이
 /// @param {Color} $circle-color [rgb(0,0,0)] - 원의 배경색
 /// @param {String} $circle-direction ['top'] - 원이 향하는 방향 지정([top | right | bottom | left]) 
-@mixin semi-circle($circle-size: 40px, $circle-color: rgb(0,0,0), $circle-direction: 'top') {
+@mixin semi-circle($circle-diameter: 20px, $circle-color: rgb(0,0,0), $circle-direction: 'top') {
+  $circle-radius: $circle-diameter / 2;
   @mixin circle-upside {
-    height: $circle-size;
-    width: $circle-size * 2;
+    height: $circle-radius;
+    width: $circle-diameter;
   }
   @mixin circle-side {
-    height: $circle-siz * 2;
-    width: $circle-size;
+    height: $circle-diameter;
+    width: $circle-radius;
   }
-  $circle-radius: $circle-size * 2;
-
   background-color: $circle-color;
   @if ($circle-direction == 'top') {
     @include circle-upside;
-    border-top-left-radius: $circle-radius;
-    border-top-right-radius: $circle-radius;
+    border-top-left-radius: $circle-diameter;
+    border-top-right-radius: $circle-diameter;
   }  @else if ($circle-direction == 'right') {
     @include circle-side;
-    border-bottom-right-radius: $circle-radius;
-    border-top-right-radius: $circle-radius;
+    border-bottom-right-radius: $circle-diameter;
+    border-top-right-radius: $circle-diameter;
   } @else if ($circle-direction == 'bottom') {
     @include circle-upside;
-    border-bottom-left-radius: $circle-radius;
-    border-bottom-right-radius: $circle-radius;
+    border-bottom-left-radius: $circle-diameter;
+    border-bottom-right-radius: $circle-diameter;
   }@else if ($circle-direction == 'left') {
     @include circle-side;
-    border-bottom-left-radius: $circle-radius;
-    border-top-left-radius: $circle-radius;
+    border-bottom-left-radius: $circle-diameter;
+    border-top-left-radius: $circle-diameter;
   } @else {
     @error 'The "$circle-direction" must contain only the orientation-related [top, right, bottom, left] values.'
   }
