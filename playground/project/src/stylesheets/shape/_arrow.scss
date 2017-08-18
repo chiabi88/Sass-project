@@ -1,26 +1,26 @@
 /// 위로 향하는 화살표 만들기 믹스인
 /// @group shape
-/// @param {Number (with unit)} $list-arrow-width [15px] - 리스트 화살표 넓이
-/// @param {Number (with unit)} $list-arrow-thickness [2px] - 리스트 화살표 두깨
-/// @param {Color} $list-arrow-color [rgb(0,0,0)] - 리스트 화살표 컬러
-/// @param {Number (with unit)} $list-arrow-radius [$list-arrow-thickness/2] - 리스트 화살표 라운딩
+/// @param {Number (with unit)} $width [15px] - 리스트 화살표 넓이
+/// @param {Number (with unit)} $thickness [2px] - 리스트 화살표 두깨
+/// @param {Color} $color [rgb(0,0,0)] - 리스트 화살표 컬러
+/// @param {Number (with unit)} $radius [$thickness/2] - 리스트 화살표 라운딩
 @mixin list-arrow-up(
-  $list-arrow-width: 15px,
-  $list-arrow-thickness: 2px,
-  $list-arrow-color: rgb(0,0,0),
-  $list-arrow-border-radius: $list-arrow-thickness/2
+  $width: 15px,
+  $thickness: 2px,
+  $color: rgb(0,0,0),
+  $border-radius: $thickness/2
 ){
-  $list-arrow-width: $list-arrow-width !global;
-  $list-arrow-height: $list-arrow-width/2 !global;
-  $list-arrow-left: ($list-arrow-width + $list-arrow-thickness)/2 - $list-arrow-thickness !global;
+  $width: $width;
+  $height: $width/2;
+  $left: ($width + $thickness)/2 - $thickness;
 
-  $list-arrow-hypo: get-hypotenuse($list-arrow-height, $list-arrow-height) !global;
+  $hypo: get-hypotenuse($height, $height);
 
   & {
     position: relative;
     display: block;
-    width: $list-arrow-width;
-    height: $list-arrow-height;
+    width: $width;
+    height: $height;
   }
   &::before,
   &::after {
@@ -28,47 +28,47 @@
     top: 50%;
     margin-top: 0;
     content: '';
-    width: $list-arrow-hypo;
-    height: $list-arrow-thickness;
-    background-color: $list-arrow-color;
+    width: $hypo;
+    height: $thickness;
+    background-color: $color;
     transition: all;
     transition-duration: 0.3s;
-    border-radius: $list-arrow-border-radius;
+    border-radius: $border-radius;
   }
   &::before {
-    $list-arrow-before-rotate: -45deg !global;
-    left: $list-arrow-left / -4;
-    transform: rotate($list-arrow-before-rotate);
+    $before-rotate: -45deg !global;
+    left: $left / -4;
+    transform: rotate($before-rotate);
   }
   &::after {
-    $list-arrow-after-rotate: 45deg !global;
-    left: $list-arrow-left / 4 * 3;
-    transform: rotate($list-arrow-after-rotate);
+    $after-rotate: 45deg !global;
+    left: $left / 4 * 3;
+    transform: rotate($after-rotate);
   }
 }
 
 /// 아래로 향하는 화살표 만들기 믹스인
-/// @param {Number (with unit)} $list-arrow-width [15px] - 리스트 화살표 넓이
-/// @param {Number (with unit)} $list-arrow-thickness [2px] - 리스트 화살표 두깨
-/// @param {Color} $list-arrow-color [rgb(0,0,0)] - 리스트 화살표 컬러
-/// @param {Number (with unit)} $list-arrow-radius [$list-arrow-thickness/2] - 리스트 화살표 라운딩
+/// @param {Number (with unit)} $width [15px] - 리스트 화살표 넓이
+/// @param {Number (with unit)} $thickness [2px] - 리스트 화살표 두깨
+/// @param {Color} $color [rgb(0,0,0)] - 리스트 화살표 컬러
+/// @param {Number (with unit)} $radius [$thickness/2] - 리스트 화살표 라운딩
 @mixin list-arrow-down(
-  $list-arrow-width: 15px,
-  $list-arrow-thickness: 2px,
-  $list-arrow-color: rgb(0,0,0),
-  $list-arrow-border-radius: $list-arrow-thickness/2
+  $width: 15px,
+  $thickness: 2px,
+  $color: rgb(0,0,0),
+  $border-radius: $thickness/2
 ){
-  $list-arrow-width: $list-arrow-width !global;
-  $list-arrow-height: $list-arrow-width/2 !global;
-  $list-arrow-left: ($list-arrow-width + $list-arrow-thickness)/2 - $list-arrow-thickness !global;
+  $width: $width;
+  $height: $width/2;
+  $left: ($width + $thickness)/2 - $thickness;
 
-  $list-arrow-hypo: get-hypotenuse($list-arrow-height, $list-arrow-height) !global;
+  $hypo: get-hypotenuse($height, $height);
 
   & {
     position: relative;
     display: block;
-    width: $list-arrow-width;
-    height: $list-arrow-height;
+    width: $width;
+    height: $height;
   }
   &::before,
   &::after {
@@ -76,22 +76,22 @@
     top: 50%;
     margin-top: 0;
     content: '';
-    width: $list-arrow-hypo;
-    height: $list-arrow-thickness;
-    background-color: $list-arrow-color;
+    width: $hypo;
+    height: $thickness;
+    background-color: $color;
     transition: all;
     transition-duration: 0.3s;
-    border-radius: $list-arrow-border-radius;
+    border-radius: $border-radius;
   }
   &::before {
-    $list-arrow-before-rotate: 45deg !global;
-    left: $list-arrow-left / -4;
-    transform: rotate($list-arrow-before-rotate);
+    $before-rotate: 45deg !global;
+    left: $left / -4;
+    transform: rotate($before-rotate);
   }
   &::after {
-    $list-arrow-after-rotate: -45deg !global;
-    left: $list-arrow-left / 4 * 3;
-    transform: rotate($list-arrow-after-rotate);
+    $after-rotate: -45deg !global;
+    left: $left / 4 * 3;
+    transform: rotate($after-rotate);
   }
 }
 
@@ -101,13 +101,13 @@
   @if($color != auto) {
     &::before,
     &::after {
-      background-color: $list-arrow-color;
+      background-color: $color;
     }
   }
   &::before {
-    transform: rotate(-($list-arrow-before-rotate));
+    transform: rotate(-($before-rotate));
   }
   &::after {
-    transform: rotate(-($list-arrow-after-rotate));
+    transform: rotate(-($after-rotate));
   }
 }

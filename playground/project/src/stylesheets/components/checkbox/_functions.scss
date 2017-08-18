@@ -1,0 +1,40 @@
+/// 컴포넌트 checkbox의 사용자 정의 맵과 기본 정의 맵(중첩 맵)을 merge 시켜주는 믹스인
+/// @group [component] checkbox
+/// @param {Map} $maps - 컴포넌트 checkbox의 사용자 정의 맵
+/// @return {Map} - 사용자 정의 맵과 기본 정의 맵(중첩 맵)을 merge해서 새로운 맵을 리턴함
+@function merge-checkbox($maps: ()){
+  $params-box: null;
+  $params-mark: null;
+  $params-check: null;
+  $params-disable: null;
+
+  // 값이 null일 경우 방지하기 위한 조건문
+  @if map-has-key($maps, 'checkbox') == true {
+    $params-box: map-merge(map-get($c-checkbox, 'checkbox'), map-get($maps, 'checkbox'));
+  } @else {
+    $params-box: map-get($c-checkbox, 'checkbox');
+  }
+  @if map-has-key($maps, 'mark'){
+    $params-mark: map-merge(map-get($c-checkbox, 'mark'), map-get($maps, 'mark'));
+  } @else {
+    $params-mark: map-get($c-checkbox, 'mark');
+  }
+  @if map-has-key($maps, 'checked'){
+    $params-check: map-merge(map-get($c-checkbox, 'checked'), map-get($maps, 'checked'));
+  } @else {
+    $params-check: map-get($c-checkbox, 'checked');
+  }
+  @if map-has-key($maps, 'disabled'){
+    $params-disable: map-merge(map-get($c-checkbox, 'disabled'), map-get($maps, 'disabled'));
+  } @else {
+    $params-disable: map-get($c-checkbox, 'disabled');
+  }
+  
+  $params: (
+    'checkbox': $params-box,
+    'mark': $params-mark,
+    'checked': $params-check,
+    'disabled': $params-disable
+  );
+  @return $params;
+}

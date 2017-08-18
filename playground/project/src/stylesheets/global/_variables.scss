@@ -59,8 +59,29 @@ $breakpoint-mobile: 768px;
 /// @type {Boolean} 
 $support-ie8: true;
 
-/// 체크박스 애니메이션 사용 여부
-/// @group global
-/// @group [compontent] checkbox
-/// @type {Boolean}
-$checkbox-animation-use: true;
+$c-checkbox-animation-use: true;
+
+$c-checkbox: (
+  'checkbox': (
+    'margin': 10px,
+    'size': 24px,
+    'border-width': 1px,
+    'border-color': rgb(220,220,220),
+    'background': transparent
+  ),
+  'mark': (
+    'size': 8px,
+    'border-width': 1px,
+    'color': rgb(255,255,255)
+  ),
+  'checked': (
+    'border-width': 0,
+    'border-color': $color-primary,
+    'background': $color-primary
+  ),  
+  'disabled': (
+    'color': rgb(255,255,255),
+    'border-color': rgb(238,238,238),
+    'background': rgb(238,238,238)
+  )
+);

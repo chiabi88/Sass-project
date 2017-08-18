@@ -316,16 +316,28 @@
       </pre>
       <pre>.checkbox_style1 {
     <span class="pre-sass">@include</span> <span class="pre-sass__mixin">checkbox(
-          1rem, 
-          2.4rem, 
-          0.1rem, 
-          rgb(153,153,153), 
-          rgb(255,255,255), 
-          0.9rem, 
-          0.1rem, 
-          $color-primary,
-          0.2rem,
-          $color-primary
+        'checkbox': (
+            'margin': 10px,
+            'size': 24px,
+            'border-width': 1px,
+            'border-color': rgb(220,220,220),
+            'background': rgb(255,255,255)
+        ),
+        'mark': (
+            'size': 8px,
+            'border-width': 1px,
+            'color': rgb(255,255,255)
+        ),
+        'checked': (
+            'border-width': 0,
+            'border-color': $color-primary,
+            'background': $color-primary
+        ),  
+        'disabled': (
+            'color': rgb(255,255,255),
+            'border-color': rgb(238,238,238),
+            'background': rgb(238,238,238)
+        )
     );</span>
 } 
       </pre>

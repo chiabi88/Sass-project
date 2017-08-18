@@ -212,140 +212,93 @@
 }
 
 .guide-shape__checkmark {
-  @include checkmark(3rem, 0.2rem, darken($color-primary, 20%))
+  @include checkmark;
+  @include checkmark((
+    'size': 3rem,
+    'thickness': 0.2rem,
+    'color': darken($color-primary, 20%)
+  ));
 }
 
 .guide-checkbox {
   .guide-checkbox--label {
     .checkbox:nth-child(1) {
       margin-top: 2rem;
-      @include checkbox(
-        1rem, 
-        2.4rem, 
-        0.1rem, 
-        rgb(153,153,153), 
-        transparent, 
-        0.9rem, 
-        0.1rem, 
-        $color-primary,
-        0.2rem,
-        $color-primary
-      );
+      @include checkbox;
     }
     .checkbox:nth-child(2),
     .checkbox:nth-child(3),
     .checkbox:nth-child(4) {
       margin-top: 2rem;
-      @include checkbox(
-        1rem, 
-        2.4rem, 
-        0.1rem, 
-        $color-primary, 
-        transparent, 
-        0.9rem, 
-        0.1rem, 
-        rgb(255,255,255),
-        0,
-        auto,
-        $color-primary
-      );
+      @include checkbox((
+        'mark': (
+          'color': $color-primary
+        ),
+        'checked': (
+          'border-width': 2px,
+          'border-color': $color-primary,
+          'background': transparent
+        )
+      ));
     }
   }
   .guide-checkbox--no-label {
     .checkbox:nth-child(1) {
       margin-top: 2rem;
-      @include checkbox--no-label(
-        2.4rem, 
-        0.1rem, 
-        rgb(153,153,153), 
-        transparent, 
-        0.9rem, 
-        0.1rem, 
-        $color-primary,
-        0.2rem,
-        $color-primary
-      );
+      @include checkbox--no-label;
     }
     .checkbox:nth-child(2) {
       margin-top: 2rem;
-      @include checkbox--no-label(
-        2.4rem, 
-        0.1rem, 
-        $color-primary, 
-        transparent, 
-        0.9rem, 
-        0.1rem, 
-        rgb(255,255,255),
-        0,
-        auto,
-        $color-primary
-      );
+      @include checkbox--no-label((
+        'mark': (
+          'color': $color-primary
+        ),
+        'checked': (
+          'border-width': 2px,
+          'border-color': $color-primary,
+          'background': transparent
+        )
+      ));
     }
   }
   .guide-checkbox__circle--label {
     .checkbox:nth-child(1) {
       margin-top: 2rem;
-      @include circle-checkbox(
-        1rem, 
-        2.4rem, 
-        0.1rem, 
-        rgb(153,153,153), 
-        transparent, 
-        0.9rem, 
-        0.1rem, 
-        $color-primary,
-        0.2rem,
-        $color-primary
-      );
+      @include circle-checkbox;
     }
     .checkbox:nth-child(2),
     .checkbox:nth-child(3),
     .checkbox:nth-child(4) {
       margin-top: 2rem;
-      @include circle-checkbox(
-        1rem, 
-        2.4rem, 
-        0.1rem, 
-        transparent, 
-        rgb(153,153,153), 
-        0.9rem, 
-        0.1rem, 
-        rgb(255,255,255),
-        0,
-        auto,
-        $color-primary
-      );
+      @include circle-checkbox((
+        'mark': (
+          'color': $color-primary
+        ),
+        'checked': (
+          'border-width': 2px,
+          'border-color': $color-primary,
+          'background': transparent
+        )
+      ));
     }
   }
   .guide-checkbox__circle--no-label {
     .checkbox:nth-child(1) {
       margin-top: 2rem;
-      @include circle-checkbox--no-label(
-        2.4rem, 
-        0.1rem, 
-        rgb(153,153,153), 
-        transparent, 
-        0.9rem, 
-        0.1rem, 
-        $color-primary,
-        0.2rem,
-        $color-primary
-      );
+      @include circle-checkbox--no-label;
     }
     .checkbox:nth-child(2) {
       margin-top: 2rem;
-      @include circle-checkbox--no-label(
-        2.4rem, 
-        0.1rem, 
-        none, 
-        rgb(153,153,153), 
-        0.9rem, 
-        0.1rem, 
-        rgb(255,255,255),
-        0,
-        auto,
-        $color-primary
-      );
+      @include circle-checkbox--no-label((
+        'mark': (
+          'color': $color-primary
+        ),
+        'checked': (
+          'border-width': 2px,
+          'border-color': $color-primary,
+          'background': transparent
+        )
+      ));
     }
   }
   td .checkbox {

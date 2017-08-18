@@ -1,49 +1,60 @@
 /// 원형, 타원형 믹스인
 /// @group shape
-/// @param {Number (with unit)} $shape-width [40px] - 사각형 넓이
-/// @param {Number (with unit)} $shape-height [$shape-width] - 사각형 높이
-/// @param {Number (with unit)} $line-height [$shape-width] - 글자 라인 높이
-@mixin circle($shape-width: 40px, $shape-height: $shape-width, $line-height: $shape-width){
-  width: $shape-width;
-  height: $shape-height;
-  line-height: $line-height;
-  border-radius: 100%;
+/// @param {Number (with unit)} $width - 사각형 넓이
+/// @param {Number (with unit)} $height [$width] - 사각형 높이
+/// @param {Number (with unit)} $line-height [$width] - 글자 라인 높이
+@mixin circle($width, $height: $width, $line-height: null){
+  width: $width;
+  height: $height;
+  border-radius: 50%;
   box-sizing: border-box;
+  @if $line-height != null {
+    line-height: $line-height;
+  }
 }
+// .circle1 {
+//   @include circle(10px);
+// }
+// .circle2 {
+//   @include circle(20px, 10px)
+// }
+// .circle3 {
+//   @include circle(20px, 10px, 10px)
+// }
 
 /// 반원 형태 만드는 믹스인
 /// @group shape
-/// @param {Number (with unit)} $circle-diameter [40px] - 원의 지름이 될 길이
-/// @param {Color} $circle-color [rgb(0,0,0)] - 원의 배경색
-/// @param {String} $circle-direction ['top'] - 원이 향하는 방향 지정([top | right | bottom | left]) 
-@mixin semi-circle($circle-diameter: 20px, $circle-color: rgb(0,0,0), $circle-direction: 'top') {
-  $circle-radius: $circle-diameter / 2;
+/// @param {Number (with unit)} $diameter - 원의 지름이 될 길이
+/// @param {Color} $color [rgb(0,0,0)] - 원의 배경색
+/// @param {String} $direction ['top'] - 원이 향하는 방향 지정([top | right | bottom | left]) 
+@mixin semi-circle($diameter, $color: rgb(0,0,0), $direction: 'top') {
+  $radius: $diameter / 2;
   @mixin circle-upside {
-    height: $circle-radius;
-    width: $circle-diameter;
+    height: $radius;
+    width: $diameter;
   }
   @mixin circle-side {
-    height: $circle-diameter;
-    width: $circle-radius;
+    height: $diameter;
+    width: $radius;
   }
-  background-color: $circle-color;
-  @if ($circle-direction == 'top') {
+  background-color: $color;
+  @if ($direction == 'top') {
     @include circle-upside;
-    border-top-left-radius: $circle-diameter;
-    border-top-right-radius: $circle-diameter;
-  }  @else if ($circle-direction == 'right') {
+    border-top-left-radius: $diameter;
+    border-top-right-radius: $diameter;
+  }  @else if ($direction == 'right') {
     @include circle-side;
-    border-bottom-right-radius: $circle-diameter;
-    border-top-right-radius: $circle-diameter;
-  } @else if ($circle-direction == 'bottom') {
+    border-bottom-right-radius: $diameter;
+    border-top-right-radius: $diameter;
+  } @else if ($direction == 'bottom') {
     @include circle-upside;
-    border-bottom-left-radius: $circle-diameter;
-    border-bottom-right-radius: $circle-diameter;
-  }@else if ($circle-direction == 'left') {
+    border-bottom-left-radius: $diameter;
+    border-bottom-right-radius: $diameter;
+  }@else if ($direction == 'left') {
     @include circle-side;
-    border-bottom-left-radius: $circle-diameter;
-    border-top-left-radius: $circle-diameter;
+    border-bottom-left-radius: $diameter;
+    border-top-left-radius: $diameter;
   } @else {
-    @error 'The "$circle-direction" must contain only the orientation-related [top, right, bottom, left] values.'
+    @error 'The "$direction" must contain only the orientation-related [top, right, bottom, left] values.'
   }
 }
