@@ -1,0 +1,119 @@
+/// menu-arrow 생성 믹스인
+/// @author chiabi88@gmail.com
+/// @group [component] menu-arrow
+/// @param {Number (width unit)} $menu-arrow-right [15px] - 메뉴 화살표 좌측 여백
+/// @param {Number (width unit)} $menu-arrow-width [15px] - 메뉴 화살표 넓이
+/// @param {Number (width unit)} $menu-arrow-thickness [2px] - 메뉴 화살표 굵기
+/// @param {Color} $menu-arrow-color [rgb(0,0,0)] - 메뉴 화살표 컬러
+/// @param {Number (width unit)} $menu-arrow-border-radius [0] - 메뉴 화살표 가장자리
+@mixin menu-arrow (
+  $menu-arrow-right: 15px,
+  $menu-arrow-width: 15px,
+  $menu-arrow-thickness: 2px,
+  $menu-arrow-color: rgb(0,0,0),
+  $menu-arrow-border-radius: 0
+  ){
+
+  // 다음 값의 단위는 모두 같아야합니다.
+  @if unit($menu-arrow-right) == unit($menu-arrow-width) and unit($menu-arrow-width) == unit($menu-arrow-thickness) {
+
+    $menu-arrow-width: $menu-arrow-width !global;
+    $menu-arrow-height: $menu-arrow-width/2 !global;
+    $menu-arrow-right: $menu-arrow-right !global;
+    $menu-arrow-lt-right: $menu-arrow-right + ($menu-arrow-width + $menu-arrow-thickness)/2 - $menu-arrow-thickness !global;
+
+    $menu-arrow-hypo: get-hypotenuse($menu-arrow-height, $menu-arrow-height) !global;
+    
+    & {
+      display: block;
+      position: relative;
+    }
+    &:before,
+    &:after {
+      position: absolute;
+      top: 50%;
+      margin-top: ($menu-arrow-height - $menu-arrow-thickness) / -2;
+      content: '';
+      width: $menu-arrow-hypo;
+      height: $menu-arrow-thickness;
+      background-color: $menu-arrow-color;
+      transition: all;
+      transition-duration: 0.3s;
+      border-radius: $menu-arrow-border-radius;
+    }
+    &:before {
+      right: $menu-arrow-right; 
+      right: $menu-arrow-lt-right;
+      transform: rotate(45deg);
+    }
+    &:after {
+      right: $menu-arrow-right;
+      transform: rotate(-45deg);
+    }
+  } @else {
+    @error 'The value into the menu-arrow mixin must share the same unit type';
+  }
+}
+
+/// menu-arrow 아래 위로 뒤집히는 효과 믹스인
+/// @author chiabi88@gmail.com
+/// @group [component] menu-arrow
+/// @param {Color} $menu-arrow-color [auto] - 메뉴 화살표 변경되는 컬러
+@mixin menu-arrow--filp-upside($menu-arrow-color: auto) {
+  @if ($menu-arrow-color != auto) {
+    &::before,
+    &::after {
+      background-color: $menu-arrow-color;
+    }
+  }
+  &:before {
+    transform: rotate(-45deg);
+  }
+  &:after {
+    transform: rotate(45deg);
+  }
+}
+
+/// menu-arrow 옆으로 크로스되면서 변경되는 효과 믹스인
+/// @author chiabi88@gmail.com
+/// @group [component] menu-arrow
+/// @param {Color} $menu-arrow-color [auto] - 메뉴 화살표 변경되는 컬러
+@mixin menu-arrow--filp-side($menu-arrow-color: auto) {
+  @if ($menu-arrow-color != auto) {
+    &::before,
+    &::after {
+      background-color: $menu-arrow-color;
+    }
+  }
+  &:before {
+    right: $menu-arrow-right;
+  }
+  &:after {
+    right: $menu-arrow-lt-right;
+  }
+}
+
+/// menu-arrow x자로 변경되는 효과 믹스인
+/// @author chiabi88@gmail.com
+/// @group [component] menu-arrow
+/// @param {Color} $menu-arrow-color [auto] - 메뉴 화살표 변경되는 컬러
+@mixin menu-arrow--cross($menu-arrow-color: auto) {
+  
+  $menu-arrow-hypo--double: $menu-arrow-hypo * 2;
+
+  @if ($menu-arrow-color != auto) {
+    &::before,
+    &::after {
+      background-color: $menu-arrow-color;
+    }
+  }
+  &:hover {
+    &:before {
+      right: $menu-arrow-right;
+      width: $menu-arrow-hypo--double;
+    }
+    &:after {
+      width: $menu-arrow-hypo--double;
+    }
+  }
+}

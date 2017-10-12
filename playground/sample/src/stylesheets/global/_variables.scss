@@ -1,0 +1,27 @@
+// font :
+$base-font: 'Gotham-Black', 'NanumSquareExtraBold', Dotum, sans-serif;
+$base-font-mid: 'Gotham-Medium', 'NanumSquareRegular', Dotum, sans-serif;
+$base-font-kor: 'NanumSquareRegular', Dotum, sans-serif;
+$base-font-kor-l: 'NanumSquareLight', Dotum, sans-serif;
+$base-font-kor-eb: 'NanumSquareExtraBold', Dotum, sans-serif;
+
+$base-font-eng: 'Gotham-Black', Arial, sans-serif;
+$base-font-eng-mid: 'Gotham-Medium', Arial, sans-serif;
+
+$base-font-size: 10px !default;
+
+// color :
+$color-primary: rgb(44,55,93);
+
+$text-color-default: $color-primary;
+$text-color-light: rgb(153,153,153);
+
+$border-color-default: rgb(238,238,238);
+
+$content-width: 1180px;
+
+// path :
+$images-path: '../images';
+$images-path-btn: $images-path + '/btn';
+$images-path-common: $images-path + '/common';
+$images-path-sub: $images-path + '/sub';

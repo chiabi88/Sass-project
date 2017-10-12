@@ -1,0 +1,22 @@
+/// 사각형 만들기 믹스인
+/// @group shape
+/// @param {Number (with unit)} $width - 사각형 넓이
+/// @param {Number (with unit)} $height [$width] - 사각형 높이
+/// @param {Number (with unit)} $border-radius [auto] - 가장자리 라운딩
+@mixin square($width, $height: $width, $border-radius: null){
+  width: $width;
+  height: $height;
+  // radius값이 따로 지정되어있을 경우 그 값을 지정
+  @if $border-radius != null {
+    border-radius: $border-radius;
+  } 
+}
+// .square {
+//   @include square(10px);
+// }
+// .square1 {
+//   @include square(20px);
+// }
+// .square3 {
+//   @include square(10px, 20px, 20px)
+// }

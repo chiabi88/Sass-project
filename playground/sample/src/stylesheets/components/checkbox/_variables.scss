@@ -1,0 +1,50 @@
+/// 체크박스 애니메이션 사용 여부
+/// @group [component] checkbox
+/// @type {Boolean}
+$c-checkbox-animation-use: false !default;
+
+@if ($c-checkbox-animation-use == true) {
+  @keyframes checkboxChecked {
+    0% {
+      opacity: 0.2;
+      transform: translateX(-50%) translateY(-50%) scale(0);
+    } 
+    80% {
+      opacity: 0.8;
+      transform: translateX(-50%) translateY(-50%) scale(2);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-50%) scale(3);
+    }
+  }
+}
+
+/// 사이트에 공통으로 적용할 checkbox 기본 스타일
+/// @group [component] checkbox
+/// @type {Map}
+$c-checkbox: (
+  'checkbox': (
+    'margin': 10px,
+    'size': 20px,
+    'border-width': 1px,
+    'border-color': rgb(220,220,220),
+    'background': rgb(255,255,255)
+  ),
+  'mark': (
+    'size': 8px,
+    'border-width': 1px,
+    'color': rgb(0,0,0)
+  ),
+  'checked': (
+    'border-width': null,
+    'border-color': null,
+    'background': null
+  ),  
+  'disabled': (
+    'font-color': rgb(238,238,238),
+    'mark-color': rgb(238,238,238),
+    'border-color': rgb(238,238,238),
+    'background': rgb(255,255,255)
+  )
+) !default;

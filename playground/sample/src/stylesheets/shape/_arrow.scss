@@ -1,0 +1,113 @@
+/// 위로 향하는 화살표 만들기 믹스인
+/// @group shape
+/// @param {Number (with unit)} $width [15px] - 리스트 화살표 넓이
+/// @param {Number (with unit)} $thickness [2px] - 리스트 화살표 두깨
+/// @param {Color} $color [rgb(0,0,0)] - 리스트 화살표 컬러
+/// @param {Number (with unit)} $radius [$thickness/2] - 리스트 화살표 라운딩
+@mixin list-arrow-up(
+  $width: 15px,
+  $thickness: 2px,
+  $color: rgb(0,0,0),
+  $border-radius: $thickness/2
+){
+  $width: $width;
+  $height: $width/2;
+  $left: ($width + $thickness)/2 - $thickness;
+
+  $hypo: get-hypotenuse($height, $height);
+
+  & {
+    position: relative;
+    display: block;
+    width: $width;
+    height: $height;
+  }
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    margin-top: 0;
+    content: '';
+    width: $hypo;
+    height: $thickness;
+    background-color: $color;
+    transition: all;
+    transition-duration: 0.3s;
+    border-radius: $border-radius;
+  }
+  &::before {
+    $before-rotate: -45deg !global;
+    left: $left / -4;
+    transform: rotate($before-rotate);
+  }
+  &::after {
+    $after-rotate: 45deg !global;
+    left: $left / 4 * 3;
+    transform: rotate($after-rotate);
+  }
+}
+
+/// 아래로 향하는 화살표 만들기 믹스인
+/// @param {Number (with unit)} $width [15px] - 리스트 화살표 넓이
+/// @param {Number (with unit)} $thickness [2px] - 리스트 화살표 두깨
+/// @param {Color} $color [rgb(0,0,0)] - 리스트 화살표 컬러
+/// @param {Number (with unit)} $radius [$thickness/2] - 리스트 화살표 라운딩
+@mixin list-arrow-down(
+  $width: 15px,
+  $thickness: 2px,
+  $color: rgb(0,0,0),
+  $border-radius: $thickness/2
+){
+  $width: $width;
+  $height: $width/2;
+  $left: ($width + $thickness)/2 - $thickness;
+
+  $hypo: get-hypotenuse($height, $height);
+
+  & {
+    position: relative;
+    display: block;
+    width: $width;
+    height: $height;
+  }
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    margin-top: 0;
+    content: '';
+    width: $hypo;
+    height: $thickness;
+    background-color: $color;
+    transition: all;
+    transition-duration: 0.3s;
+    border-radius: $border-radius;
+  }
+  &::before {
+    $before-rotate: 45deg !global;
+    left: $left / -4;
+    transform: rotate($before-rotate);
+  }
+  &::after {
+    $after-rotate: -45deg !global;
+    left: $left / 4 * 3;
+    transform: rotate($after-rotate);
+  }
+}
+
+/// 화살표 방향 뒤집기 믹스인
+/// @param {Color} $color [auto] - 색이 변경될 경우 지정
+@mixin list-arrow-flip($color: auto){
+  @if($color != auto) {
+    &::before,
+    &::after {
+      background-color: $color;
+    }
+  }
+  &::before {
+    transform: rotate(-($before-rotate));
+  }
+  &::after {
+    transform: rotate(-($after-rotate));
+  }
+}

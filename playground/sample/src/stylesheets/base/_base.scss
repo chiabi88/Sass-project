@@ -1,0 +1,57 @@
+// reset.scss 외 base 설정 파일
+// 폰트, root 등
+@include font('Gotham-Black');
+@include font('Gotham-Medium');
+@include font('NanumSquareRegular');
+@include font('NanumSquareLight');
+@include font('NanumSquareExtraBold');
+
+:root,
+html {
+  font-size: $base-font-size;
+}
+
+body {
+  font-family: $base-font-kor-l;
+  font-size: 12px;
+  line-height: 1.5;
+  color: $text-color-default;
+}
+
+// button reset style
+%button-style-reset {
+  padding: 0;
+  border: 0;
+  background: none;
+  line-height: normal;
+  font: inherit;
+  color: inherit;
+  overflow: visible;
+  box-sizing: content-box;
+}
+
+button {
+  @extend %button-style-reset;
+  // user-select - 하위요소 선택 가능 여부
+  // user-select: [auto | none | text | contain | all]
+  user-select: none;
+}
+
+// input reset style
+input {
+  &[type='submit'],
+  &[type='reset'],
+  &[type='button'] {
+    @extend %button-style-reset;
+    // -webkit-apperance, -moz-apperance: [none | button | checkbox | scrollbarbutton-up]
+    appearance: button;
+  }
+}
+
+// anchor reset style
+a {
+  color: inherit;
+  &:link {
+    text-decoration: none
+  }
+}

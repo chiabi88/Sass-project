@@ -23,9 +23,11 @@ var gulp = require('gulp'),
  * 경로 담은 객체
  * -------------------------------
  */
+const PROJECTNAME = 'sample';
+
 const DIR = {
-  SRC   : 'project/src',
-  DIST  : 'project/dist'
+  SRC   : PROJECTNAME + '/src',
+  DIST  : PROJECTNAME + '/dist'
 };
 const SRC = {
   JS    : DIR.SRC + '/js/**/*.js',
@@ -37,7 +39,8 @@ const DIST = {
   JS    : DIR.DIST + '/js',
   CSS   : DIR.DIST + '/css', 
   HTML  : DIR.DIST + '/html',
-  IMAGES: DIR.DIST + '/images'
+  IMAGES: DIR.DIST + '/images',
+  FONT : DIR.DIST + '/fonts'
 }
 
 /**
@@ -127,7 +130,10 @@ gulp.task('html', function() {
              .pipe(gulp.dest(DIST.HTML))
              .pipe(reload({stream: true}));
 });
-
+gulp.task('font', function() {
+  return gulp.src(SRC.FONT)
+              .pipe(gulp.dest(DIST.FONT));
+});
 /**
  * -------------------------------
  * task : JS
@@ -193,12 +199,13 @@ gulp.task('watch', function() {
   gulp.watch(SRC.JS, ['js']);
   gulp.watch(SRC.CSS, ['sass']);
   gulp.watch(SRC.HTML, ['html']);
+  gulp.watch(SRC.FONT, ['font']);
   gulp.watch([SRC.IMAGES, '!' + DIR.SRC + '/images/sprites/*'], ['images']);
   gulp.watch(DIR.SRC + '/images/sprites/*.png', ['sprite']);
 });
 
 // task : browserSync
-gulp.task('browserSync', ['html', 'js', 'sass'], function () { 
+gulp.task('browserSync', ['font', 'html', 'js', 'sass'], function () { 
   return browserSync.init(config.browserSync);
 });
 

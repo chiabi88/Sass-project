@@ -1,0 +1,308 @@
+@import './variables';
+@import './functions';
+
+/// 커스텀 체크 박스 믹스인
+/// @group [component] checkbox
+/// @param {Map} $param - 컴포넌트 checkbox의 사용자 정의 맵
+@mixin checkbox($param: ()){
+
+  $params: merge-checkbox($param);
+  $params-box: map-get($params, 'checkbox');
+
+  $box-size: map-get($params-box, 'size');
+  $box-margin: map-get($params-box, 'margin');
+  $box-border-width: map-get($params-box, 'border-width');
+  $box-border-color: map-get($params-box, 'border-color');
+  $box-background: map-get($params-box, 'background');
+
+  input[type="checkbox"] {
+    opacity: 0;
+    float: left;
+    margin-left: $box-size * -1;
+    + label {
+      display: block;
+      min-height: $box-size;
+      padding-left: $box-margin + $box-size;
+      line-height: $box-size;
+      position: relative;
+      cursor: pointer;
+      span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        float: left;
+        display: block;
+        width: $box-size;
+        height: $box-size;
+        border: $box-border-width solid $box-border-color;
+        box-sizing: border-box;
+        background: $box-background;
+        @content;
+        // active effect
+        @if $c-checkbox-animation-use == true {
+          &:before {
+            content: '';
+            width: $box-size;
+            height: $box-size;
+            border-radius: $box-size;
+            @include floating-center(scale(0));
+            background: rgb(238,238,238);
+          }
+        }
+      }
+    }
+  }
+  
+  @include checkbox--checked($params);
+  @include checkbox--disabled($params);
+  @include checkbox--checked-disabled($params);
+  // support ie8
+  @if $support-ie8 == true {
+    .ie8 & {
+      input[type="checkbox"]{
+        float: left;
+        display: block;
+        margin-left: 0;
+        width: $box-size;
+        height: $box-size;
+        & + label span {
+          display: none
+        }
+      }
+    }
+  }
+}
+
+/// 라벨 내용 없는 커스텀 체크박스
+/// @group [component] checkbox
+/// @param {Map} $param - 컴포넌트 checkbox의 사용자 정의 맵
+@mixin checkbox--no-label($param: ()) {
+  $params: merge-checkbox($param);
+  $params-box: map-get($params, 'checkbox');
+
+  $box-size: map-get($params-box, 'size');
+  $box-border-width: map-get($params-box, 'border-width');
+  $box-border-color: map-get($params-box, 'border-color');
+  $box-background: map-get($params-box, 'background');
+
+  input[type="checkbox"] {
+    opacity: 0;
+    float: left;
+    margin-left: $box-size * -1;
+    + label {
+      display: block;
+      width: $box-size;
+      height: $box-size;
+      position: relative;
+      cursor: pointer;
+      span {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: $box-border-width solid $box-border-color;
+        box-sizing: border-box;
+        background: $box-background;
+        @content;
+        @if $c-checkbox-animation-use == true {
+          &:before {
+            content: '';
+            width: $box-size;
+            height: $box-size;
+            border-radius: $box-size;
+            @include floating-center(scale(0));
+            background: rgb(238,238,238);
+          }
+        }
+      }
+    }
+  }
+  @include checkbox--checked($params);
+  @include checkbox--disabled($params);
+  @include checkbox--checked-disabled($params);
+  @if $support-ie8 == true {
+    .ie8 & {
+      input[type="checkbox"]{
+        float: left;
+        display: block;
+        margin-left: 0;
+        width: $box-size;
+        height: $box-size;
+        & + label span {
+          display: none
+        }
+      }
+    }
+  }
+}
+
+/// 원형 커스텀 체크 박스 믹스인
+/// @group [component] checkbox
+/// @param {Map} $param - 컴포넌트 checkbox의 사용자 정의 맵
+@mixin circle-checkbox($param: ()) {
+  $params: merge-checkbox($param);
+  $box-size: map-get(map-get(merge-checkbox($param), 'checkbox'), 'size');
+  @include checkbox($params) {
+    border-radius: $box-size;
+  }
+}
+
+/// 라벨 내용 없는 원형 커스텀 체크박스
+/// @group [component] checkbox
+/// @param {Map} $param - 컴포넌트 checkbox의 사용자 정의 맵
+@mixin circle-checkbox--no-label($param: ()) {
+  $params: merge-checkbox($param);
+  $box-size: map-get(map-get(merge-checkbox($param), 'checkbox'), 'size');
+  @include checkbox--no-label($params) {
+    border-radius: $box-size;
+  }
+}
+
+/// 체크 마크 모양 믹스인
+/// @group [component] checkbox
+/// @param {Map} $param - 컴포넌트 checkbox의 사용자 정의 맵
+@mixin checkmark($param: ()) {
+  $params: map-merge(map-get($c-checkbox, 'mark'), $param);
+  // 'size': 8px,
+  // 'border-width': 1px,
+  // 'color': rgb(0,0,0)
+  $width: null;
+  @if get-unit(map-get($params, 'size')) == "px" {
+    $width: round(map-get($params, 'size') / 2);
+  } @else {
+    $width: map-get($params, 'size') / 2;
+  }
+  $height: map-get($params, 'size');
+  $thickness: map-get($params, 'border-width');
+  $color: map-get($params, 'color');
+  
+  display: block;
+  width: $width;
+  height: $height;
+  border-style: solid;
+  border-color: $color;
+  border-width: 0 $thickness $thickness 0; // 뒤집힌 "L" 모양을 만든다
+  transform: translateX(-50%) translateY(-50%) rotate(45deg)
+}
+
+// ==========================
+// :checked 믹스인
+// ==========================
+
+/// 체크(:checked)되었을 때 믹스인
+/// @group [component] checkbox
+/// @param {Map} $param - 컴포넌트 checkbox의 사용자 정의 맵
+@mixin checked ($param){
+  $params: merge-checkbox($param);
+  $params-box: map-get($params, 'checkbox');
+  $params-checked: map-get($params, 'checked');
+  $params-mark: map-get($params, 'mark');
+
+  $box-size: map-get($params-box, 'size');
+  $box-border-width: map-get($params-checked, 'border-width');
+  $box-border-color: map-get($params-checked, 'border-color');
+  $box-background: map-get($params-checked, 'background');
+  $mark-size: map-get($params-mark, 'size');
+  $mark-border-width: map-get($params-mark, 'border-width');
+
+  $margin: ($box-size - $mark-size) / 2;
+
+  @if( $box-border-width != null ) {
+    $margin: (($box-size - $box-border-width*2) - $mark-size) / 2;
+    border-width: $box-border-width;
+  }
+  @if( $box-border-color != null ) {
+    border-color: $box-border-color;
+  }
+  @if( $box-background!= null ) {
+    background-color: $box-background;
+  }
+
+  $width: $mark-size / 2;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @if get-unit($width) == "px" {
+      margin-top: round(get-hypotenuse($width, get-hypotenuse($width, $width) / 2) / 2 * -1);
+    } @else {
+      margin-top: get-hypotenuse($width, get-hypotenuse($width, $width) / 2) / 2 * -1;
+    }
+    @include checkmark($params-mark);
+  }
+}
+
+/// 체크(:checked)된 체크 박스 믹스인
+/// @group [component] checkbox
+/// @param {Map} $param - 컴포넌트 checkbox의 사용자 정의 맵
+@mixin checkbox--checked($param){
+  $params: merge-checkbox($param);
+  input[type="checkbox"]:checked {
+    + label span {
+      @include checked($params);
+      @if $c-checkbox-animation-use == true {
+        &:before {
+          animation: checkboxChecked 0.3s;
+        }
+      }
+    }
+  }
+}
+
+// ==========================
+// :disabled 믹스인
+// ==========================
+
+/// 비활성화(:disabled)된 체크 박스 믹스인
+/// @group [component] checkbox
+/// @param {Map} $param - 컴포넌트 checkbox의 사용자 정의 맵
+@mixin checkbox--disabled($param){
+  $params-disable: map-get($param, 'disabled');
+  input[type="checkbox"]:disabled {
+    + label{
+      cursor: default;
+      color: map-get($params-disable, 'font-color');
+      span {
+        border-color: map-get($params-disable, 'border-color');
+        background-color: map-get($params-disable, 'background');
+      }
+    }
+    &:hover,
+    &:focus {
+      + label{
+        color: map-get($params-disable, 'font-color');
+      }
+    }  
+  }
+}
+
+/// 비활성화(:disabled)된 체크 박스 믹스인
+/// @group [component] checkbox
+/// @param {Map} $param - 컴포넌트 checkbox의 사용자 정의 맵
+@mixin checkbox--checked-disabled($param){
+  $params-disable: map-get($param, 'disabled');
+  
+  input[type="checkbox"]:checked:disabled {
+    + label{
+      cursor: default;
+      color: map-get($params-disable, 'font-color');
+      span {
+        border-color: map-get($params-disable, 'border-color');
+        background: map-get($params-disable, 'background');
+        &:after {
+          border-color: map-get($params-disable, 'mark-color');
+        }
+        &:before{
+          display: none;
+        }
+      }
+    }
+    &:hover,
+    &:focus {
+      + label{
+        color: map-get($params-disable, 'font-color');
+      }
+    } 
+  }
+}
