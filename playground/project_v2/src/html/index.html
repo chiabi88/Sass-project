@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--[if IE 6]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 ie6" lang="ko-KR"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 ie7" lang="ko-KR"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie10 lt-ie9 ie8" lang="ko-KR"> <![endif]-->
+<!--[if IE 9]> <html class="no-js lt-ie10 ie9" lang="ko-KR"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="ko-KR"> <!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Sass Playground</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<script src="../js/libs/modernizr-custom.min.js"></script> 
+	<script src="../js/libs/jquery.min.js"></script>
+	<script src="../js/index.min.js"></script>
+</head>
+<body>
+	<header id="header">
+		<button type="button" class="btn-gnb">
+			<span>MENU BUTTON</span>
+		</button>
+		<h1 class="logo"><a href="">Playground</a></h1>
+		<nav class="gnb-wrap" id="gnb">
+			<div class="gnb-inner">
+				<nav>
+					<ul class="gnb-menu">
+						<li class="gnb__depth1--is-depth">
+							<a href="">DEPTH1</a>
+							<ul class="gnb__depth2">
+								<li class="gnb__depth2--is-depth">
+									<a href="">뎁스1-1</a>
+									<ul class="gnb__depth3">
+										<li><a href="">뎁스1-1-1</a></li>
+										<li><a href="">뎁스1-1-2</a></li>
+									</ul>
+								</li>
+								<li class="gnb__depth2--is-depth">
+									<a href="">뎁스1-2</a>
+									<ul class="gnb__depth3">
+										<li><a href="">뎁스1-2-1</a></li>
+										<li><a href="">뎁스1-2-2</a></li>
+									</ul>
+								</li>
+								<li class="gnb__depth2--is-depth">
+									<a href="">뎁스1-3</a>
+									<ul class="gnb__depth3">
+										<li><a href="">뎁스1-3-1</a></li>
+										<li><a href="">뎁스1-3-2</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="gnb__depth1--is-depth">
+							<a href="">DEPTH2</a>
+							<ul class="gnb__depth2">
+								<li><a href="">뎁스2-1</a></li>
+								<li><a href="">뎁스2-2</a></li>
+							</ul>
+						</li>
+						<li><a href="">DEPTH3</a></li>
+						<li><a href="">DEPTH4</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="gnb-wrap__mask"></div>
+		</nav>
+	</header>
+	<div id="contents">
+		<section class="guide">
+			<h2># Hambuger Menu</h2>
+			<div class="guide__pre">
+				<h3>html</h3>
+				<pre>
+&lt;ul <span class="guide-html__attr">class="<span class="guide-html__attr--v">guide-burger</span>"</span>&gt;
+	&lt;li&gt;
+		&lt;button <span class="guide-html__attr">class="<span class="guide-html__attr--v">burger--cross</span>"</span>&gt;&lt;span&gt;버튼1:크로스&lt;/span&gt;&lt;/button&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;button <span class="guide-html__attr">class="<span class="guide-html__attr--v">burger--minus</span>"</span>&gt;&lt;span&gt;버튼2:마이너스&lt;/span&gt;&lt;/button&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;button <span class="guide-html__attr">class="<span class="guide-html__attr--v">burger--arrow</span>"</span>&gt;&lt;span&gt;버튼3:화살표&lt;/span&gt;&lt;/button&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;					
+				</pre>
+			</div>
+			<div class="guide__pre">
+				<h3>scss</h3>
+				<pre>
+.burger {
+	<span class="guide-scss__syn">@include</span> <span class="guide-scss__syn--n">burger-menu</span> (
+		<span class="guide-scss__var">$burger-width</span>: 50px,
+		<span class="guide-scss__var">$burger-height</span>: 50px,
+		<span class="guide-scss__var">$burger-side</span>: 15px,
+		<span class="guide-scss__var">$burger-gutter</span>: 4px,
+		<span class="guide-scss__var">$burger-thickness</span>: 2px,
+		<span class="guide-scss__var">$burger-color</span>: lighten($color-primary, 50%),
+		<span class="guide-scss__var">$burger-transition-duration</span>: 0.3s,
+		<span class="guide-scss__var">$burger-border-radius</span>: 0
+	);
+	&amp;--cross:hover {
+		<span class="guide-scss__syn">@include</span> <span class="guide-scss__syn--n">burger-menu--cross</span> ( rgb(240,240,120) );
+	}
+	&amp;--minus:hover {
+		<span class="guide-scss__syn">@include</span> <span class="guide-scss__syn--n">burger-menu--minus</span> ( rgb(120,240,240) );
+	}
+	&amp;--arrow:hover {
+		<span class="guide-scss__syn">@include</span> <span class="guide-scss__syn--n">burger-menu--arrow</span> ( rgb(240,120,240) );
+	}
+}					
+				</pre>
+			</div>
+			<div class="guide__ex">
+				<ul class="guide-burger">
+					<li>
+						<button class="burger burger--cross"><span>버튼1:크로스</span></button>
+					</li>
+					<li>
+						<button class="burger burger--minus"><span>버튼2:마이너스</span></button>
+					</li>
+					<li>
+						<button class="burger burger--arrow"><span>버튼3:화살표</span></button>
+					</li>
+				</ul>
+			</div>
+			
+		</section>
+		<section class="guide">
+			<h2># Check Box</h2>
+			<div class="guide__pre">
+				<h3>html</h3>
+				<pre>
+&lt;div <span class="guide-html__attr">class="<span class="guide-html__attr--v">guide-checkbox</span>"</span>&gt;
+	&lt;div <span class="guide-html__attr">class="<span class="guide-html__attr--v">checkbox</span>"</span>&gt;
+		&lt;input <span class="guide-html__attr">type="<span class="guide-html__attr--v">checkbox</span>"</span> id="check1"&gt;
+		&lt;label for="check1"&gt;&lt;span&gt;&lt;/span&gt;체크 박스 라벨1&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div <span class="guide-html__attr">class="<span class="guide-html__attr--v">checkbox</span>"</span>&gt;
+		&lt;input <span class="guide-html__attr">type="<span class="guide-html__attr--v">checkbox</span>"</span> id="check2" <span class="guide-html__attr--v">checked</span>&gt;
+		&lt;label for="check2"&gt;&lt;span&gt;&lt;/span&gt;체크 박스  라벨2&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div <span class="guide-html__attr">class="<span class="guide-html__attr--v">checkbox</span>"</span>&gt;
+		&lt;input <span class="guide-html__attr">type="<span class="guide-html__attr--v">checkbox</span>"</span> id="check3" <span class="guide-html__attr--v">disabled</span>&gt;
+		&lt;label for="check3"&gt;&lt;span&gt;&lt;/span&gt;체크 박스 라벨3&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div <span class="guide-html__attr">class="<span class="guide-html__attr--v">checkbox</span>"</span>&gt;
+		&lt;input <span class="guide-html__attr">type="<span class="guide-html__attr--v">checkbox</span>"</span> id="check3" <span class="guide-html__attr--v">checked</span> <span class="guide-html__attr--v">disabled</span>&gt;
+		&lt;label for="check3"&gt;&lt;span&gt;&lt;/span&gt;체크 박스 라벨3&lt;/label&gt;
+	&lt;/div&gt;
+&lt;/div&gt;				
+				</pre>
+			</div>
+			<div class="guide__pre">
+				<h3>scss</h3>
+				<pre>
+<span class="guide-scss__var">$guide-checkbox</span>: (
+	'checkbox': (
+		'margin': 10px,
+		'size': 30px,
+		'border-width': 1px,
+		'border-color': lighten($color-primary, 20%),
+		'background': lighten($color-primary, 45%)
+	),
+	'mark': (
+		'size': 10px,
+		'border-width': 1px,
+		'color': rgb(255,255,255)
+	),
+	'checked': (
+		'border-width': null,
+		'border-color': darken($color-primary, 5%),
+		'background': darken($color-primary, 10%)
+	),  
+	'disabled': (
+		'font-color': rgb(153,153,153),
+		'mark-color': rgb(255,255,255),
+		'border-color': rgb(238,238,238),
+		'background': rgb(153,153,153)
+	)
+);
+
+.checkbox {
+	font-size: 14px;
+	<span class="guide-scss__syn">@include</span> <span class="guide-scss__syn--n">checkbox</span> (<span class="guide-scss__var">$guide-checkbox</span>);
+}
+				</pre>
+			</div>
+			<div class="guide-checkbox">
+				<div class="checkbox">
+					<input type="checkbox" id="check1">
+					<label for="check1"><span></span>체크 박스 라벨1</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" id="check2" checked>
+					<label for="check2"><span></span>체크 박스  라벨2</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" id="check3" disabled>
+					<label for="check3"><span></span>체크 박스 라벨3</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" id="check3" checked disabled>
+					<label for="check3"><span></span>체크 박스 라벨3</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" id="checkNolabel1">
+					<label for="checkNolabel1"><span></span></label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" id="checkNolabel2" checked>
+					<label for="checkNolabel2"><span></span></label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" id="checkNolabel3" disabled>
+					<label for="checkNolabel3"><span></span></label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" id="checkNolabel3" checked disabled>
+					<label for="checkNolabel3"><span></span></label>
+				</div>
+				<div class="checkbox checkbox--circle">
+					<input type="checkbox" id="checkCirclel1">
+					<label for="checkCirclel1"><span></span>둥근 체크 박스 라벨1</label>
+				</div>
+				<div class="checkbox checkbox--circle">
+					<input type="checkbox" id="checkCirclel2" checked>
+					<label for="checkCirclel2"><span></span>둥근 체크 박스 라벨2</label>
+				</div>
+				<div class="checkbox checkbox--circle">
+					<input type="checkbox" id="checkCirclel3" disabled>
+					<label for="checkCirclel3"><span></span>둥근 체크 박스 라벨3</label>
+				</div>
+				<div class="checkbox checkbox--circle">
+					<input type="checkbox" id="checkCirclel3" checked disabled>
+					<label for="checkCirclel3"><span></span>둥근 체크 박스 라벨4</label>
+				</div>
+			</div>
+		</section>
+	</div>
+	<footer id="footer">
+		<p class="copyright">@ 2017, chiabi88@gmail.com</p>
+	</footer>
+</body>
+</html>

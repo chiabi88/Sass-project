@@ -1,9 +1,0 @@
-/// clearfix 믹스인
-/// @group util
-@mixin clearfix {
-  &:after {
-    display: block;
-    content: '';
-    clear: both;
-  }
-}

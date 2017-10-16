@@ -1,0 +1,38 @@
+/// 백그라운드로 된 컨텐츠
+@mixin bg-content($height, $no-txt: false) {
+  display: block;
+  height: $height;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  @if $no-txt == true {
+    font-size: 0;
+    text-indent: -9999px;
+  }
+}
+
+/// rounded-button
+@mixin rounded-button($height, $border: null) {
+  height: $height;
+  box-sizing: border-box;
+  border-radius: $height / 2;
+  @if $border == null {
+    line-height: $height;
+  } @else {
+    line-height: $height - ($border * 2); 
+  }
+  text-align: center;
+}
+
+// breakpoint
+$bp-mobile: 768px !default; 
+@mixin bp-mobile($bp-mobile: $bp-mobile) {
+    @include media-max($bp-mobile){
+        @content;
+    }
+}
+
+@mixin bp-tablet($bp-mobile: $bp-mobile) {
+    @include media-min($bp-mobile){
+        @content;
+    }
+}

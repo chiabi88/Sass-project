@@ -1,9 +1,0 @@
-/// gulp 버전이 node-sass 최신버전을 반영하지 않아서 rgb값이 컴파일시 16진수 값으로 변경되는 것 방지하는 믹스인
-/// @group type
-/// @param {Number} $red - rgb red값
-/// @param {Number} $green - rgb green값
-/// @param {Number} $blue - rgb blue값
-/// @return {Color (rgb)}
-@function rgb($red, $green, $blue){
-  @return unquote('rgb(' + $red + ',' + $green + ',' + $blue +')');
-}

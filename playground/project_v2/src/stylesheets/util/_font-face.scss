@@ -1,0 +1,31 @@
+$font-path: '../fonts/' !default;
+/// font-face 믹스인 (eot, woff, ttf, svg)
+/// @group util
+/// @param {String} $font-name - 폰트 파일 명
+/// @param {String} $font-path ['$font-path + $font-name'] - 폰트 파일 경로, $font-path, $font-name 조합의 경로를 사용하거나 직접 지정
+/// @param {List} $font-option [normal normal] - font-weight, font-style 값으로 들어갈 리스트, 기본값:  normal normal
+/// @example scss - scss
+///   @include font('NanumBarunGothic');
+/// @example css - css output
+///   @font-face {
+///     font-family: "NanumBarunGothic";
+///     src: url("../font/NanumBarunGothic.eot");
+///     src: url("../font/NanumBarunGothic.eot?#iefix") format("embaded-opentype"),
+///          url("../font/NanumBarunGothic.woff") format("woff"), 
+///          url("../font/NanumBarunGothic.ttf") format("trutype"), 
+///          url("../font/NanumBarunGothic.svg#NanumBarunGothic") format("svg");
+///     font-weight: normal;
+///     font-style: normal;
+///   }
+@mixin font($font-name, $font-path: '#{$font-path}#{$font-name}', $font-options: normal normal) {
+  @font-face {
+    font-family: $font-name;
+    src: url('#{$font-path}.eot');
+    src: url('#{$font-path}.eot?#iefix') format('embaded-opentype'),
+      url('#{$font-path}.woff') format('woff'),
+      url('#{$font-path}.ttf') format('trutype'),
+      url('#{$font-path}.svg##{$font-name}') format('svg');
+    font-weight: nth($font-options, 1);
+    font-style: nth($font-options, 2);
+  }
+}

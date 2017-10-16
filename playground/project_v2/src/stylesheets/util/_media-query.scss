@@ -1,0 +1,37 @@
+/// 미디어 쿼리 max-width 축약 믹스인
+/// @group util
+/// @access public
+/// @author chiabi88@gmail.com
+/// @param {Number (with unit)} $size [] - 미디어 쿼리 max-width에 들어갈 값
+@mixin media-max($size) {
+    $max: strip-unit($size) - 1 * set-unit(get-unit($size));
+
+    @media screen and (max-width: $max) {
+        @content;
+    }
+}
+
+/// 미디어 쿼리 min-width 축약 믹스인
+/// @group util
+/// @access public
+/// @author chiabi88@gmail.com
+/// @param {Number (with unit)} $size [] - 미디어 쿼리 min-width에 들어갈 값
+@mixin media-min($size) {
+    @media screen and (min-width: $size) {
+        @content;
+    }  
+}
+
+/// 미디어 쿼리 min-width ~ max-width 축약 믹스인
+/// @group util
+/// @access public
+/// @author chiabi88@gmail.com
+/// @param {Number (with unit)} $min [] - 미디어 쿼리 min-width에 들어갈 값
+/// @param {Number (with unit)} $max [] - 미디어 쿼리 max-width에 들어갈 값
+@mixin media-min-max($min, $max) {
+    $max: strip-unit($size) - 1 * set-unit(get-unit($size));
+
+    @media screen and (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}

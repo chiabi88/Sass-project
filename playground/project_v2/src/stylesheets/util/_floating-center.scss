@@ -1,0 +1,50 @@
+/// floating 되어 센터에 위치하는 요소 믹스인, IE9+
+/// @group util
+/// @access public
+/// @author chiabi88@gmail.com
+/// @param {List} $transform [null] - 추가할 트랜스 폼(translate 제외, ex. scale, skew, rotate...)
+@mixin floating-center($transform: null) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @if $transform !=null {
+        transform: translateX(-50%) translateY(-50%) $transform;
+    } @else {
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+
+/// floating 되어 센터에 위치하는 요소 믹스인, IE7,8 지원
+/// @group util
+/// @access public
+/// @author chiabi88@gmail.com
+/// @param {Number(with unit)} $width [] - 버튼 넓이
+/// @param {Number(with unit)} $height [$width] - 버튼 높이
+@mixin floating-center-ie8($width, $height: $width) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $width;
+    height: $height;
+    margin: ($height/-2) 0 0 ($width/-2);
+}
+
+/// floating 되어 수직 기준 센터에 위치하는 요소 믹스인, IE9+
+/// @group util
+/// @access public
+/// @author chiabi88@gmail.com
+@mixin floating-center-v {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/// floating 되어 수평 기준 센터에 위치하는 요소 믹스인, IE9+
+/// @access public
+/// @author chiabi88
+@mixin floating-center-h {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+

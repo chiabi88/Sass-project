@@ -23,7 +23,7 @@ var gulp = require('gulp'),
  * 경로 담은 객체
  * -------------------------------
  */
-const PROJECTNAME = 'sample';
+const PROJECTNAME = 'project_v2';
 
 const DIR = {
   SRC   : PROJECTNAME + '/src',
@@ -33,7 +33,8 @@ const SRC = {
   JS    : DIR.SRC + '/js/**/*.js',
   CSS   : DIR.SRC + '/stylesheets/**/*.scss',
   HTML  : DIR.SRC + '/html/**/*.html',
-  IMAGES: DIR.SRC + '/images/**/*'
+  IMAGES: DIR.SRC + '/images/**/*',
+  FONT  : DIR.SRC + '/fonts/*'
 };
 const DIST = {
   JS    : DIR.DIST + '/js',
@@ -130,6 +131,7 @@ gulp.task('html', function() {
              .pipe(gulp.dest(DIST.HTML))
              .pipe(reload({stream: true}));
 });
+
 gulp.task('font', function() {
   return gulp.src(SRC.FONT)
               .pipe(gulp.dest(DIST.FONT));

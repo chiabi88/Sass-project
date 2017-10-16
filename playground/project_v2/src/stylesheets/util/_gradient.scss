@@ -1,0 +1,10 @@
+/// 그래디언트 믹스인
+/// @group util
+/// @author chiabi88@gmail.com
+/// @param {Number (with unit)} $angle [0deg] - 그래디언트 각도 
+/// @param {Colors} $color-stop... - 그래디언트 컬러들
+/// @link https://www.sitepoint.com/building-linear-gradient-mixin-sass/
+@mixin gradient($angle: 0deg, $color-stop...) {
+  background-color: nth(nth($color-stop, 1), 1);
+  background-image: linear-gradient($angle, $color-stop);
+}

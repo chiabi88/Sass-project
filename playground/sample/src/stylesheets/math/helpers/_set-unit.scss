@@ -1,7 +1,0 @@
-/// 1에 단위를 추가하는 함수 
-/// @group [math] helpers
-/// @param {String} $unit - 숫자 단위
-/// @return {Number (with unit)} - 단위가 추가된 1을 리턴함(e.g 1px, 1em, 1deg등을 리턴함)
-@function set-unit($unit) {
-  @return map-get($unit-map, $unit);
-}

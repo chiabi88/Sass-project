@@ -1,7 +1,0 @@
-/// 숫자의 단위를 구하는 함수
-/// @group [math] helpers
-/// @param {Number (with unit)} $number - 단위를 포함한 숫자
-/// @return {String}
-@function get-unit($number) {
-  @return unit($number);
-}

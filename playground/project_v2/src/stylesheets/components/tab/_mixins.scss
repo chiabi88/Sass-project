@@ -1,0 +1,92 @@
+/// 탭 기본 스타일 믹스인
+/// @group [component] tab
+/// @param {Number (unit)} $tab-menu-height [4rem] - 탭 메뉴의 높이
+/// @param {Number} $tab-menu-length [3] - 탭 메뉴 개수
+/// @param {Bool} $tab-menu-responsive [false] - 탭 반응형 스타일 사용 여부
+/// @param {Number (unit)} $tab-menu-breakpoint [auto] - 탭 반응형 사용시 브레이크 포인트 지정
+/// @example
+///     .guide-tab--3 {
+///       @include component-tab(4rem, 3, true, 480px) {
+///         margin-top: 30px;
+///         .tab-menu {
+///           background: lighten($color-primary, 30%);
+///           a {
+///             font-size: 1.6rem;
+///             font-weight: bold;
+///             text-align: center;
+///             color: $color-primary;
+///           }
+///           &--open {
+///             background: $color-primary;
+///             a {
+///               color: rgb(255,255,255)
+///             }
+///           }
+///         }
+///         .tab-con {
+///           padding: 2rem 1.5rem;
+///           border: 1px solid $color-primary;
+///         }
+///       }
+///     }
+@mixin component-tab(
+  $tab-menu-height: 4rem,
+  $tab-menu-length: 3,
+  $tab-menu-responsive: false,
+  $tab-menu-breakpoint: auto
+){
+  position: relative;
+  padding-top: $tab-menu-height;
+  .tab_menu {
+    $tab-menu-width: 100% / $tab-menu-length;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    width: $tab-menu-width;
+    height: $tab-menu-height;
+    box-sizing: border-box;
+    @for $i from 1 through $tab-menu-length {
+      &:nth-of-type(#{$i}) {
+        left: $tab-menu-width * ($i - 1);
+      }
+    }
+    a {
+      display: block;
+      line-height: $tab-menu-height;
+    }
+    &.is_open {
+      z-index: 4;
+      & + .tab_con {
+        display: block;
+      }
+    }
+  }
+  .tab_con {
+    display: none;
+  }
+  @if ($tab-menu-responsive == true ) {
+    @if ($tab-menu-breakpoint != auto) {
+      $tab-menu-breakpoint: $tab-menu-breakpoint;
+    } @else {
+      $breakpoint-mobile: 768px !default;
+      $tab-menu-breakpoint: $breakpoint-mobile;
+    }
+    @media screen and (max-width: $tab-menu-breakpoint) {
+      position: relative;
+      padding-top: 0;
+      .tab_menu {
+        position: static;
+        width: 100%;
+      }
+    }  
+  }
+  @at-root {
+    // 탭 스타일 작성
+    /* tab :: style */
+    & {
+      @content;
+    }
+  }
+}
+
+
