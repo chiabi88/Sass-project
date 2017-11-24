@@ -117,7 +117,19 @@ var config = {
     port    : 8080,
     // Don't show any notifications in the browser.
 		notify  : false
-	}
+  },
+  // imagemin config
+  // Reference: https://github.com/sindresorhus/gulp-imagemin
+  'imagemin': {
+    // gifsicle — Compress GIF images : https://github.com/imagemin/imagemin-gifsicle
+    interlaced: true,
+    // jpegtran — Compress JPEG images : https://github.com/imagemin/imagemin-jpegtran
+    progressive: true,
+    // optipng — Compress PNG images : https://github.com/imagemin/imagemin-optipng
+    optimizationLevel: 5,
+    // svgo — Compress SVG images : https://github.com/imagemin/imagemin-svgo
+    svgoPlugins: [{removeViewBox: true}]
+  }
 }
 
 /**
@@ -172,7 +184,7 @@ gulp.task('sass', function() {
 // task : IMG 파일 minify해서 dist 폴더에 넣기 
 gulp.task('images', ['sprite'], function() {
   return gulp.src([SRC.IMAGES, '!' + DIR.SRC + '/images/sprites/*'])
-             .pipe(imagemin())
+             .pipe(imagemin(config.imagemin))
 			       .pipe(gulp.dest(DIST.IMAGES));
 });
 

@@ -120,7 +120,7 @@
 				tab.curr = obj;
 				tab_menu = tab.curr.children(tab.menu);
 				tab_con = tab.curr.children(tab.con);
-				tab_menu.children('a').click(function(e){
+				tab_menu.on('click', 'a', function(e){
 					e.preventDefault();
 					var this_parent = $(this).parent();
 					tab_menu.removeClass('tab-menu--open');
